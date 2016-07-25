@@ -7,3 +7,9 @@ var Building = require('./models/building')
 var Cart = require('./models/cart')
 var Order = require('./models/order')
 var Review = require('./models/review')
+
+
+Order.belongsTo(User);
+Order.belongsTo(Cart);
+Cart.belongsTo(User);
+Review.belongsTo(Building);

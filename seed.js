@@ -83,7 +83,8 @@ var seedOrders = function (){
     var orders = [
     {
         userId:"2",
-        buildingId:[1,2],
+        arrayOfBuildingIds:[1,2],
+        arrayOfPurchasePrices:[12343,54321],
         totalPrice: 987654
     }
     ]

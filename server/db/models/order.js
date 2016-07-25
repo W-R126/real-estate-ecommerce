@@ -7,8 +7,11 @@ module.exports = db.define('order', {
   userId:{
     type: Sequelize.INTEGER
   },
-  buildingId:{
+  arrayOfBuildingIds:{
      type: Sequelize.ARRAY(Sequelize.INTEGER)
+  },
+  arrayOfPurchasePrices:{
+    type: Sequelize.ARRAY(Sequelize.INTEGER)
   },
   totalPrice:{
         type: Sequelize.STRING,
