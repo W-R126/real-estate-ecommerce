@@ -3,7 +3,7 @@
  * Theme v1.0.0
  * Copyright 2015-2016 Theemon.com
  */
-@skinColor: blue/*#69c1ff*/; //Change here your theme Color
+@skinColor: #69c1ff; //Change here your theme Color
 @fontFamily: 'Lato',sans-serif; //Change here your theme Font family
 @fontFamly2: 'Oxygen', sans-serif;
 .transition_effect(@val:0.2s){
