@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="51.726818mm"
+   height="57.882366mm"
+   viewBox="0 0 183.284 205.095"
+   id="svg9284"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="warehouse.svg">
+  <defs
+     id="defs9286" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="372.35629"
+     inkscape:cy="-320.3096"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1600"
+     inkscape:window-height="838"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata9289">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-2.64371,-6.9576)">
+    <g
+       transform="translate(2.64371,-3373.5804)"
+       id="g2169">
+      <g
+         id="g2171">
+        <g
+           id="g2173">
+          <g
+             id="g2175">
+            <path
+               d="m 91.642,3460.926 -41.059,-46.574 22.146,0 0,-33.814 37.826,0 0,33.814 22.144,0 -41.057,46.574 z m -26.069,-39.806 26.068,29.568 26.066,-29.568 -13.923,0 0,-33.813 -24.287,0 0,33.813 -13.924,0 z"
+               id="path2177"
+               inkscape:connector-curvature="0"
+               style="fill:#9e9d9b" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="g2179">
+        <g
+           id="g2181">
+          <g
+             id="g2183">
+            <rect
+               x="88.257004"
+               y="3526.051"
+               width="6.7690001"
+               height="55.841999"
+               id="rect2185"
+               style="fill:#9e9d9b" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="g2187">
+        <g
+           id="g2189">
+          <g
+             id="g2191">
+            <g
+               id="g2193">
+              <polygon
+                 points="26.714,3490.231 26.714,3547.592 91.642,3578.153 156.568,3547.592 156.568,3490.231 163.338,3490.231 163.338,3551.889 91.642,3585.633 19.944,3551.889 19.944,3490.231 "
+                 id="polygon2195"
+                 style="fill:#9e9d9b" />
+            </g>
+          </g>
+        </g>
+      </g>
+      <g
+         id="g2197">
+        <g
+           id="g2199">
+          <g
+             id="g2201">
+            <path
+               d="M 76.354,3517.815 0,3481.417 l 22.146,-31.789 74.286,32.814 -20.078,35.373 z m -66.241,-39.076 63.465,30.256 13.272,-23.385 -62.338,-27.539 -14.399,20.668 z"
+               id="path2203"
+               inkscape:connector-curvature="0"
+               style="fill:#9e9d9b" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="g2205">
+        <g
+           id="g2207">
+          <g
+             id="g2209">
+            <polygon
+               points="22.146,3449.627 24.572,3455.954 60.964,3441.586 56.203,3436.186 "
+               id="polygon2211"
+               style="fill:#9e9d9b" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="g2213">
+        <g
+           id="g2215">
+          <g
+             id="g2217">
+            <path
+               d="m 86.852,3482.442 74.286,-32.814 22.146,31.789 -76.354,36.398 -20.078,-35.373 z m 71.919,-24.371 -62.338,27.539 13.272,23.385 63.464,-30.256 -14.398,-20.668 z"
+               id="path2219"
+               inkscape:connector-curvature="0"
+               style="fill:#9e9d9b" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="g2221">
+        <g
+           id="g2223">
+          <g
+             id="g2225">
+            <polygon
+               points="161.138,3449.627 158.712,3455.954 122.319,3441.586 127.08,3436.186 "
+               id="polygon2227"
+               style="fill:#9e9d9b" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

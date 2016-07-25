@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="31.395247mm"
+   height="32.320652mm"
+   viewBox="0 0 111.243 114.52199"
+   id="svg8763"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="star.svg">
+  <defs
+     id="defs8765" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="-94.254662"
+     inkscape:cy="228.97346"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     borderlayer="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1600"
+     inkscape:window-height="838"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata8768">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-42.1118,-646.81367)">
+    <g
+       transform="translate(-2407.4662,45.248668)"
+       id="g4465">
+      <g
+         id="g4467">
+        <g
+           id="g4469">
+          <polygon
+             style="fill:#f9c321"
+             points="2538.859,716.087 2522.161,706.033 2527.005,699.169 2538.001,705.221 2554.986,689.043 2560.821,695.171 "
+             id="polygon4471" />
+        </g>
+      </g>
+    </g>
+    <g
+       transform="translate(-2407.4662,45.248668)"
+       id="g4473">
+      <g
+         id="g4475">
+        <polygon
+           style="fill:#f9c321"
+           points="2479.584,672.332 2463.692,648.467 2486.486,644.135 2504.563,616.876 2522.641,644.135 2545.436,648.467 2529.543,672.332 2529.746,684.945 2538.295,690.35 2538.046,674.828 2559.549,642.538 2527.723,636.487 2504.563,601.565 2481.404,636.487 2449.578,642.538 2471.082,674.828 2470.516,710.1 2504.563,696.356 2511.814,700.442 2516.908,693.934 2504.563,687.232 2479.18,697.477 "
+           id="polygon4477" />
+      </g>
+    </g>
+  </g>
+</svg>
