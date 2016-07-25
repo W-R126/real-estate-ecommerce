@@ -2,7 +2,7 @@
  * Theme v1.0.0
  * Copyright 2015-2016 Theemon.com
  */
-(function($) { 
+(function($) {
  "use strict";
 var isMobile;
 var index;
@@ -13,19 +13,19 @@ var video1;
 var stickOnScroll;
 
 jQuery(document).ready(function() {
-	
+
 	isMobile = navigator.userAgent.match(/(iPhone|iPod|Android|BlackBerry|iPad|IEMobile|Opera Mini)/);
 	index = 0;
-	
+
 	 //Header Option
 	$('#header').addClass('normal');//Choose Here Class Name (normal or fixed or intelligent);
-	
+
 	// Image Thumb slider
 	jQuery('.pro-thumb li').on('click', function() {
 		jQuery('.item-on-display img').remove();
 		jQuery(this).children('img').clone().appendTo('.item-on-display');
 	});
-	
+
 	// form field homepage custom selectbox
 
 	jQuery('.second .btn-group .dropdown-menu li,.form-field .btn-group .dropdown-menu li,.sort .btn-group .dropdown-menu li,.portfolio-3 .btn-group.custom-select .dropdown-menu li').on('touchstart click', function() {
@@ -34,8 +34,8 @@ jQuery(document).ready(function() {
 		jQuery(this).parent('.dropdown-menu').siblings('.btn').children('.select-text').text(curr_text);
 
 	});
-	
-	
+
+
 
 	jQuery('.song-sno .fa').on('click',function() {
 		$(this).toggleClass('fa-pause');
@@ -82,24 +82,24 @@ jQuery(document).ready(function() {
       value--;
      $(this).parents('.quantity-value').find('input').val(value);
      }
-     
+
  });
- 
- 
+
+
  //===========AutoDealer Tabing ================
 
  $('.tabcontent .mid ').hide();
- $('.tabcontent .mid:first').show(); 
+ $('.tabcontent .mid:first').show();
  $('.auto-tab-list li a').click(function() {
 	 $('.auto-tab-list li').removeClass('active');
-	 $(this).parent().addClass('active'); 
-	 
+	 $(this).parent().addClass('active');
+
 	 var blockList = $(this).attr('class');
 	 //alert(blockList)
 $('.tabcontent .mid').hide();
 $('.' + blockList).css({'display':'block'});
 return false;
-}); 
+});
 	//=================Range Slider function ================
 	 if ($('#slider-range').length) {
 		$("#slider-range").slider({
@@ -132,13 +132,13 @@ return false;
 		});
 
 		 $("#amount").text("min $" + $("#slider-meter").slider("values", 0));
-		
+
 		$("#amount1").text("max $" + $("#slider-meter").slider("values", 1));
 
 
 	}
-	
-	
+
+
 
 	//Navigation function
 	var hie = jQuery(window).height();
@@ -228,8 +228,8 @@ return false;
 		}
 	});
 	// Count down
-	if (jQuery('.anim-section').length) { 
-	jQuery('.anim-section').appear(function() { 
+	if (jQuery('.anim-section').length) {
+	jQuery('.anim-section').appear(function() {
 			animSection();
 	});
 	}
@@ -283,7 +283,7 @@ return false;
 		});
 
 	}
-	
+
 	//scroll top
 
 	jQuery('.scroll-top').on('click',function() {
@@ -296,29 +296,29 @@ return false;
 	jQuery(document).on('click','.menu-wrap .nav>li>a',function() {
 		if( jQuery(window).width() < 768)
 		{
-		jQuery(this).next('.menu-container').slideToggle(300);	
+		jQuery(this).next('.menu-container').slideToggle(300);
 		}
-		
+
 	});
 
-	
+
 	if( jQuery(window).width() < 1025)
 	{
 		jQuery('.flyout-menu li a').on('click',function() {
 
 		  jQuery(this).next('ul,.figure-menu,.link-section-wrapper').slideToggle(300);
-		 	
+
 	});
-	
+
 	}
-	
+
 	jQuery(document).on('mouseenter','.flyout-menu li a', function () {
    	jQuery(this).parent('li').addClass('active');
     jQuery(this).parent('li').siblings('li').removeClass('active');
 });
 
-	
-	
+
+
 	if (jQuery('.slider-section').length) {
 	jQuery('.slider-section').flexslider({
 		animation : "slide"
@@ -410,19 +410,19 @@ return false;
     } else if(num === sync2visible[0]){
       sync2.trigger("owl.goTo", num-1)
     }
-    
-  }
-  
 
-	
+  }
+
+
+
 	// filtering
-	$(function() { 
+	$(function() {
 		// init Isotope
-		if (jQuery('.homepage-3, .gallery-12').length) { 
+		if (jQuery('.homepage-3, .gallery-12').length) {
 		}
 		else{
-			
-			if (jQuery('.grid').length) { 
+
+			if (jQuery('.grid').length) {
 			var $grid = jQuery('.grid').isotope({
 				itemSelector : '.h-hover,.elements,.item',
 				layoutMode : 'fitRows'
@@ -489,30 +489,30 @@ return false;
 
 
 	});
-	
-	
-	
+
+
+
 	if($('.medical-table').length)
 	{
 		$('.filter-tab li').click(function()
 		{   $('#main-med-table').addClass('clicked-med');
 			$('#main-med-table td').removeClass('white_bg');
-			
+
 			var filter_Val = $(this).attr('data-filter');
-			
+
 			$('.'+ filter_Val).addClass('white_bg')
-			
+
 			if( filter_Val == "all")
 			{   $('#main-med-table td').removeClass('white_bg');
 				$('#main-med-table').removeClass('clicked-med');
 			}
-																	
-		  
+
+
 		})
-		
-		
+
+
 	}
-	
+
 
 
    if (jQuery('#custom-map-two').length) {
@@ -538,21 +538,21 @@ return false;
 		position : pos1,
 		map : map,
 		draggable : false,
-		icon : '../assets/img/map-icon-2.png'
+		icon : '/img/map-icon-2.png'
 	});
 
 	var marker2 = new google.maps.Marker({
 		position : pos2,
 		map : map,
 		draggable : false,
-		icon : '../assets/img/map-icon-2.png'
+		icon : '/img/map-icon-2.png'
 
 	});
 	var marker3 = new google.maps.Marker({
 		position : pos3,
 		map : map,
 		draggable : false,
-		icon : '../assets/img/map-icon-1.png'
+		icon : '/img/map-icon-1.png'
 
 	});
 
@@ -560,14 +560,14 @@ return false;
 		position : pos4,
 		map : map,
 		draggable : false,
-		icon : '../assets/img/map-icon-2.png'
+		icon : '/img/map-icon-2.png'
 
 	});
 	var marker5 = new google.maps.Marker({
 		position : pos5,
 		map : map,
 		draggable : false,
-		icon : '../assets/img/map-icon-2.png'
+		icon : '/img/map-icon-2.png'
 
 	});
 
@@ -575,7 +575,7 @@ return false;
 		position : pos6,
 		map : map,
 		draggable : false,
-		icon : '../assets/img/map-icon-1.png'
+		icon : '/img/map-icon-1.png'
 
 	});
 
@@ -583,14 +583,14 @@ return false;
 		position : pos7,
 		map : map,
 		draggable : false,
-		icon : '../assets/img/map-icon-2.png'
+		icon : '/img/map-icon-2.png'
 
 	});
 	var marker8 = new google.maps.Marker({
 		position : pos8,
 		map : map,
 		draggable : false,
-		icon : '../assets/img/map-icon-2.png'
+		icon : '/img/map-icon-2.png'
 
 	});
 
@@ -613,7 +613,7 @@ if (jQuery('#map-7').length) {
 		position : pos_New,
 		map : map,
 		draggable : false,
-		icon : '../assets/img/map-icon-3.png'
+		icon : '/img/map-icon-3.png'
 	});
 
 }
@@ -635,7 +635,7 @@ if (jQuery('#map-9').length) {
 		position : pos_New1,
 		map : map,
 		draggable : false,
-		icon : '../assets/img/map-icon-3.png'
+		icon : '/img/map-icon-3.png'
 	});
 
 }
@@ -657,7 +657,7 @@ if (jQuery('#map-11').length) {
 		position : pos_New2,
 		map : map,
 		draggable : false,
-		icon : '../assets/img/map-icon-4.jpg'
+		icon : '/img/map-icon-4.jpg'
 	});
 
 }
@@ -679,7 +679,7 @@ if (jQuery('#map-8').length) {
 		position : pos_New2,
 		map : map,
 		draggable : false,
-		icon : '../assets/img/map-icon-4.jpg'
+		icon : '/img/map-icon-4.jpg'
 	});
 
 }
@@ -701,23 +701,23 @@ if (jQuery('#map-13').length) {
 		position : pos_New2,
 		map : map,
 		draggable : false,
-		icon : '../assets/img/map-icon-4.jpg'
+		icon : '/img/map-icon-4.jpg'
 	});
 
 }
 
 	if (jQuery('#search-map').length) {
-	
+
 	var pos = new google.maps.LatLng(54.855520, 55.968002);
-	
+
 	var map = new google.maps.Map(document.getElementById('search-map'), {
 	zoom : 10,
 	center : pos,
 	scrollwheel: false,
 	mapTypeId : google.maps.MapTypeId.ROADMAP,
-	
+
 	});
-	
+
 	var loc1 = new google.maps.LatLng(54.808977, 55.987915);
 	var loc2 = new google.maps.LatLng(54.881724, 55.934356);
 	var loc3 = new google.maps.LatLng(54.839831, 55.707077);
@@ -736,100 +736,100 @@ if (jQuery('#map-13').length) {
 	var loc_15 = new google.maps.LatLng(54.823221, 56.062759);
 	var loc_16 = new google.maps.LatLng(54.897916, 56.169876);
 	var loc_17 = new google.maps.LatLng(54.719050, 56.370376);
-	
+
 	var markerLoc_1 = new google.maps.Marker({
 	position : loc1,
 	map : map,
 	draggable : false,
-	icon : '../assets/img/search-map-1.png'
+	icon : '/img/search-map-1.png'
 	});
 	var markerLoc_2 = new google.maps.Marker({
 	position : loc2,
 	map : map,
 	draggable : false,
-	icon : '../assets/img/search-map-2.png'
+	icon : '/img/search-map-2.png'
 	});
 	var markerLoc_3 = new google.maps.Marker({
 	position : loc3,
 	map : map,
 	draggable : false,
-	icon : '../assets/img/search-map-3.png'
+	icon : '/img/search-map-3.png'
 	});
-	
+
 	var markerLoc_4 = new google.maps.Marker({
 	position : loc4,
 	map : map,
 	draggable : false,
-	icon : '../assets/img/search-map-4.png'
+	icon : '/img/search-map-4.png'
 	});
-	
+
 	var markerLoc_6 = new google.maps.Marker({
 	position : loc6,
 	map : map,
 	draggable : false,
-	icon : '../assets/img/search-map-5.png'
+	icon : '/img/search-map-5.png'
 	});
-	
+
 	var markerLoc_7 = new google.maps.Marker({
 	position : loc7,
 	map : map,
 	draggable : false,
-	icon : '../assets/img/search-map-6.png'
+	icon : '/img/search-map-6.png'
 	});
-	
+
 	 var infowindow_1 = new google.maps.InfoWindow({
      content: '<span class="search-address"> 269 Main Street, London England </span>' + "(54.808977, 55.987915)"
      });
-	
+
      var infowindow_2 = new google.maps.InfoWindow({
      content: '<span class="search-address"> 269 Main Street, London England </span>' + "(54.881724, 55.934356)"
      });
-     
+
      var infowindow_3 = new google.maps.InfoWindow({
      content:'<span class="search-address"> 269 Main Street, London England </span>' + "(54.839831, 55.707077)"
      });
-     
+
       var infowindow_4 = new google.maps.InfoWindow({
      content: '<span class="search-address"> 269 Main Street, London England </span>'+"(54.888043, 55.645965)"
      });
-     
+
       var infowindow_6 = new google.maps.InfoWindow({
      content: '<span class="search-address"> 269 Main Street, London England </span>'+"(54.740857, 55.769560)"
      });
-     
+
      var infowindow_7 = new google.maps.InfoWindow({
      content: '<span class="search-address"> 269 Main Street, London England </span>' +"(54.840857, 55.769564)"
-     });     
-	
+     });
+
 	markerLoc_1.addListener('click', function() {
     infowindow_1.open(map, markerLoc_1);
     });
-	
+
 	markerLoc_2.addListener('click', function() {
     infowindow_2.open(map, markerLoc_2);
     });
-	
-	
+
+
 	markerLoc_3.addListener('click', function() {
     infowindow_3.open(map, markerLoc_3);
     });
-	
-	
+
+
 	markerLoc_4.addListener('click', function() {
     infowindow_4.open(map, markerLoc_4);
     });
-	
+
 	markerLoc_6.addListener('click', function() {
     infowindow_6.open(map, markerLoc_6);
     });
-	
+
 	markerLoc_7.addListener('click', function() {
     infowindow_7.open(map, markerLoc_7);
     });
-	
+
 	}
-	
-	
+
+
 //=================Header Style function================
 $(window).load(function() {
 if ($('#header').hasClass('fixed')) {
@@ -839,14 +839,14 @@ if ($('#header').hasClass('intelligent')) {
 		$('#header').next().addClass('top-m');
 	};
 });
-	
+
 	var class_pr = $('body').attr('class');
 	var headerHeight = $('#header').outerHeight();
 	var st = $(window).scrollTop();
 	stickOnScroll = function() {
-		
+
 		if ($('#header').hasClass("intelligent")) {
-			
+
 			$('#header').removeClass('normal');
 			$('.spacetop').addClass('top-m');
 			var pos = $(window).scrollTop();
@@ -898,18 +898,18 @@ if ($('#header').hasClass('intelligent')) {
 
 
 	// end for sticky header
-		
+
 	});
 
 
 jQuery(window).load(function() {
-	if (jQuery('.normal').length) { 
-		jQuery('#header.normal').next().addClass('none'); 
-		
+	if (jQuery('.normal').length) {
+		jQuery('#header.normal').next().addClass('none');
+
 	 };
 	//Custom Map
 	if ($('#map-view').length) {
-		
+
 		var pos = new google.maps.LatLng(44.453436, -95.797182);
 
 	var map = new google.maps.Map(document.getElementById('map-view'), {
@@ -922,7 +922,7 @@ jQuery(window).load(function() {
 		position : pos,
 		map : map,
 		draggable : false,
-		icon : '../assets/img/map-marker.png'
+		icon : '/img/map-marker.png'
 	});
 
 	}
@@ -1239,7 +1239,7 @@ jQuery(window).load(function() {
 		});
 
 	};
-	
+
 	if (jQuery('.big-slider').length) {
 		jQuery('.thumb-small').flexslider({
 			animation : "slide",
@@ -1260,7 +1260,7 @@ jQuery(window).load(function() {
 			}
 		});
 	}
-	
+
 
 	if (jQuery('.landing-slider').length) {
 		jQuery('.carousel').flexslider({
@@ -1281,8 +1281,8 @@ jQuery(window).load(function() {
 			}
 		});
 	}
-	
-	
+
+
 
 	if ($('.food-banner').length) {
 		jQuery('.food-banner').flexslider({
@@ -1306,7 +1306,7 @@ jQuery(window).load(function() {
 	if ($('.hotel-booking-form,.date-pick').length) {
 		$("#datepicker-1,#datepicker-2,#datepicker-3,#datepicker-4,#datepicker-5,#datepicker-6").datepicker({
 			showOn : "button",
-			buttonImage : "../assets/img/icon-calender.png",
+			buttonImage : "/img/icon-calender.png",
 			buttonImageOnly : true,
 			buttonText : "Select date"
 		});
@@ -1549,7 +1549,7 @@ jQuery(window).scroll(function() {
 	// only desktop function
 	if ((!isMobile)) {
 
-		
+
 		if (jQuery('.anim-section').length) {
 			animSection()
 			jQuery(window).scroll(function() {
@@ -1595,7 +1595,7 @@ var parallax = function(id, val) {
 	}
 }
 function fadeContent(cthis) {
-	
+
 	cthis.eq(index).animate({
 		opacity : 1
 	}, 600).promise().done(function() {
@@ -1605,13 +1605,13 @@ function fadeContent(cthis) {
 	});
 
 }
-var animSection = function() { 
+var animSection = function() {
 			jQuery('.anim-section').each(function() {
 				if (jQuery(window).scrollTop() > (jQuery(this).offset().top - jQuery(window).height() / 1.15)) {
 					jQuery(this).addClass('animate')
-					
+
 				}
-				
+
 			})
 		}
 // for animating left
@@ -1663,15 +1663,15 @@ if (jQuery('#custom_map').length) {
 
 
 $(document).ready(function() {
-	
+
 	$('.image-link').on('click',function(e)
 	{
 		e.preventDefault();
 	})
 
 
-	
-	
+
+
 	if($('.fancybox-thumb').length){
 	$(".fancybox-thumb").fancybox({
 		prevEffect : 'none',
@@ -1691,7 +1691,7 @@ $(document).ready(function() {
 
 
 $(window).load(function() {
-if (jQuery('.anim-section').length) { 
+if (jQuery('.anim-section').length) {
 			animSection()
 	};
 	if ($('#carousel').length) {
@@ -1715,9 +1715,9 @@ if (jQuery('.anim-section').length) {
 			sync : "#carousel"
 		});
 	}
-	
+
 	$('.row-box').on('click',function(){
-	
+
 	$('.product-gallery').addClass('gallery-items');
 	$('.grid-box').removeClass('active');
 	$(this).addClass('active');
@@ -1742,10 +1742,10 @@ $('.row-box').on('click',function(){
 })
 
 //=======================audio player function===================
-	
+
 	if ($('audio').length) {
- $( 'audio' ).audioPlayer(); 
- $('.audioplayer-playpause').on('click',function(){ 
+ $( 'audio' ).audioPlayer();
+ $('.audioplayer-playpause').on('click',function(){
  	if($(this).parents('.audioplayer').hasClass('audioplayer-playing')){
  		$(this).parents('.btns').find('.play-player').removeClass('active');
  		$(this).parents('.btns').find('.pause-player').addClass('active');
@@ -1755,9 +1755,9 @@ $('.row-box').on('click',function(){
  		$(this).parents('.btns').find('.play-player').addClass('active');
  	}
  	//$('.btns').find('.active').removeClass('active');
- 	
+
  	// ;
- 	
+
  })
 	}
 
@@ -1780,12 +1780,12 @@ $(document).on('mouseenter','.big-menu-wrap li a', function () {
 
 jQuery('.play-btn').on('click',function(){
         video1 = '<iframe src="'+ jQuery('.video img').attr('data-video') +'"></iframe>';
-        
+
         jQuery('.video img').after(video1);
-     return false; 	
-     
+     return false;
+
     });
-	
+
 
 });
 
@@ -1794,19 +1794,19 @@ jQuery('.play-btn').on('click',function(){
  if ($('#map-box').length) {
 				var markers = [{
 					"lat" : '40.690428',
-					"lng" : '-73.874188',		
-					"icon" : 	'../assets/img/map-8-icon1.png'				
-				}, 
-				
+					"lng" : '-73.874188',
+					"icon" : 	'/img/map-8-icon1.png'
+				},
+
 				{
 					"lat" : '40.669560',
 					"lng" : '-73.862890',
-					"icon" : 	'../assets/img/map-8-icon2.png'	
-				}, 
+					"icon" : 	'/img/map-8-icon2.png'
+				},
 				];
-				
-				
-				
+
+
+
 				window.onload = function() {
 					var mapOptions = {
 						center : new google.maps.LatLng(markers[0].lat, markers[0].lng),
@@ -1829,12 +1829,12 @@ jQuery('.play-btn').on('click',function(){
 							title : data.title,
 							icon  : iconMap
 						});
-						
+
 						latlngbounds.extend(marker.position);
-						
-						
-						
-						
+
+
+
+
 
 					}
 					map.setCenter(latlngbounds.getCenter());
@@ -1855,7 +1855,7 @@ jQuery('.play-btn').on('click',function(){
 						strokeWeight: 6
 						});
 
-						
+
 
 					//Loop and Draw Path Route between the Points on MAP
 					for (var i = 0; i < lat_lng.length; i++) {
@@ -1879,4 +1879,4 @@ jQuery('.play-btn').on('click',function(){
 					}
 				}
 			}
-})(jQuery);			
+})(jQuery);

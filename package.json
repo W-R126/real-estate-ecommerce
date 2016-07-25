@@ -1,7 +1,7 @@
 {
-  "name": "FullstackGeneratedApp",
+  "name": "Real-Estate-Stackstore",
   "version": "1.0.0",
-  "description": "A generated project at Fullstack Academy",
+  "description": "Commercial Real Estate Stackstore",
   "main": "server/start.js",
   "scripts": {
     "start": "nodemon --watch server -e js,html server/start.js",
