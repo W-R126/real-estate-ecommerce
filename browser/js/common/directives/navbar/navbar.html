@@ -1,17 +1,78 @@
-<nav class="navbar navbar-static-top">
-    <div class="container">
-        <div class="navbar-header">
-            <fullstack-logo></fullstack-logo>
+<!--header Section Start Here -->
+<header id="header">
+
+<!--headerBox Start Here -->
+<div class="header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12 top">
+                <!-- <a href="../Corporate/index.html" class="logo"><img src="../assets/img/logo.png" alt="" /></a> -->
+                <section class="menu-wrap">
+                  <ul class="nav">
+                    <li class="menu-sec-parent">
+                      <a href="#">Home</a>
+                    </li>
+                    <li>
+                      <a href="#">About</a>
+                    </li>
+                    <li>
+                      <a href="#">Properties</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                    <li>
+                        <a href="#">Cart</a>
+                    </li>
+                    <li>
+                        <a href="#">Sign Up</a>
+                    </li>
+                    <li>
+                        <a href="#">Login</a>
+                    </li>
+                    <li>
+                        <a href="#">Log Out</a>
+                    </li>
+                    <li>
+                        <a href="#">(User's name)</a>
+                        <div class="flyout-menu menu-type-1 menu-container">
+                          <ul class="page-menu">
+                            <li>
+                              <a href="#">Your Properties</a>
+                            </li>
+                            <li>
+                              <a href="#">Settings</a>
+                            </li>
+                            <li>
+                              <a href="#">Logout</a>
+                            </li>
+                          </ul>
+                        </div>
+                    </li>
+                  </ul>
+                  <div class="header-widget">
+                    <button class="glyphicon glyphicon-search search">
+                      &nbsp;
+                    </button>
+                    <div class="header-search-box">
+                      <input type="text" />
+                    </div>
+                    <div class="navbar-header visible-xs">
+                      <button type="button" class="navbar-toggle">
+                        <span class="icon-bar">&nbsp;</span><span class="icon-bar">&nbsp;</span><span class="icon-bar">&nbsp;</span>
+                      </button>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
         </div>
-        <ul class="nav navbar-nav">
-            <li ng-repeat="item in items" ng-show="!item.auth || isLoggedIn()">
-                <a ui-sref-active="active" ui-sref="{{ item.state }}">{{ item.label }}</a>
-            </li>
-        </ul>
-        <button ng-show="!user" ui-sref="login" class="btn login-button">Login</button>
-        <div ng-show="user" class="welcome">
-            <span>Welcome, {{ user.email }}!</span>
-            <a ng-click="logout()">Logout</a>
-        </div>
+      </div>
     </div>
-</nav>
+
+<!--headerCntr End Here -->
+</header>
+<!--header Section End Here -->
