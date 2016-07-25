@@ -1,7 +1,7 @@
 {
   "name": "Betty and the Building Bros",
   "version": "1.0.0",
-  "description": "Commercial Real Estate Commercial Store",
+  "description": "Commercial Real Estate Store",
   "main": "server/start.js",
   "scripts": {
     "start": "nodemon --watch server -e js,html server/start.js",

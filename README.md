@@ -1,1 +1,1 @@
-# realEstate-stack-store
+# Real Estate Stack Store
