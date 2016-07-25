@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="40.746964mm"
+   height="40.747246mm"
+   viewBox="0 0 144.379 144.38"
+   id="svg8676"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="worldwide.svg">
+  <defs
+     id="defs8678" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="-325.66766"
+     inkscape:cy="-36.381533"
+     inkscape:document-units="px"
+     inkscape:current-layer="g5139"
+     showgrid="false"
+     showborder="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1600"
+     inkscape:window-height="838"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata8681">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-273.5248,-351.6007)">
+    <g
+       transform="translate(-2797.4072,-2869.8353)"
+       id="g5139">
+      <g
+         id="g5141">
+        <g
+           id="g5143">
+          <g
+             id="g5145">
+            <path
+               style="fill:#f9c321"
+               inkscape:connector-curvature="0"
+               d="m 3143.121,3365.816 c -39.806,0 -72.189,-32.385 -72.189,-72.189 0,-39.807 32.384,-72.191 72.189,-72.191 39.805,0 72.19,32.385 72.19,72.191 10e-4,39.804 -32.384,72.189 -72.19,72.189 z m 0,-137.611 c -36.073,0 -65.421,29.348 -65.421,65.422 0,36.072 29.348,65.42 65.421,65.42 36.073,0 65.421,-29.348 65.421,-65.42 0,-36.075 -29.348,-65.422 -65.421,-65.422 z"
+               id="path5147" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="g5149">
+        <g
+           id="g5151">
+          <g
+             id="g5153">
+            <polygon
+               style="fill:#f9c321"
+               points="3089.89,3254.523 3089.89,3267.439 3107.095,3267.439 3118.696,3245.837 3163.307,3245.837 3163.307,3265.826 3146.505,3282.626 3146.505,3314.642 3174.941,3314.642 3174.941,3275.041 3210.206,3275.041 3210.206,3281.808 3181.71,3281.808 3181.71,3321.412 3139.737,3321.412 3139.737,3279.822 3156.538,3263.021 3156.538,3252.605 3122.745,3252.605 3111.144,3274.208 3083.122,3274.208 3083.122,3254.523 "
+               id="polygon5155" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="g5157">
+        <g
+           id="g5159">
+          <g
+             id="g5161">
+            <polygon
+               style="fill:#f9c321"
+               points="3156.681,3342.212 3129.946,3342.212 3121.158,3326.666 3103.978,3350.216 3098.511,3346.226 3121.88,3314.189 3133.896,3335.445 3159.965,3335.445 3174.597,3354.025 3169.279,3358.214 "
+               id="polygon5163" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
