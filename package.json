@@ -1,7 +1,7 @@
 {
-  "name": "Betty and the Building Bros",
+  "name": "FullstackGeneratedApp",
   "version": "1.0.0",
-  "description": "Commercial Real Estate Store",
+  "description": "A generated project at Fullstack Academy",
   "main": "server/start.js",
   "scripts": {
     "start": "nodemon --watch server -e js,html server/start.js",

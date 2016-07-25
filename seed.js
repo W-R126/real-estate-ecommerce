@@ -20,6 +20,7 @@ name in the environment files.
 var chalk = require('chalk');
 var db = require('./server/db');
 var User = db.model('user');
+var Building = db.model('building')
 var Promise = require('sequelize').Promise;
 
 var seedUsers = function () {
@@ -43,9 +44,51 @@ var seedUsers = function () {
 
 };
 
+var seedBuildings = function (){
+    var buildings = [
+    {
+        location: "123 Main Street, New York, New York 10001",
+        price: "123456.78",
+        propertyType: 'Commercial',
+        lotSize: '7000 sq ft',
+        stories: '25',
+        numberOfUnits: '50',
+        architecturalStyle: 'Modern',
+        buildingAge: '7',
+        photoURL: 'http://i2.cdn.turner.com/cnnnext/dam/assets/140218103215-sheraton-huzhou-hot-spring-resort-horizontal-large-gallery.jpg'
+
+    },
+     {
+        location: "345 Main Street, New York, New York 10003",
+        price: "223456.78",
+        propertyType: 'Commercial',
+        lotSize: '2000 sq ft',
+        stories: '2',
+        numberOfUnits: '5',
+        architecturalStyle: 'Modern',
+        buildingAge: '2',
+        photoURL: 'http://www.heltzelaia.com/portfolio/extra-portfolio/12_HeltzelAIA.jpg'
+
+    }
+    ];
+       var creatingBuildings = buildings.map(function (buildingObj) {
+        return Building.create(buildingObj);
+    });
+
+    return Promise.all(creatingBuildings);
+
+}
+
+
+
+
 db.sync({ force: true })
     .then(function () {
         return seedUsers();
+
+    })
+    .then(function (){
+        return seedBuildings();
     })
     .then(function () {
         console.log(chalk.green('Seed successful!'));
