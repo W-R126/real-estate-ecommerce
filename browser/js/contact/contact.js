@@ -7,8 +7,6 @@ app.config(function ($stateProvider) {
 
 });
 
-// app.controller('ContactController', function ($scope) {
-//   $scope.images = _.shuffle(FullstackPics);
+app.controller('ContactController', function ($scope) {
 
-
-// });
+});

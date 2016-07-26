@@ -1,11 +1,203 @@
-<section id="about">
-    <p>
-        This website--the very one at which you currently gaze--was created by a basic scaffolding
-        concocted at Fullstack Academy. Here are some of the people who make it all very real:
-    </p>
-    <carousel interval="2000">
-        <slide ng-repeat="image in images">
-            <img height="300" ng-src="{{ image }}" />
-        </slide>
-    </carousel>
-</section>
+<!-- owl.carousel.css -->
+<link href="/css/transition-effect.css" rel="stylesheet">
+<!-- <link href="assets/css/skin.less" rel="stylesheet/less"> -->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  <!--content Section Start Here -->
+  <div id="content" class="contact margin-bottom">
+    <div class="container ">
+
+      <!--Content Header -->
+      <header class="content-header row ">
+        <div class="heading col-md-8 col-sm-6 col-xs-12">
+          <h1>Contact</h1>
+        </div>
+        <ul class="col-md-4 col-sm-6 col-xs-12 breadcrumb ">
+          <li> <a href="#">Main Page</a> </li>
+          <li> <a href="#">Pages</a> </li>
+          <li class="active"> Contact </li>
+        </ul>
+      </header>
+      <!--Content Header -->
+
+    </div>
+
+    <!-- Map Section -->
+    <section  class="map-section">
+      <div id="custom_map"> </div>
+      <div id="legend">
+        <h3>Our office</h3>
+        <address class="map-address">
+        <span>Envato</span> <span>Level 13, 2 Elizabeth</span> <span>Victoria 3000 Australia</span>
+        </address>
+      </div>
+    </section>
+    <!-- Map Section -->
+
+    <div class="container">
+
+      <!--  Steps -->
+      <section class="org-info contact-blocks">
+        <div class="services steps row">
+          <div class="col-sm-4 effect-a">
+            <div class="one service-block shine">
+              <div class="contact-box"> <i class="icon-fa icon-mail fa fa-envelope-o"></i>
+                <div class="contact-box"> <strong>Have any questions? </strong> <a href="mailto:noreply@envato.com">noreply@envato.com</a> </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 effect-b">
+            <div class="one service-block shine">
+              <div class="contact-box"> <i class="fa fa-phone icon-fa icon-call"></i>
+                <div class="contact-box"> <strong>Call us</strong> <a href="tel:+610383766284">+61 (0) 3 8376 6284</a> </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 effect-c">
+            <div class="one service-block shine">
+              <div class="contact-box"> <i class="fa fa-fax icon-fa icon-fax"></i>
+                <div class="contact-box"> <strong>Fax </strong> <a href="#">+61 (0) 3 8376 6284</a> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--  Steps -->
+
+      <!-- Contact Form  -->
+
+      <section class="contact-form  contact-form-box " data-ng-controller="FormController">
+        <h2> Write a message </h2>
+        <form class="row form-contact-section"  data-ng-submit="submitForm()" name="contactForm" method="post"  novalidate id="contact">
+          <div data-ng-class="{'successMessage' : successsubmission}" data-ng-bind="successsubmissionMessage" id="success"></div>
+          <div class="col-sm-4 input-area">
+            <label>Name:</label>
+            <input id="name" class="contact-name" type="text"  data-ng-model="formData.name" data-ng-class="{'error' : errorName}"/>
+          </div>
+          <div class="col-sm-4 input-area">
+            <label>E-mail address:</label>
+            <input id="email" class="contact-mail" type="text"  data-ng-model="formData.email" data-ng-class="{'error' : errorEmail}"/>
+          </div>
+          <div class="col-sm-4 input-area">
+            <label>Subject:</label>
+            <input id="sub" class="contact-subject" type="text"  data-ng-class="{'error' : errorSubject}" data-ng-model="formData.subject"/>
+          </div>
+          <div class="col-xs-12 input-area no-margin">
+            <label>Message:</label>
+            <textarea  id="message" data-ng-model="formData.message" data-ng-class="{'error' : errorTextarea}"></textarea>
+            <button type="submit" class="comment-submit qoute-sub btn btn-default btn-effect" data-ng-disabled="submitButtonDisabled">send <i> <img alt="" src="assets/img/arrow-btn.png"> </i> </button>
+          </div>
+          <div data-ng-class="{'submissionMessage' : submission}" data-ng-bind="submissionMessage" class="error-msg"></div>
+        </form>
+      </section>
+
+      <!-- Contact Form  -->
+    </div>
+  </div>
+  <!--content Section End Here -->
+
+  <!--footer Section Start Here -->
+  <footer id="footer"  >
+    <div class="container">
+      <div class="row">
+
+        <!--primary-footer Start Here -->
+        <section class="primary-footer clearfix">
+          <div class="col-sm-6 col-md-3 intro footer-content">
+            <h3>About us</h3>
+            <div class="footer-block"> <strong>We love who we are and we are very proud to be the part of your business</strong>
+              <p> Curabitur sit amet magna quam. Praesent in libero vel turpis pellentesque egestas sit amet vel nunc. </p>
+              <p> Curabitur sit amet magna quam. Praesent in libero vel turpis </p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3 footer-content latets-article">
+            <h3>Latest Posts</h3>
+            <div class="row footer-block">
+              <div class="col-xs-6 col-sm-12">
+                <article class="article-content">
+                  <figure class="article-pic"> <img src="assets/img/post-img.jpg" alt="Curabitur amet magna quam" /> </figure>
+                  <div class="post-content">
+                    <h4><a href="blog-post-1.html" title="Curabitur amet magna quam"> Curabitur amet magna quam </a></h4>
+                     <span class="post-date"><i class="fa fa-calendar"></i>March 31, 2014</span> </div>
+                </article>
+              </div>
+              <div class="col-xs-6 col-sm-12">
+                <article class="article-content">
+                  <figure class="article-pic"> <img src="assets/img/post-img2.jpg" alt="Curabitur amet magna quam" /> </figure>
+                  <div class="post-content">
+                    <h4><a href="blog-post-1.html" title="Curabitur amet magna quam"> Sit amet magna quam </a></h4>
+                     <span class="post-date"><i class="fa fa-calendar"></i>March 31, 2014</span> </div>
+                </article>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3 footer-content">
+            <h3>Latest Comments</h3>
+            <div class="footer-block">
+              <div class="latest-comment"> <span class="post-date"><i class="fa fa-calendar"></i>March 31, 2014</span>
+                <p> <a href="blog-post-1.html">Curabitur sit amet magna quam. Praesent vel. pellentesque egestas</a> </p>
+                <a href="blog-post-1.html" class="admin"><i class="fa fa-user"></i> by admin</a> </div>
+              <div class="latest-comment"> <span class="post-date"><i class="fa fa-calendar"></i>March 31, 2014</span>
+                <p> <a href="blog-post-1.html">Curabitur sit amet magna quam. Praesent vel. pellentesque egestas</a> </p>
+                <a href="blog-post-1.html" class="admin"><i class="fa fa-user"></i> by admin</a> </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3 footer-content vcard">
+            <h3>Contact Info</h3>
+            <div class="footer-block">
+              <address class="adr">
+              <i class="fa fa-map-marker"></i> <span class="postal-adr"> <span class="street-address">269 Main Street,</span> <span class="locality">London</span> <span class="region">England</span> </span>
+              </address>
+              <span class="tel"> <i class="fa fa-calendar">&nbsp;</i> <a href="tel:18003456789">1 800 345 67 89</a> </span> <span class="email"> <i class="fa fa-envelope">&nbsp;</i> <a href="mailto:noreply@theemon.com">noreply@theemon.com</a> </span> </div>
+          </div>
+        </section>
+        <!--primary-footer End Here -->
+
+      </div>
+    </div>
+    <div class="secondary-footer">
+      <div class="container">
+        <div class="row">
+
+          <!--secondary-footer Start Here -->
+          <section class="col-xs-12"> <span class="copyright">Gifted © Copyright 2014, <a href="http://theemon.com/" target="_blank">theemon.com</a></span>
+            <ul class="social-icons">
+              <li> <a href="http://plus.google.com" target="_blank"><i class="fa fa-google-plus"></i></a> </li>
+              <li> <a href="http://facebook.com" target="_blank"><i class="fa fa-facebook"></i></a> </li>
+              <li> <a href="http://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a> </li>
+              <li> <a href="#" target="_blank"><i class="fa fa-dribbble"></i></a> </li>
+            </ul>
+          </section>
+          <!--secondary-footer End Here -->
+
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!--footer Section End Here -->
+
+    <a href="javascript:;" class="scroll-top"> <i class="fa fa-long-arrow-up"></i> </a>
+  </div>
+<!--Wrapper Section End Here -->
+
+<script src="assets/js/jquery-1.11.3.min.js"></script>
+<script src="assets/js/angular.js"></script>
+<script type="text/javascript" src="assets/js/app.js"></script>
+<script type="text/javascript" src="assets/js/vailidation.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/less.js"></script>
+<script src="assets/js/jquery.flexslider.js"></script>
+<script src="assets/js/jquery.countTo.js"></script>
+<script src="assets/js/vailidation.js"></script>
+
+
+</body>
+</html>
