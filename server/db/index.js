@@ -9,10 +9,10 @@ db.Order = require('./models/order');
 db.Review = require('./models/review');
 
 
-// Order.belongsTo(User);
-// Order.belongsTo(Cart);
-// Cart.belongsTo(User);
-// Review.belongsTo(Building);
+db.Order.belongsTo(db.User);
+db.Order.belongsTo(db.Cart);
+db.Cart.belongsTo(db.User);
+db.Review.belongsTo(db.Building);
 
 
 
