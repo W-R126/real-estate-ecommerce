@@ -2,18 +2,18 @@ var express = require('express');
 var router = new express.Router();
 
 var db = require('../../db');
-var Building = db.Building;
+var Review = db.Review;
 
 router.get('/:id', function(req, res, next){
 
-  Building.findById(req.params.id)
-  .then(building=> res.send(building))
+  Review.findById(req.params.id)
+  .then(review=> res.send(review))
   .catch(function(err){console.error(err); res.status(500).end(); });
 })
 
 router.get('/', function(req, res, next){
-  Building.findAll({where:req.query})
-  .then(buildings=>res.send(buildings))
+  Review.findAll({where:req.query})
+  .then(reviews=>res.send(reviews))
   .catch(err=>console.error);
 })
 
