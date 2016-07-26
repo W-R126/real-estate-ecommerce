@@ -1,8 +1,13 @@
 app.config(function ($stateProvider) {
-  $stateProvider.state('building-detail', {
-    url: '/building/:id',
+  $stateProvider.state('building', {
+    url: '/properties/:id',
     templateUrl: 'js/building-detail/building-detail.html',
-    controller: 'BuildingCtrl'
+    controller: 'BuildingCtrl',
+    resolve:{
+      theBuilding: function (BuildingFactory, $stateParams){
+        return BuildingFactory.fetchOne($stateParams.id);
+      }
+    }
   })
 })
 
@@ -14,10 +19,15 @@ app.config(function ($stateProvider) {
   $stateProvider.state('buildings', {
     url: '/properties',
     templateUrl: 'js/building-detail/buildings.html',
-    controller: 'BuildingsCtrl'
+    controller: 'BuildingsCtrl',
+    resolve:{
+      allBuildings: function (BuildingFactory){
+        return BuildingFactory.fetchAll();
+      }
+    }
   })
 })
 
-app.controller('BuildingsCtrl', function($scope){
-
+app.controller('BuildingsCtrl', function($scope, allBuildings){
+$scope.buildings = allBuildings
 })
