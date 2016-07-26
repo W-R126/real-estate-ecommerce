@@ -9,3 +9,15 @@ app.config(function ($stateProvider) {
 app.controller('BuildingCtrl', function($scope){
 
 })
+
+app.config(function ($stateProvider) {
+  $stateProvider.state('buildings', {
+    url: '/properties',
+    templateUrl: 'js/building-detail/buildings.html',
+    controller: 'BuildingsCtrl'
+  })
+})
+
+app.controller('BuildingsCtrl', function($scope){
+
+})
