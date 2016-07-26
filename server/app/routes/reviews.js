@@ -14,8 +14,13 @@ router.get('/:id', function(req, res, next){
 router.get('/', function(req, res, next){
   Review.findAll({where:req.query})
   .then(reviews=>res.send(reviews))
-  .catch(err=>console.error);
+  .catch(function(err){console.error(err); res.status(500).end(); });
 })
 
+router.post('/', function(req, res, next){
+  Review.create(req.body)
+  .then(review=>res.send(review))
+  .catch(function(err){console.error(err); res.status(500).end(); });
+})
 
 module.exports = router;
