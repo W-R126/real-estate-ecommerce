@@ -1,0 +1,185 @@
+/*======Transition Right=====*/
+.transition-right {
+	opacity: 1;
+}
+.transition-right .effect-a, .transition-right .effect-b {
+	transform: translateX(200%);
+	-webkit-transform: translateX(200%);
+	-o-transform: translateX(200%);
+	-ms-transform: translateX(200%);
+}
+.transition-right .effect-c, .transition-right .effect-d {
+	transform: translateX(200%);
+	-webkit-transform: translateX(200%);
+	-o-transform: translateX(200%);
+	-ms-transform: translateX(200%);
+}
+.animate.transition-right .effect-a {
+	-webkit-animation: pageStart 1.4s linear 0s forwards;
+	animation: 1s linear 0.2s normal forwards 1 pageStart;
+	-o-animation: 1s linear 0.2s normal forwards 1 pageStart;
+	-ms-animation: 1s linear 0.2s normal forwards 1 pageStart;
+}
+.animate.transition-right .effect-b {
+	-webkit-animation: pageStart 1.4s linear 0.2s forwards;
+	animation: pageStart 1.4s linear 0.2s forwards;
+	-o-animation: pageStart 1.4s linear 0.2s forwards;
+	-ms-animation: pageStart 1.4s linear 0.2s forwards;
+}
+.animate.transition-right .effect-c {
+	-webkit-animation: pageStart 1.4s linear 0.4s forwards;
+	animation: pageStart 1.4s linear 0.4s forwards;
+	-o-animation: pageStart 1.4s linear 0.4s forwards;
+	-ms-animation: pageStart 1.4s linear 0.4s forwards;
+}
+.animate.transition-right .effect-d {
+	-webkit-animation: pageStart 1.4s linear 0.6s forwards;
+	animation: pageStart 1.4s linear 0.6s forwards;
+	-o-animation: pageStart 1.4s linear 0.6s forwards;
+	-ms-animation: pageStart 1.4s linear 0.6s forwards;
+}
+.animate.transition-right .effect-e {
+	-webkit-animation: pageStart 1.4s linear 0.8s forwards;
+	animation: pageStart 1.4s linear 0.8s forwards;
+	-o-animation: pageStart 1.4s linear 0.8s forwards;
+	-ms-animation: pageStart 1.4s linear 0.8s forwards;
+}
+.animate.transition-right .effect-f {
+	-webkit-animation: pageStart 1.4s linear 0.10s forwards;
+	animation: pageStart 1.4s linear 0.10s forwards;
+	-o-animation: pageStart 1.4s linear 0.10s forwards;
+	-ms-animation: pageStart 1.4s linear 0.10s forwards;
+}
+ @keyframes pageStart {
+ 0% {
+transform:translateX(200%);
+}
+ 90% {
+transform:translateX(-10%);
+}
+ 100% {
+transform:translateX(0);
+}
+}
+@-o-keyframes pageStart {
+ 0% {
+-o-transform:translateX(200%);
+}
+ 90% {
+-o-transform:translateX(-10%);
+}
+ 100% {
+-o-transform:translateX(0);
+}
+}
+@-ms-keyframes pageStart {
+ 0% {
+-ms-transform:translateX(200%);
+}
+ 90% {
+-ms-transform:translateX(-10%);
+}
+ 100% {
+-ms-transform:translateX(0);
+}
+}
+@-webkit-keyframes pageStart {
+ 0% {
+-webkit-transform:translateX(200%);
+}
+ 90% {
+-webkit-transform:translateX(-10%);
+}
+ 100% {
+-webkit-transform:translateX(0);
+}
+}
+/*======Transition Right=====*/
+.effect-bottom {
+	opacity: 1;
+}
+.effect-bottom .effect-a, .effect-bottom .effect-b, .effect-bottom .effect-c, .effect-bottom .effect-d, .effect-bottom .effect-e, .effect-bottom .effect-f {
+	transform: translateY(200%);
+	-webkit-transform: translateY(200%);
+	-o-transform: translateY(200%);
+	-ms-transform: translateY(0%)\0;
+}
+.animate.effect-bottom .effect-a {
+	-webkit-animation: effect-bottom 1s linear 0s forwards;
+	animation: effect-bottom 1s linear 0s forwards;
+	-o-animation: effect-bottom 1s linear 0s forwards;
+	-ms-animation: effect-bottom 1s linear 0s forwards;
+}
+.animate.effect-bottom .effect-b {
+	-webkit-animation: effect-bottom 1s linear 0.2s forwards;
+	animation: effect-bottom 1s linear 0.2s forwards;
+	-o-animation: effect-bottom 1s linear 0.2s forwards;
+	-ms-animation: effect-bottom 1s linear 0.2s forwards;
+}
+.animate.effect-bottom .effect-c {
+	-webkit-animation: effect-bottom 1s linear 0.4s forwards;
+	animation: effect-bottom 1s linear 0.4s forwards;
+	-o-animation: effect-bottom 1s linear 0.4s forwards;
+	-ms-animation: effect-bottom 1s linear 0.4s forwards;
+}
+.animate.effect-bottom .effect-d {
+	-webkit-animation: effect-bottom 1s linear 0.6s forwards;
+	animation: effect-bottom 1s linear 0.6s forwards;
+	-o-animation: effect-bottom 1s linear 0.6s forwards;
+	-ms-animation: effect-bottom 1s linear 0.6s forwards;
+}
+.animate.effect-bottom .effect-e {
+	-webkit-animation: effect-bottom 1s linear 0.8s forwards;
+	animation: effect-bottom 1s linear 0.8s forwards;
+	-o-animation: effect-bottom 1s linear 0.8s forwards;
+	-ms-animation: effect-bottom 1s linear 0.8s forwards;
+}
+.animate.effect-bottom .effect-f {
+	-webkit-animation: effect-bottom 1s linear 0.10s forwards;
+	animation: effect-bottom 1s linear 0.10s forwards;
+	-o-animation: effect-bottom 1s linear 0.10s forwards;
+	-ms-animation: effect-bottom 1s linear 0.10s forwards;
+}
+ @keyframes effect-bottom {
+ 0% {
+transform:translateY(200%);
+}
+ 80% {
+transform:translateY(-10%);
+}
+ 100% {
+transform:translateY(0);
+}
+}
+ @-webkit-keyframes effect-bottom {
+ 0% {
+-webkit-transform:translateY(200%);
+}
+ 80% {
+-webkit-transform:translateY(-10%);
+}
+ 100% {
+-webkit-transform:translateY(0);
+}
+}
+
+@media only screen and (max-device-width:1024px) {
+.effect-bottom .effect-a, .effect-bottom .effect-b, .effect-bottom .effect-c, .effect-bottom .effect-d, .effect-bottom .effect-e, .effect-bottom .effect-f {
+	transform: translateY(0);
+	-webkit-transform: translateY(0);
+	-o-transform: translateY(0);
+	-ms-transform: translateY(0);
+}
+.transition-right .effect-a, .transition-right .effect-b {
+	transform: translateX(0);
+	-webkit-transform: translateX(0);
+	-o-transform: translateX(0);
+	-ms-transform: translateX(0);
+}
+.transition-right .effect-c, .transition-right .effect-d {
+	transform: translateX(0);
+	-webkit-transform: translateX(0);
+	-o-transform: translateX(0);
+	-ms-transform: translateX(0);
+}
+}
