@@ -1880,3 +1880,4 @@ jQuery('.play-btn').on('click',function(){
 				}
 			}
 })(jQuery);
+
