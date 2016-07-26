@@ -11,6 +11,11 @@ router.get('/:id', function(req, res, next){
   .catch(function(err){console.error(err); res.status(500).end(); });
 })
 
-
+router.post('/', function(req, res, next){
+  User.create(req.body)
+  .then(function(user){console.log(user)})
+  .then(user => res.status(201).json(user))
+  .catch(function(err){console.error(err); res.status(500).end();})
+})
 
 module.exports = router;
