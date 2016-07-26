@@ -129,6 +129,22 @@ var seedBuildings = function (){
         photoURL: 'http://www.heltzelaia.com/portfolio/extra-portfolio/12_HeltzelAIA.jpg',
         description: 'Second building to ever be added to the databse'
 
+    },
+     {
+        streetAddress: "789 Main Street",
+        city: "Manhattan",
+        state: "New York",
+        zipCode: "10002",
+        price: "223456.78",
+        propertyType: 'Residential',
+        lotSize: '2000 sq ft',
+        stories: '100',
+        numberOfUnits: '90',
+        architecturalStyle: 'Modern',
+        buildingAge: '2',
+        photoURL: 'http://www.heltzelaia.com/portfolio/extra-portfolio/12_HeltzelAIA.jpg',
+        description: 'Second building to ever be added to the databse'
+
     }
     ];
        var creatingBuildings = buildings.map(function (buildingObj) {

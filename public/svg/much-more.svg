@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="32.476158mm"
+   height="64.654861mm"
+   viewBox="0 0 115.073 229.09203"
+   id="svg5093"
+   version="1.1"
+   inkscape:version="0.91 r13725">
+  <defs
+     id="defs5095" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="57.5365"
+     inkscape:cy="114.54601"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1600"
+     inkscape:window-height="838"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5098">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-317.4635,-417.81619)">
+    <g
+       transform="translate(-2595.0065,-637.88281)"
+       id="g5059">
+      <g
+         id="g5061">
+        <path
+           style="fill:#f9c321"
+           inkscape:connector-curvature="0"
+           id="path5063"
+           d="m 2954.348,1216.519 15.131,0 c 0,-21.466 23.93,-40.468 37.654,-58.063 13.724,-17.595 20.41,-30.616 20.41,-53.139 0,-22.521 -17.243,-49.618 -60.527,-49.618 -43.285,0 -54.546,22.171 -54.546,22.171 l 13.373,21.114 c 0,0 13.724,-13.021 39.765,-13.021 26.041,0 32.729,15.127 32.729,26.388 0,11.261 -2.465,24.992 -20.412,45.401 -17.946,20.41 -23.577,39.765 -23.577,58.767 z" />
+      </g>
+    </g>
+    <g
+       transform="translate(-2595.0065,-637.88281)"
+       id="g5065">
+      <g
+         id="g5067">
+        <circle
+           style="fill:#f9c321"
+           id="circle5069"
+           r="21.115"
+           cy="1263.676"
+           cx="2960.3301" />
+      </g>
+    </g>
+  </g>
+</svg>
