@@ -1,6 +1,6 @@
 app.config(function ($stateProvider) {
   $stateProvider.state('building-detail', {
-    url: '/building/:id'
+    url: '/building/:id',
     templateUrl: 'js/building-detail/building-detail.html',
     controller: 'BuildingCtrl'
   })
