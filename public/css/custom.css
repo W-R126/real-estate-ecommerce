@@ -3,3 +3,26 @@
   width: auto;
   max-height: 60px;
 }
+
+.login-signup {
+  margin-top: 70px;
+  margin-bottom: 50px;
+}
+
+.login-signup #submitbtn {
+  margin-top: 33px;
+}
+
+#oauthbtn {
+  background-color: #ABDCFF;
+  width: 216px;
+}
+
+#add-cart {
+  float:right;
+}
+
+#detail-cart {
+  background-color: lightyellow;
+  margin-bottom: 100px;
+}
