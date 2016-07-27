@@ -10,102 +10,95 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-  <!--content Section Start Here -->
-  <div id="content" class="contact margin-bottom">
-    <div class="container ">
+<!--content Section Start Here -->
+<div class="contact margin-bottom">
+  <div class="container ">
 
-      <!--Content Header -->
-      <header class="content-header row ">
-        <div class="heading col-md-8 col-sm-6 col-xs-12">
-          <h1>Contact</h1>
-        </div>
-        <ul class="col-md-4 col-sm-6 col-xs-12 breadcrumb ">
-          <li> <a href="#">Main Page</a> </li>
-          <li> <a href="#">Pages</a> </li>
-          <li class="active"> Contact </li>
-        </ul>
-      </header>
-      <!--Content Header -->
+    <!--Content Header -->
+    <header class="content-header row ">
+      <div class="heading col-md-8 col-sm-6 col-xs-12">
+        <h1>Contact</h1>
+      </div>
+      <ul class="col-md-4 col-sm-6 col-xs-12 breadcrumb ">
+        <li> <a href="#">Main Page</a> </li>
+        <li> <a href="#">Pages</a> </li>
+        <li class="active"> Contact </li>
+      </ul>
+    </header>
+    <!--Content Header -->
 
+  </div>
+
+  <!-- Map Section -->
+  <section  class="map-section">
+    <div id="custom_map"> </div>
+    <div id="legend">
+      <h3>Our office</h3>
+      <address class="map-address">
+      <span>Envato</span> <span>Level 13, 2 Elizabeth</span> <span>Victoria 3000 Australia</span>
+      </address>
     </div>
+  </section>
+  <!-- Map Section -->
 
-    <!-- Map Section -->
-    <section  class="map-section">
-      <div id="custom_map"> </div>
-      <div id="legend">
-        <h3>Our office</h3>
-        <address class="map-address">
-        <span>Envato</span> <span>Level 13, 2 Elizabeth</span> <span>Victoria 3000 Australia</span>
-        </address>
+  <div class="container">
+
+    <!--  Steps -->
+    <section class="org-info contact-blocks">
+      <div class="services steps row">
+        <div class="col-sm-4 effect-a">
+          <div class="one service-block shine">
+            <div class="contact-box"> <i class="icon-fa icon-mail fa fa-envelope-o"></i>
+              <div class="contact-box"> <strong>Have any questions? </strong> <a href="mailto:noreply@envato.com">buildingbros@fullstack.com</a> </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 effect-b">
+          <div class="one service-block shine">
+            <div class="contact-box"> <i class="fa fa-phone icon-fa icon-call"></i>
+              <div class="contact-box"> <strong>Call us</strong> <a href="tel:+610383766284">+1 (800) 123 4567</a> </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 effect-c">
+          <div class="one service-block shine">
+            <div class="contact-box"> <i class="fa fa-fax icon-fa icon-fax"></i>
+              <div class="contact-box"> <strong>Fax </strong> <a href="#">+1 (800) 123 4567</a> </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
-    <!-- Map Section -->
+    <!--  Steps -->
 
-    <div class="container">
+    <!-- Contact Form  -->
 
-      <!--  Steps -->
-      <section class="org-info contact-blocks">
-        <div class="services steps row">
-          <div class="col-sm-4 effect-a">
-            <div class="one service-block shine">
-              <div class="contact-box"> <i class="icon-fa icon-mail fa fa-envelope-o"></i>
-                <div class="contact-box"> <strong>Have any questions? </strong> <a href="mailto:noreply@envato.com">noreply@envato.com</a> </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4 effect-b">
-            <div class="one service-block shine">
-              <div class="contact-box"> <i class="fa fa-phone icon-fa icon-call"></i>
-                <div class="contact-box"> <strong>Call us</strong> <a href="tel:+610383766284">+61 (0) 3 8376 6284</a> </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4 effect-c">
-            <div class="one service-block shine">
-              <div class="contact-box"> <i class="fa fa-fax icon-fa icon-fax"></i>
-                <div class="contact-box"> <strong>Fax </strong> <a href="#">+61 (0) 3 8376 6284</a> </div>
-              </div>
-            </div>
-          </div>
+    <section class="contact-form  contact-form-box " data-ng-controller="FormController">
+      <h2> Write a message </h2>
+      <form class="row form-contact-section"  data-ng-submit="submitForm()" name="contactForm" method="post"  novalidate id="contact">
+        <div data-ng-class="{'successMessage' : successsubmission}" data-ng-bind="successsubmissionMessage" id="success"></div>
+        <div class="col-sm-4 input-area">
+          <label>Name:</label>
+          <input id="name" class="contact-name" type="text"  data-ng-model="formData.name" data-ng-class="{'error' : errorName}"/>
         </div>
-      </section>
-      <!--  Steps -->
+        <div class="col-sm-4 input-area">
+          <label>E-mail address:</label>
+          <input id="email" class="contact-mail" type="text"  data-ng-model="formData.email" data-ng-class="{'error' : errorEmail}"/>
+        </div>
+        <div class="col-sm-4 input-area">
+          <label>Subject:</label>
+          <input id="sub" class="contact-subject" type="text"  data-ng-class="{'error' : errorSubject}" data-ng-model="formData.subject"/>
+        </div>
+        <div class="col-xs-12 input-area no-margin">
+          <label>Message:</label>
+          <textarea  id="message" data-ng-model="formData.message" data-ng-class="{'error' : errorTextarea}"></textarea>
+          <button type="submit" class="comment-submit qoute-sub btn btn-default btn-effect" data-ng-disabled="submitButtonDisabled">send <i> <img alt="" src="/img/arrow-btn.png"> </i> </button>
+        </div>
+        <div data-ng-class="{'submissionMessage' : submission}" data-ng-bind="submissionMessage" class="error-msg"></div>
+      </form>
+    </section>
 
-      <!-- Contact Form  -->
-
-      <section class="contact-form  contact-form-box " data-ng-controller="FormController">
-        <h2> Write a message </h2>
-        <form class="row form-contact-section"  data-ng-submit="submitForm()" name="contactForm" method="post"  novalidate id="contact">
-          <div data-ng-class="{'successMessage' : successsubmission}" data-ng-bind="successsubmissionMessage" id="success"></div>
-          <div class="col-sm-4 input-area">
-            <label>Name:</label>
-            <input id="name" class="contact-name" type="text"  data-ng-model="formData.name" data-ng-class="{'error' : errorName}"/>
-          </div>
-          <div class="col-sm-4 input-area">
-            <label>E-mail address:</label>
-            <input id="email" class="contact-mail" type="text"  data-ng-model="formData.email" data-ng-class="{'error' : errorEmail}"/>
-          </div>
-          <div class="col-sm-4 input-area">
-            <label>Subject:</label>
-            <input id="sub" class="contact-subject" type="text"  data-ng-class="{'error' : errorSubject}" data-ng-model="formData.subject"/>
-          </div>
-          <div class="col-xs-12 input-area no-margin">
-            <label>Message:</label>
-            <textarea  id="message" data-ng-model="formData.message" data-ng-class="{'error' : errorTextarea}"></textarea>
-            <button type="submit" class="comment-submit qoute-sub btn btn-default btn-effect" data-ng-disabled="submitButtonDisabled">send <i> <img alt="" src="/img/arrow-btn.png"> </i> </button>
-          </div>
-          <div data-ng-class="{'submissionMessage' : submission}" data-ng-bind="submissionMessage" class="error-msg"></div>
-        </form>
-      </section>
-
-      <!-- Contact Form  -->
-    </div>
+    <!-- Contact Form  -->
   </div>
-  <!--content Section End Here -->
-
-
-    <a href="javascript:;" class="scroll-top"> <i class="fa fa-long-arrow-up"></i> </a>
-  </div>
-<!--Wrapper Section End Here -->
-</body>
-</html>
+</div>
+<!--content Section End Here -->
