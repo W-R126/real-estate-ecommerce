@@ -21,3 +21,8 @@
 #add-cart {
   float:right;
 }
+
+#detail-cart {
+  background-color: lightyellow;
+  margin-bottom: 100px;
+}
