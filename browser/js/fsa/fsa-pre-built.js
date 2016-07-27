@@ -101,6 +101,19 @@
             });
         };
 
+        this.signup = function(credentials) {
+            return $http.post('/api/users', credentials)
+                .then(function(onSuccessfulSignup) {
+                    return this.login(credentials)
+                })
+                .then(response => response.data)
+                .catch(error=>console.error(error));
+        }
+
+        this.isAdmin = function() {
+            return Session.user.isAdmin;
+        }
+
     });
 
     app.service('Session', function ($rootScope, AUTH_EVENTS) {
