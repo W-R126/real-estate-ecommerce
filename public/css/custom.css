@@ -15,5 +15,9 @@
 
 #oauthbtn {
   background-color: #ABDCFF;
-  width: 160px;
+  width: 216px;
+}
+
+#add-cart {
+  float:right;
 }
