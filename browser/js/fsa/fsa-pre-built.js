@@ -103,9 +103,7 @@
 
         this.signup = function(credentials) {
             return $http.post('/api/users', credentials)
-                .then(function(onSuccessfulSignup) {
-                    return this.login(credentials)
-                })
+                .then(() => this.login(credentials))
                 .then(response => response.data)
                 .catch(error=>console.error(error));
         }
