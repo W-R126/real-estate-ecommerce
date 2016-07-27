@@ -1,6 +1,5 @@
 app.config(function ($stateProvider) {
 
-    // Register our *about* state.
     $stateProvider.state('cart', {
         url: '/cart',
         controller: 'CartController',
@@ -10,7 +9,5 @@ app.config(function ($stateProvider) {
 });
 
 app.controller('CartController', function ($scope) {
-
-
 
 });
