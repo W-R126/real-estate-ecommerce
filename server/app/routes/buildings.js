@@ -17,4 +17,8 @@ router.get('/', function(req, res, next){
   .catch(err=>console.error);
 })
 
+router.get('/types', function(req, res, next){
+  res.send(Building.rawAttributes.propertyTypes.values);
+});
+
 module.exports = router;
