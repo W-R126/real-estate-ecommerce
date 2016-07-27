@@ -7,8 +7,8 @@ module.exports = db.define('cart', {
   userId:{
     type: Sequelize.INTEGER
   },
-  buildingId:{
-    type: Sequelize.INTEGER
+  arrayOfBuildingIds:{
+     type: Sequelize.ARRAY(Sequelize.INTEGER)
   }
 
 
