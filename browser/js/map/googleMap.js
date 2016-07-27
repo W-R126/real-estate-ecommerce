@@ -32,7 +32,7 @@ app.directive('googleMap', function() {
         //   elementType: 'geometry.fill',
         //   stylers: [{ color: '#b6c54c' }, { lightness: 40 }, { saturation: -40 }]
         // }];
-        //
+
         var styleArr = [];
 
         var mapCanvas = document.getElementById('custom-map-two');
