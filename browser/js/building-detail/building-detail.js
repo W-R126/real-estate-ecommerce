@@ -11,9 +11,12 @@ app.config(function ($stateProvider) {
   })
 })
 
-app.controller('BuildingCtrl', function($scope){
-
+app.controller('BuildingCtrl', function($scope, theBuilding, $log){
+$scope.building = theBuilding;
 })
+
+
+
 
 app.config(function ($stateProvider) {
   $stateProvider.state('buildings', {
@@ -29,5 +32,5 @@ app.config(function ($stateProvider) {
 })
 
 app.controller('BuildingsCtrl', function($scope, allBuildings){
-$scope.buildings = allBuildings
+$scope.buildings = allBuildings;
 })
