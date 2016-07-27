@@ -68,7 +68,7 @@ var seedCarts = function(){
     var carts = [
     {
      userId: "2",
-     buildingId: "1"
+     arrayOfBuildingIds: [1,2,3]
     }
     ]
    var creatingCarts = carts.map(function (cartObj) {
