@@ -58,10 +58,15 @@ var seedUsers = function () {
 var seedReviews = function(){
     var reviews = [
     {
-     buildingId: "1",
-     userId: "1",
      review:"This string should probably be over 250 characters just to be safe, so we know that it definetly works, and is not broken. To confirm that this string can be over 250 characters, this paragaph is going to continue on and on, till it reaches 250 characters, I am going to guess this is not over 250 characters.",
-     numOfStars:"5"
+     numOfStars:"5",
+     buildingId:"1",
+     userId:"2"
+    },{
+        review:"asdflkjzx;clvkj; xoizcuvpiewr;zlkxjcv  p[owieugl;zxkcjv w0e9fuzx;lckjv we0f9uxckj sdlfkj ",
+     numOfStars:"2",
+     buildingId:"2",
+     userId:"1"
     }
     ]
    var creatingReviews = reviews.map(function (reviewObj) {
@@ -75,8 +80,10 @@ var seedReviews = function(){
 var seedCarts = function(){
     var carts = [
     {
-     userId: "2",
-     arrayOfBuildingIds: [1,2,3]
+     userId: "2"
+    },
+    {
+     userId:"3"
     }
     ]
    var creatingCarts = carts.map(function (cartObj) {
@@ -87,22 +94,22 @@ var seedCarts = function(){
 
 };
 
-var seedOrders = function (){
-    var orders = [
-    {
-        userId:"2",
-        arrayOfBuildingIds:[1,2],
-        arrayOfPurchasePrices:[12343,54321],
-        totalPrice: 987654
-    }
-    ]
-       var creatingOrders = orders.map(function (orderObj) {
-        return Order.create(orderObj);
-    });
+// var seedOrders = function (){
+//     var orders = [
+//     {
+//         userId:"2",
+//         arrayOfBuildingIds:[1,2],
+//         arrayOfPurchasePrices:[12343,54321],
+//         totalPrice: 987654
+//     }
+//     ]
+//        var creatingOrders = orders.map(function (orderObj) {
+//         return Order.create(orderObj);
+//     });
 
-    return Promise.all(creatingOrders);
+//     return Promise.all(creatingOrders);
 
-}
+// }
 
 var seedBuildings = function (){
     var buildings = [
@@ -111,7 +118,7 @@ var seedBuildings = function (){
         city: "New York City",
         state: "New York",
         zipCode: "10001",
-        price: "123456.78",
+        price: "123456",
         propertyType: 'Commercial',
         lotSize: '7000 sq ft',
         stories: '25',
@@ -127,7 +134,7 @@ var seedBuildings = function (){
         city: "Manhattan",
         state: "New York",
         zipCode: "10002",
-        price: "223456.78",
+        price: "223456",
         propertyType: 'Residential',
         lotSize: '2000 sq ft',
         stories: '2',
@@ -143,7 +150,7 @@ var seedBuildings = function (){
         city: "Manhattan",
         state: "New York",
         zipCode: "10002",
-        price: "223456.78",
+        price: "223456",
         propertyType: 'Residential',
         lotSize: '2000 sq ft',
         stories: '100',
@@ -176,9 +183,9 @@ db.sync({ force: true })
     .then(function(){
         return seedCarts();
     })
-    .then(function(){
-        return seedOrders();
-    })
+    // .then(function(){
+    //     return seedOrders();
+    // })
     .then(function(){
         return seedReviews();
     })

@@ -3,22 +3,15 @@ var Sequelize = require('sequelize');
 var db = require('../_db');
 
 module.exports = db.define('review', {
-  buildingId: {
-    type: Sequelize.INTEGER
-  },
-  userId: {
-    type: Sequelize.INTEGER
-  },
+
   review: {
-    type: Sequelize.TEXT
+    type: Sequelize.TEXT,
+    min:50
   },
   numOfStars:{
     type: Sequelize.INTEGER,
+    min: 0,
     max: 5
-  },
-  datePosted:{
-    type: Sequelize.STRING,
-    defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
   }
 
 })
