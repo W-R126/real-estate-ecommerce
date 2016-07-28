@@ -13,14 +13,14 @@ router.get('/:id', function(req, res, next){
 
   Building.findById(req.params.id)
   .then(building=> res.send(building))
-  .catch(function(err){console.error(err); res.status(500).end(); });
+  .catch(next);
 })
 
 
 router.get('/', function(req, res, next){
   Building.findAll({where:req.query})
   .then(buildings=>res.send(buildings))
-  .catch(err=>console.error);
+  .catch(next);
 })
 
 
