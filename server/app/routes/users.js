@@ -9,7 +9,7 @@ var Cart = db.Cart;
 router.get('/:id', function(req, res, next){
   User.findById(req.params.id)
   .then(user=> res.send(user))
-  .catch(function(err){console.error(err); res.status(500).end(); });
+  .catch(next);
 })
 
 router.post('/', function(req, res, next){
@@ -23,7 +23,8 @@ router.post('/', function(req, res, next){
     req.session.cartId = cart.id;
     console.log('**********************', req.session);
     res.status(201).json(userObj) } )
-  .catch(function(err){console.error(err); res.status(500).end(); })
+  .catch(next)
+
 })
 
 module.exports = router;

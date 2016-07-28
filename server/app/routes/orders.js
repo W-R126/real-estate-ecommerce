@@ -7,7 +7,7 @@ var Order = db.Order;
 router.get('/:id', function(req, res, next){
   Order.findById(req.params.id)
   .then(order=> res.send(order))
-  .catch(function(err){console.error(err); res.status(500).end(); });
+  .catch(next);
 })
 
 

@@ -7,7 +7,7 @@ var Cart = db.Cart;
 router.get('/:id', function(req, res, next){
   Cart.findById(req.params.id)
   .then(cart=> res.send(cart))
-  .catch(function(err){console.error(err); res.status(500).end(); });
+  .catch(next);
 })
 
 router.put('/:id', function (req, res, next) {
@@ -20,8 +20,7 @@ router.put('/:id', function (req, res, next) {
   } else {
   Cart.upsert(req.body, {where: {id: req.session.cartId}})
   .then(cart=>res.send(cart))
-  .catch(function(err){console.error(err); res.status(500).end(); });
-}
+  .catch(next);
 })
 
 module.exports = router;
