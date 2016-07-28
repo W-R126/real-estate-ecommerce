@@ -5,12 +5,7 @@ var db = require('../../db');
 var Building = db.Building;
 
 router.get('/types', function(req, res, next){
-  console.log(Building.rawAttributes.propertyType.values);
   res.send(Building.rawAttributes.propertyType.values);
-})
-router.get('/searchTest/', function(req, res, next){
-  console.log("*********Search Query", req.query);
-  res.sendStatus(200);
 })
 
 router.get('/:id', function(req, res, next){
