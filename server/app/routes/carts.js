@@ -11,9 +11,17 @@ router.get('/:id', function(req, res, next){
 })
 
 router.put('/:id', function (req, res, next) {
-  Cart.upsert(req.body, {where: {id: req.params.id}})
+  if(!req.session.cartId){
+    Cart.create(req.body)
+    .then(function(cart){
+      req.session.cartId = cart.id;
+      res.send(cart)
+    })
+  } else {
+  Cart.upsert(req.body, {where: {id: req.session.cartId}})
   .then(cart=>res.send(cart))
   .catch(function(err){console.error(err); res.status(500).end(); });
+}
 })
 
 module.exports = router;

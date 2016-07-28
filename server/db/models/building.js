@@ -3,6 +3,8 @@ var Sequelize = require('sequelize');
 var db = require('../_db');
 
 module.exports = db.define('building', {
+
+    //maybe address gets it own table??
     streetAddress: {
         type: Sequelize.STRING,
         allowNull: false
@@ -15,28 +17,28 @@ module.exports = db.define('building', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    zipCode:{
-        type: Sequelize.INTEGER
+    zipCode: {
+        type: Sequelize.STRING(5)
     },
     price: {
-        type: Sequelize.DECIMAL(15,2)
+        type: Sequelize.INTEGER //in cents
     },
     propertyType: {
-        type: Sequelize.ENUM('Commercial','Residential','Mixed')
+        type: Sequelize.ENUM('Commercial', 'Residential', 'Mixed')
     },
-    lotSize:{
+    lotSize: {
         type: Sequelize.STRING
     },
-    stories:{
+    stories: {
         type: Sequelize.INTEGER
     },
-     squareFootage:{
+    squareFootage: {
         type: Sequelize.INTEGER
     },
     numberOfUnits: {
         type: Sequelize.INTEGER
     },
-    architecturalStyle:{
+    architecturalStyle: {
         type: Sequelize.STRING
     },
     buildingAge: {
@@ -45,15 +47,15 @@ module.exports = db.define('building', {
     description: {
         type: Sequelize.TEXT
     },
-    daysOnMarket: {
-        type: Sequelize.INTEGER
-    },
     photoURL: {
-        type: Sequelize.STRING
-    },
-    ownerId:{
-        type: Sequelize.INTEGER,
-        defaultValue: "0"
+        type: Sequelize.STRING,
+        validate: {
+            isUrl: true
+        }
     }
 
+
 });
+
+
+//make getter for date
