@@ -14,5 +14,3 @@ db.Order.belongsTo(db.Cart);
 db.Cart.belongsTo(db.User);
 db.Review.belongsTo(db.Building);
 
-
-
