@@ -22,16 +22,10 @@
   float:right;
 }
 
-<<<<<<< HEAD
-#detail-cart {
-  background-color: lightyellow;
-  margin-bottom: 100px;
+.pointer {
+  cursor: pointer;
 }
 
-.pointer {
-    cursor: pointer;
-}
-=======
 #cart-box {
   position: fixed;
   width: 287px;
@@ -45,4 +39,8 @@
 #footer {
   margin-top: 20px;
 }
->>>>>>> master
+
+.tab {
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
