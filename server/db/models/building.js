@@ -19,7 +19,7 @@ module.exports = db.define('building', {
         type: Sequelize.INTEGER
     },
     price: {
-        type: Sequelize.STRING
+        type: Sequelize.DECIMAL(15,2)
     },
     propertyType: {
         type: Sequelize.ENUM('Commercial','Residential','Mixed')
