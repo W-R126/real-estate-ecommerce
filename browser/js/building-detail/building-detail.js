@@ -2,7 +2,7 @@
 app.config(function ($stateProvider) {
   $stateProvider.state('building', {
     url: '/properties/:id',
-    templateUrl: 'js/building-detail/building-detail.html',
+    templateUrl: 'js/building-detail/templates/building-detail.html',
     controller: 'BuildingCtrl',
     resolve:{
       theBuilding: function (BuildingFactory, $stateParams){
@@ -12,6 +12,7 @@ app.config(function ($stateProvider) {
   })
 })
 
+
 app.controller('BuildingCtrl', function($scope, theBuilding, $log){
   $scope.building = theBuilding;
 })
@@ -20,7 +21,7 @@ app.controller('BuildingCtrl', function($scope, theBuilding, $log){
 app.config(function ($stateProvider) {
   $stateProvider.state('building.reviews', {
     url: '/reviews',
-    templateUrl: 'js/building-detail/building-reviews.html'/*,
+    templateUrl: 'js/building-detail/templates/building-reviews.html'/*,
     resolve:{
       theBuilding: function (BuildingFactory, $stateParams){
         return BuildingFactory.fetchOne($stateParams.id);
@@ -29,16 +30,16 @@ app.config(function ($stateProvider) {
   })
   .state('building.write', {
     url: '/write',
-    templateUrl: 'js/building-detail/building-write.html'
+    templateUrl: 'js/building-detail/templates/building-write.html'
   })
 })
 
 
-//all buildings page
+// all buildings page
 app.config(function ($stateProvider) {
   $stateProvider.state('buildings', {
     url: '/properties',
-    templateUrl: 'js/building-detail/buildings.html',
+    templateUrl: 'js/building-detail/templates/buildings.html',
     controller: 'BuildingsCtrl',
     resolve:{
       allBuildings: function (BuildingFactory){
@@ -47,6 +48,22 @@ app.config(function ($stateProvider) {
     }
   })
 })
+
+// all buildings page
+app.config(function ($stateProvider) {
+  $stateProvider.state('buildings-commercial', {
+    url: '/properties/commercial',
+    templateUrl: 'js/building-detail/templates/buildings.html',
+    controller: 'BuildingsCtrl',
+    resolve:{
+      allBuildings: function (BuildingFactory){
+        return BuildingFactory.fetchAllCommercial();
+      }
+    }
+  })
+})
+
+
 
 app.controller('BuildingsCtrl', function($scope, allBuildings){
   $scope.buildings = allBuildings;

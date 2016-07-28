@@ -21,4 +21,14 @@ router.get('/types', function(req, res, next){
   res.send(Building.rawAttributes.propertyTypes.values);
 });
 
+router.get('/commercial', function(req, res, next) {
+  Building.findAll({
+    where: {
+      propertyType: 'Commercial'
+    }
+  })
+  .then(commercialBuildings => res.send(commercialBuildings))
+  .catch(err=>console.error);
+})
+
 module.exports = router;
