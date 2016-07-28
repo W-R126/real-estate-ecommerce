@@ -27,30 +27,30 @@
                         <a ui-sref="cart">Cart</a>
                     </li>
                     <li>
-                        <a ui-sref="signup">Sign Up</a>
+                        <a ui-sref="signup" ng-hide="isLoggedIn()">Sign Up</a>
                     </li>
                     <li>
-                        <a ui-sref="login">Login</a>
-                    </li>
-<!--                     <li>
-                        <a href="#">Log Out</a>
+                        <a ui-sref="login" ng-hide="isLoggedIn()">Login</a>
                     </li>
                     <li>
-                        <a href="#">(User's name)</a>
+                        <a href="#" ng-show="isLoggedIn()">{{ user.name }}</a>
                         <div class="flyout-menu menu-type-1 menu-container">
                           <ul class="page-menu">
                             <li>
                               <a href="#">Your Properties</a>
                             </li>
                             <li>
-                              <a href="#">Settings</a>
+                              <a ng-show="isAdmin()">User Control</a>
                             </li>
                             <li>
-                              <a href="#">Logout</a>
+                              <a ui-sref="home">Your Orders</a>
+                            </li>
+                            <li>
+                              <a ng-click="logout()" class="pointer">Logout</a>
                             </li>
                           </ul>
                         </div>
-                    </li> -->
+                    </li>
                   </ul>
                   <div class="header-widget">
                     <button class="glyphicon glyphicon-search search">

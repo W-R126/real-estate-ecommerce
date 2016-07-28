@@ -12,5 +12,20 @@ app.factory('BuildingFactory', function ($http) {
     .then(function (response) { return response.data; });
   };
 
+  BuildingFactory.fetchAllCommercial = function() {
+    return $http.get('/api/buildings/commercial')
+    .then(res => res.data);
+  }
+
+  BuildingFactory.fetchAllResidential = function() {
+    return $http.get('/api/buildings/residential')
+    .then(res => res.data);
+  }
+
+  BuildingFactory.fetchAllMixed = function() {
+    return $http.get('/api/buildings/mixed')
+    .then(res => res.data);
+  }
+
   return BuildingFactory;
 });

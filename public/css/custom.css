@@ -22,6 +22,10 @@
   float:right;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 #cart-box {
   position: fixed;
   width: 287px;
@@ -34,4 +38,9 @@
 
 #footer {
   margin-top: 20px;
+}
+
+.tab {
+  margin-right: 10px;
+  margin-bottom: 20px;
 }
