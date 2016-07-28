@@ -21,6 +21,6 @@ router.put('/:id', function (req, res, next) {
   Cart.upsert(req.body, {where: {id: req.session.cartId}})
   .then(cart=>res.send(cart))
   .catch(next);
-})
+}})
 
 module.exports = router;
