@@ -45,7 +45,6 @@ router.get('/:id', function(req, res, next){
   .catch(function(err){console.error(err); res.status(500).end(); });
 })
 
-
 router.get('/', function(req, res, next){
   Building.findAll({where:req.query})
   .then(buildings=>res.send(buildings))
