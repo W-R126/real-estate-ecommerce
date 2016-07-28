@@ -18,11 +18,7 @@ app.controller('HomeCtrl', function($scope, $state, $log, SearchFactory, useType
   $scope.styles= [{name:"Beaux Arts"}, {name:"Modern"}, {name: "Art Deco"}, {name: "International"}, {name:"Brutalist"}, {name:"Federalist"}, {name:"Renaissance Revival"}, {name:"Greek Revival"}];
   $scope.message = "Hello!";
   $scope.search = function(){
-    console.log($scope.searchProps);
-    SearchFactory.searchFields($scope.searchProps)
-    .then(function(buildings){
-      console.log(buildings);
-      $state.go("search-results", {theBuildings: buildings})
-    })
-  };
+    var searchProps = JSON.stringify($scope.searchProps);
+    $state.go("search-results", {searchProps: searchProps})
+    }
 })

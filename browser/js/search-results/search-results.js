@@ -1,12 +1,13 @@
 app.config(function($stateProvider){
   $stateProvider.state('search-results', {
-    url: '/buildings',
+    url: '/buildings/:searchProps',
     templateUrl: 'js/search-results/search-results.html',
     controller: 'ResultsCtrl',
     resolve: {
-      theBuildings: function($stateParams){
-        console.log("****BUILDINGS***", $stateParams);
-        return $stateParams.theBuildings;
+      theBuildings: function($stateParams, SearchFactory){
+        console.log("****Props***", $stateParams.searchProps);
+        var searchProps = JSON.parse($stateParams.searchProps);
+        return SearchFactory.searchFields(searchProps);
       }
     }
   })
