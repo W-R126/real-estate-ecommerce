@@ -28,7 +28,7 @@ app.controller('SignupCtrl', function ($scope, AuthService, $state) {
 
         AuthService.signup(signUpInfo)
         .then(function() {
-            $state.go('property')
+            $state.go('buildings')
         })
         .catch(function() {
             $scope.error = 'Invalid signup credentials';
