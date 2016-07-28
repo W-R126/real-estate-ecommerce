@@ -3,10 +3,10 @@
 <section class="new-sale">
   <div class="container" >
     <h2> New Properties for Sale </h2>
-    <a class="btn btn-default btn-effect tab" ui-sref="buildings">All</a>
-    <a class="btn btn-default btn-effect tab" ui-sref="buildingscommercial" ui-sref="building.write">Commercial</a>
-    <a class="btn btn-default btn-effect tab" ui-sref="buildingsresidential" ui-sref="building.write">Residential</a>
-    <a class="btn btn-default btn-effect tab" ui-sref="buildingsmixed">Mixed</a>
+    <a class="btn btn-default btn-effect tab" ui-sref="buildings({type:''})">All</a>
+    <a class="btn btn-default btn-effect tab" ui-sref="buildings({type: 'Commercial'})" ui-sref="building.write">Commercial</a>
+    <a class="btn btn-default btn-effect tab" ui-sref="buildings({type: 'Residential'})" ui-sref="building.write">Residential</a>
+    <a class="btn btn-default btn-effect tab" ui-sref="buildings({type: 'Mixed'})">Mixed</a>
 
     <div class="row">
       <div ng-repeat="building in buildings" class="col-md-4 col-sm-6 zoom">
