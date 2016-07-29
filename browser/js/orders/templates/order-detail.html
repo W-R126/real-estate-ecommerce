@@ -25,7 +25,7 @@
             <th class="total-cell" ><span class="h3">Purchase Price</span></th>
           </tr>
           <tr ng-repeat="building in theorders.purchasedBuildings">
-            <td><a ui-sref="building({id: {{building.building.id}} })"><img src="{{building.building.photoURL}}" alt="" /></a>Address: {{building.building.streetAddress}} </td>
+            <td><a ui-sref="building({id: {{building.building.id}} })"><img class="listBuildingImg" src="{{building.building.photoURL}}" />  {{building.building.streetAddress}} </a></td>
             <td><span class="cart-total">{{theorders.convertDate}}</span></td>
             <td><span class="cart-total">1</span></td>
             <td><span class="cart-total">{{building.purchasePrice}}</span></td>
