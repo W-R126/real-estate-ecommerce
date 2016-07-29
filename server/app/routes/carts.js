@@ -5,17 +5,19 @@ var db = require('../../db');
 var Cart = db.Cart;
 var Building = db.Building;
 
-router.get('/:id', function(req, res, next){
-  Cart.findById(req.params.id)
+router.get('/', function(req, res, next){
+  Cart.findById(req.session.cartId, {include:[Building]})
   .then(cart=> res.send(cart))
   .catch(next);
 })
 
-router.put('/:id', function (req, res, next) {
+
+
+router.put('/:buildingId', function (req, res, next) {
   console.log("Session******************", req.session);
   var foundBuilding;
   if(!req.session.cartId){
-  Building.findById(req.params.id)
+  Building.findById(req.params.buildingId)
   .then(function(building){
     foundBuilding=building;
     console.log(req.body);
@@ -30,7 +32,7 @@ router.put('/:id', function (req, res, next) {
   }
 
   else{
-    Building.findById(req.params.id)
+    Building.findById(req.params.buildingId)
     .then(function(building){
       console.log(req.body);
       foundBuilding=building;

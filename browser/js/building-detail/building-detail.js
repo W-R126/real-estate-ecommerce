@@ -1,5 +1,10 @@
-app.controller('BuildingCtrl', function($scope, theBuilding, $log){
+app.controller('BuildingCtrl', function($scope, theBuilding, CartFactory, $state){
   $scope.building = theBuilding;
+
+  $scope.addToCart = function () {
+    CartFactory.add(theBuilding.id);
+    $state.go('cart');
+  }
 })
 
 //building child states for reviews
@@ -26,8 +31,8 @@ app.config(function ($stateProvider) {
     url: '/properties?type',
     templateUrl: 'js/building-detail/templates/buildings.html',
     controller: 'BuildingsCtrl',
-    resolve:{
-      allBuildings: function (BuildingFactory, $stateParams){
+    resolve: {
+      allBuildings: function (BuildingFactory, $stateParams) {
         console.log("Type:", $stateParams.type);
         return BuildingFactory.fetchAll({propertyType: $stateParams.type});
       }
@@ -42,8 +47,8 @@ app.config(function ($stateProvider) {
     url: '/properties/:id',
     templateUrl: 'js/building-detail/templates/building-detail.html',
     controller: 'BuildingCtrl',
-    resolve:{
-      theBuilding: function (BuildingFactory, $stateParams){
+    resolve: {
+      theBuilding: function (BuildingFactory, $stateParams) {
         return BuildingFactory.fetchOne($stateParams.id);
       }
     }
@@ -51,7 +56,7 @@ app.config(function ($stateProvider) {
 })
 
 
-app.controller('BuildingsCtrl', function($scope, allBuildings){
+app.controller('BuildingsCtrl', function($scope, allBuildings) {
   $scope.buildings = allBuildings;
 })
 
