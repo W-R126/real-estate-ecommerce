@@ -12,6 +12,12 @@ router.get('/:id', function(req, res, next){
   .catch(next);
 })
 
+router.get('/', function(req, res, next) {
+  User.findAll()
+  .then(user => res.send(user))
+  .catch(next);
+})
+
 router.post('/', function(req, res, next){
   var userObj;
   User.create(req.body)
