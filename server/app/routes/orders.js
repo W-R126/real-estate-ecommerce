@@ -3,9 +3,25 @@ var router = new express.Router();
 
 var db = require('../../db');
 var Order = db.Order;
+var PurchasedBuilding = db.PurchasedBuilding;
+var Building = db.Building;
 
 router.get('/:id', function(req, res, next) {
-
+  var returnObj = {};
+  Order.findById(req.params.id, {
+    include: [
+      {
+        model: PurchasedBuilding,
+        include: [
+          Building
+        ]
+      }]
+  })
+  .then(order => {
+    console.log('order here*********', order);
+    res.send(order)
+  })
+  .catch(next);
 });
 
 router.get('/', function(req, res, next){
@@ -17,7 +33,6 @@ router.get('/', function(req, res, next){
   .then(orders => res.send(orders))
   .catch(next)
 });
-
 
 
 module.exports = router;

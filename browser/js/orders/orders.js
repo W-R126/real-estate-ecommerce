@@ -2,7 +2,7 @@ app.config(function ($stateProvider) {
 
     $stateProvider.state('orders', {
         url: '/orders',
-        controller: 'OrderController',
+        controller: 'OrdersController',
         templateUrl: 'js/orders/templates/orders.html',
         resolve: {
           theOrders: function(OrderFactory) {
@@ -13,20 +13,24 @@ app.config(function ($stateProvider) {
 
 });
 
-app.controller('OrderController', function ($scope, theOrders) {
+app.controller('OrdersController', function ($scope, theOrders) {
   $scope.orders = theOrders;
 });
 
 
 app.config(function ($stateProvider) {
-  $stateProvider.state('building', {
-    url: '/properties/:id',
-    templateUrl: 'js/building-detail/templates/building-detail.html',
-    controller: 'BuildingCtrl',
-    resolve:{
-      theBuilding: function (BuildingFactory, $stateParams){
-        return BuildingFactory.fetchOne($stateParams.id);
+  $stateProvider.state('order', {
+    url: '/orders/:id',
+    templateUrl: 'js/orders/templates/order-detail.html',
+    controller: 'OrderController',
+    resolve: {
+      theIndOrders: function (OrderFactory, $stateParams){
+        return OrderFactory.findAllForOrderId($stateParams.id);
       }
     }
   })
 })
+
+app.controller('OrderController', function ($scope, theIndOrders) {
+  $scope.theorders = theIndOrders;
+});

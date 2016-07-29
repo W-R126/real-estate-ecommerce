@@ -5,11 +5,12 @@
     <!--Content Header -->
     <header class="content-header row ">
       <div class="heading col-md-8 col-sm-6 col-xs-12">
-        <h1>Your Orders</h1>
+        <h1>Order Details</h1>
       </div>
       <ul class="col-md-4 col-sm-6 col-xs-12 breadcrumb ">
         <li> <a ui-sref="home">Main Page</a> </li>
-        <li class="active"> Your Orders </li>
+        <li> <a ui-sref="orders"> Orders </a></li>
+        <li class="active"> Order Details </li>
       </ul>
     </header>
     <!--Content Header -->
@@ -18,13 +19,15 @@
       <div class="cart-table-wrapper">
         <table class="table cart-table">
           <tr>
-            <th class="product-cell"><span class="h3">Order Number</span></th>
-            <th class="price-cell"><span class="h3">Date</span></th>
-            <th class="total-cell" ><span class="h3">Total</span></th>
+            <th class="product-cell"><span class="h3">Property</span></th>
+            <th class="price-cell"><span class="h3">Purchase Date</span></th>
+            <th class="price-cell"><span class="h3">Quantity</span></th>
+            <th class="total-cell" ><span class="h3">Purchase Price</span></th>
           </tr>
-          <tr ng-repeat="order in orders">
-            <td > <img src="/img/cart-img-1.jpg" alt="" /> <a ui-sref="order({id: '{{order.id}}'})" class="saved-product"> {{order.convertId}} </a></td>
-            <td>{{order.convertDate}}</td>
+          {{theorders.purchasedBuildings}}
+          <tr ng-repeat="order in theorders">
+            <td>{{property.id}}</td>
+            <td><span class="cart-total">$59.95</span></td>
             <td><span class="cart-total">$59.95</span></td>
           </tr>
         </table>

@@ -3,13 +3,12 @@ app.factory('OrderFactory', function($http){
 
   OrderFactory.getAllUserOrders = function() {
     return $http.get('/api/orders/')
-    .then(function(orders){return orders.data});
+    .then(orders => orders.data);
   }
 
-  OrderFactory.searchFields = function(obj){
-
-    return $http.get('/api/buildings/?'+"propertyType="+obj.propertyType)
-    .then(buildings=>buildings.data);
+  OrderFactory.findAllForOrderId = function(args) {
+    return $http.get('/api/orders', {params: args})
+    .then(res => res.data);
   }
 
   return OrderFactory;
