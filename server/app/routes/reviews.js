@@ -3,6 +3,7 @@ var router = new express.Router();
 
 var db = require('../../db');
 var Review = db.Review;
+var User = db.User;
 
 router.get('/:id', function(req, res, next){
   Review.findById(req.params.id)
@@ -11,7 +12,8 @@ router.get('/:id', function(req, res, next){
 })
 
 router.get('/', function(req, res, next){
-  Review.findAll({where:req.query})
+  Review.findAll({where:req.query,
+    include:[User]})
   .then(reviews=>res.send(reviews))
   .catch(next);
 })
