@@ -5,7 +5,6 @@ var db = require('../../db');
 var Building = db.Building;
 
 router.get('/types', function(req, res, next){
-  console.log("Session******************", req.session);
   res.send(Building.rawAttributes.propertyType.values);
 })
 
