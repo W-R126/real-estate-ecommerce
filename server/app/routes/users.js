@@ -43,7 +43,6 @@ router.post('/changeAdmin/:id', function(req, res, next) {
 });
 
 router.delete('/:id', function (req, res, next) {
-  console.log('got here');
   User.destroy({
     where: {
       id: req.params.id
