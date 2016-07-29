@@ -12,36 +12,18 @@ router.get('/', function(req, res, next){
 })
 
 
-
-router.put('/:buildingId', function (req, res, next) {
-  console.log("Session******************", req.session);
-  var foundBuilding;
+router.put('/:id', function (req, res, next) {
   if(!req.session.cartId){
-  Building.findById(req.params.buildingId)
-  .then(function(building){
-    foundBuilding=building;
-    console.log(req.body);
-    return Cart.create(req.body)
-  })
-  .then(function(cart){
-    req.session.cartId = cart.id;
-    return cart.addBuilding(foundBuilding); })
-  .then(crap => Cart.findById(req.session.cartId, {include:[Building]}))
-  .then(cart=>res.send(cart))
-  .catch(next);
-  }
-
-  else{
-    Building.findById(req.params.buildingId)
-    .then(function(building){
-      console.log(req.body);
-      foundBuilding=building;
-      return Cart.findById(req.session.cartId); })
-    .then(cart=>cart.addBuilding(foundBuilding))
-    .then(crap=>Cart.findById(req.session.cartId, {include:[Building]}))
+    Cart.create(req.body)
+    .then(cart=>cart.addBuilding(req.params.id))
     .then(cart=>res.send(cart))
     .catch(next);
-
+  }
+  else {
+    Cart.findById(req.session.cartId)
+    .then(cart=>cart.addBuilding(req.params.id))
+    .then(cart=>res.send(cart))
+    .catch(next);
     }
 })
 
