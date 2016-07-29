@@ -3,10 +3,11 @@ var router = new express.Router();
 
 var db = require('../../db');
 var Cart = db.Cart;
+var Building = db.Building;
 
 router.get('/:id', function(req, res, next){
   Cart.findById(req.params.id)
-  .then(cart=> res.send(cart))
+  .then(cart=> res.send(true))
   .catch(next);
 })
 
@@ -18,8 +19,9 @@ router.put('/:id', function (req, res, next) {
       res.send(cart)
     })
   } else {
-  Cart.upsert(req.body, {where: {id: req.session.cartId}})
-  .then(cart=>res.send(cart))
+  Cart.findById(req.session.cartId)
+  .then(cart=>cart.addBuilding(req.params.id))
+  .then(cart=>res.send(true))
   .catch(next);
 }})
 
