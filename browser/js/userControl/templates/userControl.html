@@ -28,14 +28,10 @@
             <td>{{user.email}}</td>
             <td>{{user.isAdmin}}</td>
             <td>
-              <select>
-                <option>
-                  Grant Admin Access
-                </option>
-                <option>
-                  Remove Admin Access
-                </option>
-              </select>
+              <label class="switch">
+                <input type="checkbox">
+                <div class="slider round"></div>
+              </label>
             </td>
             <td><span class="cart-total">${{ building.price }}<a ng-click=deleteItem(building.id,$index) class="fa fa-close pointer"></a></span></td>
           </tr>
