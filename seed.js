@@ -23,7 +23,8 @@ var User = db.model('user');
 var Building = db.model('building')
 var Cart = db.model('cart')
 var Order = db.model('order')
-var Review = db.model('review')
+var Review = db.model('review');
+var PurchasedBuilding = db.model('purchasedBuilding');
 var Promise = require('sequelize').Promise;
 
 var seedUsers = function () {
@@ -59,14 +60,26 @@ var seedReviews = function(){
     var reviews = [
     {
      review:"This string should probably be over 250 characters just to be safe, so we know that it definetly works, and is not broken. To confirm that this string can be over 250 characters, this paragaph is going to continue on and on, till it reaches 250 characters, I am going to guess this is not over 250 characters.",
-     numOfStars:"5",
-     buildingId:"1",
+     numOfStars:"1",
+     buildingId:"2",
      userId:"2"
     },{
-        review:"asdflkjzx;clvkj; xoizcuvpiewr;zlkxjcv  p[owieugl;zxkcjv w0e9fuzx;lckjv we0f9uxckj sdlfkj ",
+        review:"Second Review this building is just aiiiittteeee",
      numOfStars:"2",
      buildingId:"2",
      userId:"1"
+    },
+    {
+        review:"this building is not so good",
+     numOfStars:"3",
+     buildingId:"2",
+     userId:"1"
+    },
+    {
+        review:"REVIEW FOR BUILDING 3!!!!",
+     numOfStars:"3",
+     buildingId:"2",
+     userId:"3"
     }
     ]
    var creatingReviews = reviews.map(function (reviewObj) {
@@ -94,22 +107,49 @@ var seedCarts = function(){
 
 };
 
-// var seedOrders = function (){
-//     var orders = [
-//     {
-//         userId:"2",
-//         arrayOfBuildingIds:[1,2],
-//         arrayOfPurchasePrices:[12343,54321],
-//         totalPrice: 987654
-//     }
-//     ]
-//        var creatingOrders = orders.map(function (orderObj) {
-//         return Order.create(orderObj);
-//     });
+// create getter method for total price
+var seedOrders = function() {
+     var orders = [
+         {
+             userId: "2",
+             cartId: "1",
+         },
+         {
+             userId:"3",
+             cartId:"2"
 
-//     return Promise.all(creatingOrders);
+         }
+     ]
 
-// }
+    var creatingOrders = orders.map(function (orderObj) {
+         return Order.create(orderObj)
+            .then(order => {
+                order.setPurchasedBuildings([1,2]);
+            });
+     });
+
+     return Promise.all(creatingOrders);
+}
+
+var seedPurchasedBuildings = function() {
+    var purchasedBuilding = [
+        {
+            purchasePrice: "100",
+            buildingId: "1"
+        },
+        {
+            purchasePrice: "300",
+            buildingId: "2"
+        }
+    ]
+
+    var creatingPurchasedBuildings = purchasedBuilding.map(function(pBuilding) {
+        return PurchasedBuilding.create(pBuilding);
+    })
+
+    return Promise.all(creatingPurchasedBuildings);
+
+}
 
 var seedBuildings = function (){
     var buildings = [
@@ -183,9 +223,12 @@ db.sync({ force: true })
     .then(function(){
         return seedCarts();
     })
-    // .then(function(){
-    //     return seedOrders();
-    // })
+    .then(function(){
+        return seedOrders();
+    })
+    .then(function(){
+        return seedPurchasedBuildings();
+    })
     .then(function(){
         return seedReviews();
     })

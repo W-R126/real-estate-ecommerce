@@ -1,0 +1,44 @@
+<!--content Section Start Here -->
+<div id="content" class="margin-bottom">
+  <div class="container your-cart padding-bottom">
+
+    <!--Content Header -->
+    <header class="content-header row ">
+      <div class="heading col-md-8 col-sm-6 col-xs-12">
+        <h1>{{theorders.convertId}} Details</h1>
+      </div>
+      <ul class="col-md-4 col-sm-6 col-xs-12 breadcrumb ">
+        <li> <a ui-sref="home">Main Page</a> </li>
+        <li> <a ui-sref="orders"> Orders </a></li>
+        <li class="active"> Order Details </li>
+      </ul>
+    </header>
+    <!--Content Header -->
+
+    <section class="cart-section">
+      <div class="cart-table-wrapper">
+        <table class="table cart-table">
+          <tr>
+            <th class="product-cell"><span class="h3">Property</span></th>
+            <th class="price-cell"><span class="h3">Purchase Date</span></th>
+            <th class="price-cell"><span class="h3">Quantity</span></th>
+            <th class="total-cell" ><span class="h3">Purchase Price</span></th>
+          </tr>
+          <tr ng-repeat="building in theorders.purchasedBuildings">
+            <td><a ui-sref="building({id: {{building.building.id}} })"><img src="{{building.building.photoURL}}" alt="" /></a>Address: {{building.building.streetAddress}} </td>
+            <td><span class="cart-total">{{theorders.convertDate}}</span></td>
+            <td><span class="cart-total">1</span></td>
+            <td><span class="cart-total">{{building.purchasePrice}}</span></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><span class="cart-total">Total: {{getTotal()}}</span></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+  </div>
+</div>
+<!--content Section End Here -->
