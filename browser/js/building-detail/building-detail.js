@@ -1,24 +1,10 @@
-app.controller('BuildingCtrl', function($scope, theBuilding, $log){
+app.controller('BuildingCtrl', function($scope, theBuilding, CartFactory, $state){
   $scope.building = theBuilding;
-})
 
-
-
-
-
-// all buildings page
-app.config(function ($stateProvider) {
-  $stateProvider.state('buildings', {
-    url: '/properties?type',
-    templateUrl: 'js/building-detail/templates/buildings.html',
-    controller: 'BuildingsCtrl',
-    resolve:{
-      allBuildings: function (BuildingFactory, $stateParams){
-        console.log("Type:", $stateParams.type);
-        return BuildingFactory.fetchAll({propertyType: $stateParams.type});
-      }
-    }
-  })
+  $scope.addToCart = function () {
+    CartFactory.add(theBuilding.id);
+    $state.go('cart');
+  }
 })
 
 
@@ -28,8 +14,8 @@ app.config(function ($stateProvider) {
     url: '/properties/:id',
     templateUrl: 'js/building-detail/templates/building-detail.html',
     controller: 'BuildingCtrl',
-    resolve:{
-      theBuilding: function (BuildingFactory, $stateParams){
+    resolve: {
+      theBuilding: function (BuildingFactory, $stateParams) {
         return BuildingFactory.fetchOne($stateParams.id);
       }
     }
@@ -37,8 +23,23 @@ app.config(function ($stateProvider) {
 })
 
 
-app.controller('BuildingsCtrl', function($scope, allBuildings){
+app.controller('BuildingsCtrl', function($scope, allBuildings) {
   $scope.buildings = allBuildings;
 })
 
+
+// all buildings page
+app.config(function ($stateProvider) {
+  $stateProvider.state('buildings', {
+    url: '/properties?type',
+    templateUrl: 'js/building-detail/templates/buildings.html',
+    controller: 'BuildingsCtrl',
+    resolve: {
+      allBuildings: function (BuildingFactory, $stateParams) {
+        console.log("Type:", $stateParams.type);
+        return BuildingFactory.fetchAll({propertyType: $stateParams.type});
+      }
+    }
+  })
+})
 

@@ -5,24 +5,34 @@ var db = require('../../db');
 var Cart = db.Cart;
 var Building = db.Building;
 
-router.get('/:id', function(req, res, next){
-  Cart.findById(req.params.id)
-  .then(cart=> res.send(true))
+
+router.get('/', function(req, res, next){
+  Cart.findById(req.session.cartId, {include:[Building]})
+  .then(cart=> res.send(cart))
   .catch(next);
 })
+
 
 router.put('/:id', function (req, res, next) {
   if(!req.session.cartId){
     Cart.create(req.body)
-    .then(function(cart){
-      req.session.cartId = cart.id;
-      res.send(cart)
-    })
-  } else {
+    .then(cart=>cart.addBuilding(req.params.id))
+    .then(cart=>res.send(cart))
+    .catch(next);
+  }
+  else {
+    Cart.findById(req.session.cartId)
+    .then(cart=>cart.addBuilding(req.params.id))
+    .then(cart=>res.send(cart))
+    .catch(next);
+    }
+})
+
+router.delete('/:id', function (req, res, next) {
   Cart.findById(req.session.cartId)
-  .then(cart=>cart.addBuilding(req.params.id))
-  .then(cart=>res.send(true))
+  .then(cart => cart.removeBuilding(req.params.id))
+  .then(() => res.sendStatus(204))
   .catch(next);
-}})
+})
 
 module.exports = router;
