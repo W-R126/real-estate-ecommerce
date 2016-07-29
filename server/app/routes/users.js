@@ -42,5 +42,16 @@ router.post('/changeAdmin/:id', function(req, res, next) {
   .catch(next)
 });
 
+router.delete('/:id', function (req, res, next) {
+  console.log('got here');
+  User.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(() => res.sendStatus(204))
+  .catch(next);
+})
+
 module.exports = router;
 

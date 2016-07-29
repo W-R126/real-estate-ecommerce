@@ -15,13 +15,22 @@ app.config(function ($stateProvider) {
 
 app.controller('UserController', function ($scope, allUsers, UserFactory) {
   $scope.users = allUsers;
+
   $scope.toggleAdmin = function(userId, adminStatus, index) {
-    console.log('was clicked!!!');
-    console.log(adminStatus);
     UserFactory.changeAdmin(userId, !adminStatus)
       .then(() => {
         $scope.users[index].isAdmin = !adminStatus;
       })
-      .catch(console.log('Error in setting admin'))
+      .catch(console.error('Error in setting admin'))
   }
+
+  $scope.deleteUser = function(userId, index) {
+    console.log('I was clicked!!');
+    UserFactory.delete(userId)
+    .then(function () {
+      $scope.users.splice(index, 1);
+    })
+    .catch(console.error('Error in deleting user'))
+  }
+
 });

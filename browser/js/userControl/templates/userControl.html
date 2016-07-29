@@ -22,6 +22,7 @@
             <th class="price-cell"><span class="h3">Admin Status</span></th>
             <th class="price-cell"><span class="h3">Toggle Admin</span></th>
             <th class="total-cell" ><span class="h3">Password Reset</span></th>
+            <th class="total-cell" ><span class="h3">Delete User</span></th>
           </tr>
           <tr ng-repeat="user in users">
             <td>{{user.name}}</td>
@@ -33,7 +34,13 @@
                 <div class="slider round"></div>
               </label>
             </td>
-            <td><span class="cart-total">${{ building.price }}<a ng-click=deleteItem(building.id,$index) class="fa fa-close pointer"></a></span></td>
+            <td>
+              <label class="switch">
+                <input type="checkbox">
+                <div class="slider round"></div>
+              </label>
+            </td>
+            <td><a ng-click="deleteUser(user.id,$index)" class="fa fa-close pointer"></a></td>
           </tr>
         </table>
       </div>

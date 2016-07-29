@@ -9,7 +9,12 @@ app.factory('UserFactory', function ($http) {
 
   UserFactory.changeAdmin = function(userId, adminStatus) {
     return $http.post('/api/users/changeAdmin/' + userId, {isAdmin: adminStatus})
-    .then(res => res.data);
+      .then(res => res.data);
+  }
+
+  UserFactory.delete = function (userId) {
+    return $http.delete('/api/users/' + userId)
+      .then(res => res.data);
   }
 
   return UserFactory;
