@@ -23,8 +23,13 @@ router.get('/:id', function(req, res, next) {
   .catch(next);
 });
 
+router.get('/admin', function(req, res, next) {
+  Order.findAll({where: req.query})
+  .then(orders => res.send(orders))
+  .catch(next);
+})
+
 router.get('/', function(req, res, next){
-  console.log('hit this routeafa');
   Order.findAll({
     where: {
       userId: req.session.passport.user

@@ -7,7 +7,10 @@ var hashids = new Hashids();
 var db = require('../_db');
 
 module.exports = db.define('order', {
-//getter method for total price
+  orderStatus: {
+    type: Sequelize.ENUM('Created', 'Processing', 'Canceled', 'Completed'),
+    defaultValue: 'Created'
+  }
 }, {
   getterMethods: {
     convertId: function() {

@@ -1,0 +1,54 @@
+<div id="content" class="margin-bottom">
+  <div class="container your-cart padding-bottom">
+
+    <!--Content Header -->
+    <header class="content-header row ">
+      <div class="heading col-md-8 col-sm-6 col-xs-12">
+        <h1>All Users</h1>
+        <a class="btn btn-default btn-effect tab" ui-sref="ordersAdmin({type:''})">All</a>
+        <a class="btn btn-default btn-effect tab" ui-sref="ordersAdmin({type: 'Processing'})" ui-sref="building.write">Processing</a>
+        <a class="btn btn-default btn-effect tab" ui-sref="ordersAdmin({type: 'Canceled'})" ui-sref="building.write">Canceled</a>
+        <a class="btn btn-default btn-effect tab" ui-sref="ordersAdmin({type: 'Completed'})">Completed</a>
+      </div>
+      <ul class="col-md-4 col-sm-6 col-xs-12 breadcrumb ">
+        <li> <a ui-sref="home">Main Page</a> </li>
+        <li class="active"> Admin Orders </li>
+      </ul>
+    </header>
+    <!--Content Header -->
+
+    <section class="cart-section">
+      <div class="cart-table-wrapper">
+        <table class="table cart-table">
+          <tr>
+            <th class="product-cell"><span class="h3">User</span></th>
+            <th class="price-cell"><span class="h3">Email</span></th>
+            <th class="price-cell"><span class="h3">Admin Status</span></th>
+            <th class="price-cell"><span class="h3">Toggle Admin</span></th>
+            <th class="total-cell" ><span class="h3">Password Reset</span></th>
+            <th class="total-cell" ><span class="h3">Delete User</span></th>
+          </tr>
+          <tr ng-repeat="user in users">
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.isAdmin}}</td>
+            <td>
+              <label class="switch">
+                <input type="checkbox" ng-click="toggleAdmin(user.id, user.isAdmin, $index)">
+                <div class="slider round"></div>
+              </label>
+            </td>
+            <td>
+              <label class="switch">
+                <input type="checkbox">
+                <div class="slider round"></div>
+              </label>
+            </td>
+            <td><a ng-click="deleteUser(user.id,$index)" class="fa fa-close pointer"></a></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+  </div>
+</div>
+<!--content Section End Here -->

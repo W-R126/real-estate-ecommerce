@@ -17,7 +17,6 @@ app.controller('OrdersController', function ($scope, theOrders) {
   $scope.orders = theOrders;
 });
 
-
 app.config(function ($stateProvider) {
   $stateProvider.state('order', {
     url: '/orders/:id',

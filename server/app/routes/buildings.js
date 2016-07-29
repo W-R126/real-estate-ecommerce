@@ -10,7 +10,6 @@ router.get('/types', function(req, res, next){
 
 
 router.get('/:id', function(req, res, next){
-
   Building.findById(req.params.id)
   .then(building=> res.send(building))
   .catch(next);
