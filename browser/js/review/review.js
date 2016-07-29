@@ -2,7 +2,7 @@ app.config(function ($stateProvider) {
   $stateProvider.state('building.reviews', {
     url: '/reviews',
     templateUrl: 'js/review/building-reviews.html',
-    controller: 'ReviewsCtrl',
+    controller: 'ReviewCtrl',
     resolve:{
       theReviews: function (ReviewFactory, $stateParams){
         return ReviewFactory.fetchAll({buildingId: $stateParams.id})
@@ -11,22 +11,37 @@ app.config(function ($stateProvider) {
   })
   .state('building.write', {
     url: '/write',
-    templateUrl: 'js/review/building-write.html'
+    templateUrl: 'js/review/building-write.html',
+    controller: 'newReviewCtrl'
   })
-})
+});
 
 
-app.controller('ReviewsCtrl', function($scope,ReviewFactory, theReviews){
+app.controller('ReviewCtrl', function($scope, theReviews, ReviewFactory ){
   $scope.reviews = theReviews;
   $scope.getTimes = function(n){
     return new Array(n)
   }
-   $scope.sendReview = function(review) {
-        $scope.error = null;
+   $scope.sendReview = function() {
+        ReviewFactory.create($scope.newReview)
+        .then(function(review){
+          $state.go('building.reviews')
+        })
+        .catch(function(error) {
+           console.error(error)
+        });
+    }
+})
 
-        ReviewFactory.create(review)
-        .catch(function() {
-            $scope.error = 'Invalid signup credentials';
+
+app.controller('newReviewCtrl', function($scope, ReviewFactory, $state, $stateParams ){
+   $scope.sendReview = function() {
+        ReviewFactory.create($scope.newReview)
+        .then(function(review){
+          $state.go('building.reviews')
+        })
+        .catch(function(error) {
+           console.error(error)
         });
     }
 })
