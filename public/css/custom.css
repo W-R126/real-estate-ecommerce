@@ -103,3 +103,7 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+.cartBuildingImg {
+  width: 150px;
+}

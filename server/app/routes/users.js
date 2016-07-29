@@ -8,7 +8,9 @@ var Cart = db.Cart;
 
 router.get('/:id', function(req, res, next){
   User.findById(req.params.id)
-  .then(user=> res.send(user))
+  .then(user=>{
+    req.session.userId = user.id;
+    res.send(user)})
   .catch(next);
 })
 
@@ -27,11 +29,20 @@ router.post('/', function(req, res, next){
   })
   .then(function(cart){
     req.session.cartId = cart.id;
-    console.log('**********************', req.session);
     res.status(201).json(userObj) } )
   .catch(next)
-
 })
+
+router.post('/changeAdmin/:id', function(req, res, next) {
+  console.log('********', req.body);
+  User.update(
+    { isAdmin: req.body.adminStatus},
+    { where: { id: req.params.id},
+    returning: true
+  })
+  .then(user => res.send(user[1][0]))
+  .catch(next)
+});
 
 module.exports = router;
 

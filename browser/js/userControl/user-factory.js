@@ -4,8 +4,13 @@ app.factory('UserFactory', function ($http) {
 
   UserFactory.fetchAll = function () {
     return $http.get('/api/users')
-    .then(function (response) { return response.data; });
+    .then(res => res.data );
   };
+
+  UserFactory.changeAdmin = function(userId, adminStatus) {
+    return $http.post('/api/users/changeAdmin/' + userId, adminStatus)
+    .then(res => res.data);
+  }
 
   return UserFactory;
 });

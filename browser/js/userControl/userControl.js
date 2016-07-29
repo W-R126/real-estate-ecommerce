@@ -13,6 +13,10 @@ app.config(function ($stateProvider) {
 });
 
 
-app.controller('UserController', function ($scope, allUsers) {
+app.controller('UserController', function ($scope, allUsers, UserFactory) {
   $scope.users = allUsers;
+  $scope.toggleAdmin = function(userId, adminStatus) {
+    console.log('was clicked!!!');
+    UserFactory.changeAdmin(userId, adminStatus);
+  }
 });

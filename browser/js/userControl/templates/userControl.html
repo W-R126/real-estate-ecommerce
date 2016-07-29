@@ -26,10 +26,12 @@
             <td>{{user.name}}</td>
             <td>{{user.email}}</td>
             <td>
+            <div ng-click="toggleAdmin(user.id, user.isAdmin)">
               <label class="switch">
                 <input type="checkbox">
                 <div class="slider round"></div>
               </label>
+            </div>
             </td>
             <td><span class="cart-total">${{ building.price }}<a ng-click=deleteItem(building.id,$index) class="fa fa-close pointer"></a></span></td>
           </tr>
