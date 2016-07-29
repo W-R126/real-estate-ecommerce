@@ -5,6 +5,7 @@ var db = require('../../db');
 var Cart = db.Cart;
 var Building = db.Building;
 
+
 router.get('/', function(req, res, next){
   Cart.findById(req.session.cartId, {include:[Building]})
   .then(cart=> res.send(cart))
