@@ -33,9 +33,12 @@
         </table>
       </div>
       <div class="cart-widget clearfix">
-        <div class="price-total"> <span class="h3"> Cart total: <b>${{ getTotal() }}</b> </span> <a href="#" class="btn btn-default btn-effect"> checkout <i><img src="/img/arrow-btn.png" alt="" /> </i> </a> </div>
+        <div class="price-total"> <span class="h3"> Cart total: <b>${{ getTotal() }}</b> </span> <a ui-sref="cart.checkout" class="btn btn-default btn-effect"> checkout <i><img src="/img/arrow-btn.png" alt="" /> </i> </a> </div>
       </div>
     </section>
+
+
+    <ui-view></ui-view>
   </div>
 </div>
 <!--content Section End Here -->
