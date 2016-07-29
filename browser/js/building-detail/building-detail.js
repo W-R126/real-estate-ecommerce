@@ -2,22 +2,8 @@ app.controller('BuildingCtrl', function($scope, theBuilding, $log){
   $scope.building = theBuilding;
 })
 
-//building child states for reviews
-app.config(function ($stateProvider) {
-  $stateProvider.state('building.reviews', {
-    url: '/reviews',
-    templateUrl: 'js/building-detail/templates/building-reviews.html'/*,
-    resolve:{
-      theBuilding: function (BuildingFactory, $stateParams){
-        return BuildingFactory.fetchOne($stateParams.id);
-      }*/
-    //}
-  })
-  .state('building.write', {
-    url: '/write',
-    templateUrl: 'js/building-detail/templates/building-write.html'
-  })
-})
+
+
 
 
 // all buildings page
