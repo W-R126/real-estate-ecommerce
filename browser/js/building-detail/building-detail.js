@@ -8,25 +8,6 @@ app.controller('BuildingCtrl', function($scope, theBuilding, CartFactory, $state
 })
 
 
-
-
-
-// all buildings page
-app.config(function ($stateProvider) {
-  $stateProvider.state('buildings', {
-    url: '/properties?type',
-    templateUrl: 'js/building-detail/templates/buildings.html',
-    controller: 'BuildingsCtrl',
-    resolve: {
-      allBuildings: function (BuildingFactory, $stateParams) {
-        console.log("Type:", $stateParams.type);
-        return BuildingFactory.fetchAll({propertyType: $stateParams.type});
-      }
-    }
-  })
-})
-
-
 //single building page
 app.config(function ($stateProvider) {
   $stateProvider.state('building', {
@@ -46,4 +27,19 @@ app.controller('BuildingsCtrl', function($scope, allBuildings) {
   $scope.buildings = allBuildings;
 })
 
+
+// all buildings page
+app.config(function ($stateProvider) {
+  $stateProvider.state('buildings', {
+    url: '/properties?type',
+    templateUrl: 'js/building-detail/templates/buildings.html',
+    controller: 'BuildingsCtrl',
+    resolve: {
+      allBuildings: function (BuildingFactory, $stateParams) {
+        console.log("Type:", $stateParams.type);
+        return BuildingFactory.fetchAll({propertyType: $stateParams.type});
+      }
+    }
+  })
+})
 
