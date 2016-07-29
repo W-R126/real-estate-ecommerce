@@ -14,6 +14,12 @@ router.get('/:id', function(req, res, next){
   .catch(next);
 })
 
+router.get('/', function(req, res, next) {
+  User.findAll()
+  .then(user => res.send(user))
+  .catch(next);
+})
+
 router.post('/', function(req, res, next){
   var userObj;
   User.create(req.body)
@@ -25,7 +31,25 @@ router.post('/', function(req, res, next){
     req.session.cartId = cart.id;
     res.status(201).json(userObj) } )
   .catch(next)
+})
 
+router.post('/changeAdmin/:id', function(req, res, next) {
+  User.update(req.body,
+    { where: { id: req.params.id},
+    returning: true
+  })
+  .then(user => res.send(user[1][0]))
+  .catch(next)
+});
+
+router.delete('/:id', function (req, res, next) {
+  User.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(() => res.sendStatus(204))
+  .catch(next);
 })
 
 module.exports = router;
