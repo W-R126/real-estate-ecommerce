@@ -34,9 +34,7 @@ router.post('/', function(req, res, next){
 })
 
 router.post('/changeAdmin/:id', function(req, res, next) {
-  console.log('********', req.body);
-  User.update(
-    { isAdmin: req.body.adminStatus},
+  User.update(req.body,
     { where: { id: req.params.id},
     returning: true
   })

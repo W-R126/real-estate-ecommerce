@@ -15,8 +15,13 @@ app.config(function ($stateProvider) {
 
 app.controller('UserController', function ($scope, allUsers, UserFactory) {
   $scope.users = allUsers;
-  $scope.toggleAdmin = function(userId, adminStatus) {
+  $scope.toggleAdmin = function(userId, adminStatus, index) {
     console.log('was clicked!!!');
-    UserFactory.changeAdmin(userId, adminStatus);
+    console.log(adminStatus);
+    UserFactory.changeAdmin(userId, !adminStatus)
+      .then(() => {
+        $scope.users[index].isAdmin = !adminStatus;
+      })
+      .catch(console.log('Error in setting admin'))
   }
 });
