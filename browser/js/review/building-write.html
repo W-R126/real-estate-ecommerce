@@ -3,36 +3,36 @@
   <section class="leave-review">
     <h2>Leave a Review </h2>
     <div class="review-form ">
-      <form class="form-inline clearfix">
+      <form class="form-inline clearfix" ng-submit="sendReview(newReview)">
         <div class="row">
           <div class="col-xs-12 col-sm-6">
             <div class="form-group">
               <label class="sr-only" for="exampleInputname">Name</label>
-              <input type="email" class="form-control" id="exampleInputname" placeholder="Name" required="required">
+              <input type="text" ng-model="newReview.name" class="form-control" id="exampleInputname" placeholder="Name" required="required">
             </div>
           </div>
           <div class="col-xs-12 col-sm-6">
             <div class="form-group">
               <label class="sr-only" for="exampleInputweb">Website</label>
-              <input type="email" class="form-control" id="exampleInputweb" placeholder="Website">
+              <input type="url" ng-model="newReview.website" class="form-control" id="exampleInputweb" placeholder="Website">
             </div>
           </div>
           <div class="col-xs-12 col-sm-6">
             <div class="form-group">
               <label class="sr-only" for="exampleInputEmail3">E-mail (required)</label>
-              <input type="email" class="form-control" id="exampleInputEmail3" placeholder="E-mail" required="required">
+              <input type="email" ng-model="newReview.email" class="form-control" id="exampleInputEmail3" placeholder="E-mail" required="required">
             </div>
           </div>
           <div class="col-xs-12 col-sm-6 ">
             <div class="form-group">
-              <label class="sr-only" for="exampleInputEmail3">Title (required)</label>
-              <input type="email" class="form-control" id="exampleInputTitle" placeholder="Title" required="required">
+              <label class="sr-only" for="exampleInputTitle">Title (required)</label>
+              <input type="text" ng-model="newReview.title" class="form-control" id="exampleInputTitle" placeholder="Title">
             </div>
           </div>
           <div class="col-xs-12 col-sm-6 ">
             <div class="form-group">
               <label class="sr-only" for="exampleInputEmail3">Profession</label>
-              <input type="email" class="form-control" id="exampleInputprofession" placeholder="Profession">
+              <input type="text" ng-model="newReview.profession" class="form-control" id="exampleInputprofession" placeholder="Profession">
             </div>
           </div>
           <div class="col-xs-12 col-sm-6 ">
@@ -41,7 +41,7 @@
           <div class="col-md-12 col-xs-12">
             <div class="form-group ">
               <label class="sr-only" for="exampleInputEmail3">Message</label>
-              <textarea  class="form-control" placeholder="Message"></textarea>
+              <textarea  ng-model="newReview.review" class="form-control" placeholder="Message"></textarea>
             </div>
           </div>
           <div class="col-xs-12 col-sm-6">
