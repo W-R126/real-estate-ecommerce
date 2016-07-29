@@ -5,7 +5,7 @@
     <!--Content Header -->
     <header class="content-header row ">
       <div class="heading col-md-8 col-sm-6 col-xs-12">
-        <h1>Order Details</h1>
+        <h1>{{theorders.convertId}} Details</h1>
       </div>
       <ul class="col-md-4 col-sm-6 col-xs-12 breadcrumb ">
         <li> <a ui-sref="home">Main Page</a> </li>
@@ -24,11 +24,17 @@
             <th class="price-cell"><span class="h3">Quantity</span></th>
             <th class="total-cell" ><span class="h3">Purchase Price</span></th>
           </tr>
-          {{theorders.purchasedBuildings}}
-          <tr ng-repeat="order in theorders">
-            <td>{{property.id}}</td>
-            <td><span class="cart-total">$59.95</span></td>
-            <td><span class="cart-total">$59.95</span></td>
+          <tr ng-repeat="building in theorders.purchasedBuildings">
+            <td><a ui-sref="building({id: {{building.building.id}} })"><img src="{{building.building.photoURL}}" alt="" /></a>Address: {{building.building.streetAddress}} </td>
+            <td><span class="cart-total">{{theorders.convertDate}}</span></td>
+            <td><span class="cart-total">1</span></td>
+            <td><span class="cart-total">{{building.purchasePrice}}</span></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><span class="cart-total">Total: {{getTotal()}}</span></td>
           </tr>
         </table>
       </div>

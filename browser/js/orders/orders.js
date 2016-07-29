@@ -33,4 +33,11 @@ app.config(function ($stateProvider) {
 
 app.controller('OrderController', function ($scope, theIndOrders) {
   $scope.theorders = theIndOrders;
+  $scope.getTotal = function () {
+      var total = 0;
+      for(var i = 0; i < $scope.theorders.purchasedBuildings.length; i++){
+          total += $scope.theorders.purchasedBuildings[i].purchasePrice;
+      }
+      return total;
+  }
 });

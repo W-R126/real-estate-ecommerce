@@ -18,13 +18,13 @@ router.get('/:id', function(req, res, next) {
       }]
   })
   .then(order => {
-    console.log('order here*********', order);
-    res.send(order)
+    res.send(order);
   })
   .catch(next);
 });
 
 router.get('/', function(req, res, next){
+  console.log('hit this routeafa');
   Order.findAll({
     where: {
       userId: req.session.passport.user

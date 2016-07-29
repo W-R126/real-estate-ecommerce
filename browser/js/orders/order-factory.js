@@ -7,7 +7,7 @@ app.factory('OrderFactory', function($http){
   }
 
   OrderFactory.findAllForOrderId = function(args) {
-    return $http.get('/api/orders', {params: args})
+    return $http.get('/api/orders/' + args)
     .then(res => res.data);
   }
 
