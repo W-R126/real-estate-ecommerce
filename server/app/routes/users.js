@@ -8,7 +8,9 @@ var Cart = db.Cart;
 
 router.get('/:id', function(req, res, next){
   User.findById(req.params.id)
-  .then(user=> res.send(user))
+  .then(user=>{
+    req.session.userId = user.id;
+    res.send(user)})
   .catch(next);
 })
 
@@ -21,7 +23,6 @@ router.post('/', function(req, res, next){
   })
   .then(function(cart){
     req.session.cartId = cart.id;
-    console.log('**********************', req.session);
     res.status(201).json(userObj) } )
   .catch(next)
 
