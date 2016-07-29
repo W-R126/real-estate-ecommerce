@@ -23,7 +23,8 @@ var User = db.model('user');
 var Building = db.model('building')
 var Cart = db.model('cart')
 var Order = db.model('order')
-var Review = db.model('review')
+var Review = db.model('review');
+var PurchasedBuilding = db.model('purchasedBuilding');
 var Promise = require('sequelize').Promise;
 
 var seedUsers = function () {
@@ -94,22 +95,49 @@ var seedCarts = function(){
 
 };
 
-// var seedOrders = function (){
-//     var orders = [
-//     {
-//         userId:"2",
-//         arrayOfBuildingIds:[1,2],
-//         arrayOfPurchasePrices:[12343,54321],
-//         totalPrice: 987654
-//     }
-//     ]
-//        var creatingOrders = orders.map(function (orderObj) {
-//         return Order.create(orderObj);
-//     });
+// create getter method for total price
+var seedOrders = function() {
+     var orders = [
+         {
+             userId: "2",
+             cartId: "1",
+         },
+         {
+             userId:"3",
+             cartId:"2"
 
-//     return Promise.all(creatingOrders);
+         }
+     ]
 
-// }
+    var creatingOrders = orders.map(function (orderObj) {
+         return Order.create(orderObj)
+            .then(order => {
+                order.setPurchasedBuildings([1,2]);
+            });
+     });
+
+     return Promise.all(creatingOrders);
+}
+
+var seedPurchasedBuildings = function() {
+    var purchasedBuilding = [
+        {
+            purchasedPrice: "100",
+            // buildingId: "1"
+        },
+        {
+            purchasedPrice: "300",
+            // buildingId: "2"
+        }
+    ]
+
+    var creatingPurchasedBuildings = purchasedBuilding.map(function(pBuilding) {
+        return PurchasedBuilding.create(pBuilding);
+    })
+
+    return Promise.all(creatingPurchasedBuildings);
+
+}
 
 var seedBuildings = function (){
     var buildings = [
@@ -183,9 +211,12 @@ db.sync({ force: true })
     .then(function(){
         return seedCarts();
     })
-    // .then(function(){
-    //     return seedOrders();
-    // })
+    .then(function(){
+        return seedOrders();
+    })
+    .then(function(){
+        return seedPurchasedBuildings();
+    })
     .then(function(){
         return seedReviews();
     })
