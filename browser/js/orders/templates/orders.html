@@ -18,14 +18,14 @@
       <div class="cart-table-wrapper">
         <table class="table cart-table">
           <tr>
-            <th class="product-cell"><span class="h3">Order</span></th>
+            <th class="product-cell"><span class="h3">Order Number</span></th>
             <th class="price-cell"><span class="h3">Date</span></th>
             <th class="total-cell" ><span class="h3">Total</span></th>
           </tr>
           <tr ng-repeat="order in orders">
-            <td ><a href="#" class="saved-product"> <img src="/img/cart-img-1.jpg" alt="" /> Lorem Ipsum Dolor Sit Amet </a></td>
-            <td>$59.95</td>
-            <td><span class="cart-total">$59.95 {{order}} <a href="#" class="fa fa-close"></a> </span></td>
+            <td > <img src="/img/cart-img-1.jpg" alt="" /> <a ui-sref="order({id: '{{order.id}}'})" class="saved-product"> {{order.convertId}} </a></td>
+            <td>{{order.convertDate}}</td>
+            <td><span class="cart-total">$59.95<a href="#" class="fa fa-close"></a> </span></td>
           </tr>
         </table>
       </div>

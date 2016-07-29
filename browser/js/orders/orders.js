@@ -1,6 +1,5 @@
 app.config(function ($stateProvider) {
 
-    // Register our *about* state.
     $stateProvider.state('orders', {
         url: '/orders',
         controller: 'OrderController',
@@ -17,3 +16,17 @@ app.config(function ($stateProvider) {
 app.controller('OrderController', function ($scope, theOrders) {
   $scope.orders = theOrders;
 });
+
+
+app.config(function ($stateProvider) {
+  $stateProvider.state('building', {
+    url: '/properties/:id',
+    templateUrl: 'js/building-detail/templates/building-detail.html',
+    controller: 'BuildingCtrl',
+    resolve:{
+      theBuilding: function (BuildingFactory, $stateParams){
+        return BuildingFactory.fetchOne($stateParams.id);
+      }
+    }
+  })
+})

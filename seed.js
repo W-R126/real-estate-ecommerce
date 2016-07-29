@@ -122,12 +122,12 @@ var seedOrders = function() {
 var seedPurchasedBuildings = function() {
     var purchasedBuilding = [
         {
-            purchasedPrice: "100",
-            // buildingId: "1"
+            purchasePrice: "100",
+            buildingId: "1"
         },
         {
-            purchasedPrice: "300",
-            // buildingId: "2"
+            purchasePrice: "300",
+            buildingId: "2"
         }
     ]
 
