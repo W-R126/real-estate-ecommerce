@@ -59,14 +59,26 @@ var seedReviews = function(){
     var reviews = [
     {
      review:"This string should probably be over 250 characters just to be safe, so we know that it definetly works, and is not broken. To confirm that this string can be over 250 characters, this paragaph is going to continue on and on, till it reaches 250 characters, I am going to guess this is not over 250 characters.",
-     numOfStars:"5",
-     buildingId:"1",
+     numOfStars:"1",
+     buildingId:"2",
      userId:"2"
     },{
-        review:"asdflkjzx;clvkj; xoizcuvpiewr;zlkxjcv  p[owieugl;zxkcjv w0e9fuzx;lckjv we0f9uxckj sdlfkj ",
+        review:"Second Review this building is just aiiiittteeee",
      numOfStars:"2",
      buildingId:"2",
      userId:"1"
+    },
+    {
+        review:"this building is not so good",
+     numOfStars:"3",
+     buildingId:"2",
+     userId:"1"
+    },
+    {
+        review:"REVIEW FOR BUILDING 3!!!!",
+     numOfStars:"3",
+     buildingId:"2",
+     userId:"3"
     }
     ]
    var creatingReviews = reviews.map(function (reviewObj) {
