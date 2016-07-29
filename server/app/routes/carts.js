@@ -27,4 +27,11 @@ router.put('/:id', function (req, res, next) {
     }
 })
 
+router.delete('/:id', function (req, res, next) {
+  Cart.findById(req.session.cartId)
+  .then(cart => cart.removeBuilding(req.params.id))
+  .then(() => res.sendStatus(204))
+  .catch(next);
+})
+
 module.exports = router;

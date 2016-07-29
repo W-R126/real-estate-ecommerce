@@ -1,7 +1,5 @@
 app.factory('CartFactory', function ($http) {
 
-  const cartArray = [];
-
   var CartFactory = {};
 
   CartFactory.fetchOne = function () {
@@ -11,6 +9,10 @@ app.factory('CartFactory', function ($http) {
 
   CartFactory.add = function (buildingId) {
     return $http.put('/api/carts/' + buildingId);
+  }
+
+  CartFactory.delete = function (buildingId) {
+    return $http.delete('/api/carts/' + buildingId);
   }
 
   return CartFactory;

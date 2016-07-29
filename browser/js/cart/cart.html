@@ -1,4 +1,3 @@
-content Section Start Here -->
 <div id="content" class="margin-bottom">
   <div class="container your-cart padding-bottom">
 
@@ -28,10 +27,8 @@ content Section Start Here -->
           <tr ng-repeat="building in cart.buildings">
             <td ><a ui-sref="building({ id: {{building.id}} })" class="saved-product"> <img class="cartBuildingImg" src="{{building.photoURL}}" alt="Building Image" />{{ building.address }}</a></td>
             <td>{{ building.lotSize }}</td>
-            <td><span class="cart-number quantity-value"> <i class="minus operator"> -</i>
-              <input type="text" value="1">
-              <i class="add operator"> +</i> </span></td>
-            <td><span class="cart-total">${{ building.price }}<a href="#" class="fa fa-close"></a> </span></td>
+            <td><span class="cart-number quantity-value"><input type="text" value="1"></span></td>
+            <td><span class="cart-total">${{ building.price }}<a ng-click=deleteItem(building.id,$index) class="fa fa-close pointer"></a></span></td>
           </tr>
         </table>
       </div>
@@ -46,4 +43,4 @@ content Section Start Here -->
     </section>
   </div>
 </div>
-<!--content Section End Here
+<!--content Section End Here -->

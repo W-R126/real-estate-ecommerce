@@ -13,7 +13,13 @@ app.config(function ($stateProvider) {
 
 });
 
-app.controller('CartController', function ($scope, theCart) {
+app.controller('CartController', function ($scope, theCart, CartFactory) {
   $scope.cart = theCart;
-/*  $scope.deleteItem = */
+
+  $scope.deleteItem = function (buildingId, index) {
+    CartFactory.delete(buildingId)
+    .then(function () {
+      $scope.cart.buildings.splice(index, 1);
+    })
+  }
 });
