@@ -19,14 +19,12 @@
           <tr>
             <th class="product-cell"><span class="h3">User</span></th>
             <th class="price-cell"><span class="h3">Email</span></th>
-            <th class="price-cell"><span class="h3">Admin</span></th>
-            <th class="price-cell"><span class="h3">Set User Type</span></th>
+            <th class="price-cell"><span class="h3">Set Admin</span></th>
             <th class="total-cell" ><span class="h3">Password Reset</span></th>
           </tr>
           <tr ng-repeat="user in users">
             <td>{{user.name}}</td>
             <td>{{user.email}}</td>
-            <td>{{user.isAdmin}}</td>
             <td>
               <label class="switch">
                 <input type="checkbox">
