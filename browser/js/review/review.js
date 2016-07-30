@@ -35,10 +35,9 @@ app.controller('ReviewCtrl', function($scope, theReviews, ReviewFactory) {
 
 
 app.controller('newReviewCtrl', function($scope, ReviewFactory, $state) {
-    var thisrating = 0
-    $scope.rating = 0;
+    $scope.rating = 1;
     $scope.ratings = [{
-        current: 3,
+        current: 1,
         max: 5
     }];
 
@@ -47,9 +46,6 @@ app.controller('newReviewCtrl', function($scope, ReviewFactory, $state) {
     }
     $scope.sendReview = function() {
             ReviewFactory.create($scope.newReview)
-            .then(function(review){
-                console.log("###############", review)
-            })
             .then(function(review) {
                 $state.go('building.reviews')
             })

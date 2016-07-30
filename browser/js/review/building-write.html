@@ -5,16 +5,18 @@
     <div class="review-form ">
       <form class="form-inline clearfix" ng-submit="sendReview(newReview)">
         <div class="row">
+
+           <div class="col-xs-12 col-sm-12">
+            <div class="form-group">
+              <label class="sr-only" for="exampleInputname">Headline for review</label>
+              <input type="text" ng-model="newReview.headline" class="form-control" id="exampleInputname" placeholder="Headline for Review" required="required">
+            </div>
+          </div>
+
           <div class="col-xs-12 col-sm-6">
             <div class="form-group">
               <label class="sr-only" for="exampleInputname">Name</label>
               <input type="text" ng-model="newReview.name" class="form-control" id="exampleInputname" placeholder="Name" required="required">
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6">
-            <div class="form-group">
-              <label class="sr-only" for="exampleInputweb">Website</label>
-              <input type="url" ng-model="newReview.website" class="form-control" id="exampleInputweb" placeholder="Website">
             </div>
           </div>
           <div class="col-xs-12 col-sm-6">
@@ -24,22 +26,10 @@
             </div>
           </div>
           <div class="col-xs-12 col-sm-6 ">
-            <div class="form-group">
-              <label class="sr-only" for="exampleInputTitle">Title (required)</label>
-              <input type="text" ng-model="newReview.title" class="form-control" id="exampleInputTitle" placeholder="Title">
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 ">
-            <div class="form-group">
-              <label class="sr-only" for="exampleInputEmail3">Profession</label>
-              <input type="text" ng-model="newReview.profession" class="form-control" id="exampleInputprofession" placeholder="Profession">
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 ">
-            <div class="form-group"> <span class="your-rate">Your Rating: </span> <starRating>
+            <div class="form-group"> <span class="your-rate">Your Rating: </span> <starRating ng-model="newReview.numOfStars">
             <div ng-controller="newReviewCtrl"> <span ng-repeat="rating in ratings">{{rating.current}} out of
             {{rating.max}}
-            <div star-rating rating-value="rating.current" ng-model="newReview.numOfStars" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
+            <div star-rating rating-value="rating.current"  max="rating.max" on-rating-selected="getSelectedRating(rating||3)"></div>
              </span>
     </div>
 </starRating></div>

@@ -10,9 +10,9 @@
               <figure> <img src="/img/wisher-photo-1.jpg" alt="" /> </figure>
             </div>
             <div class="wisher-name">
-              <h3>{{review.user.name}}</h3>
-              <span class="rating-star" ng-repeat="star in getTimes(review.numOfStars) track by $index"> <div class="rating"> <a href="#"><i class="fa fa-star active "></i> </div> </span>
-              <span>chicago</span> </div>
+              <h3>{{review.headline}}</h3>
+              <span class="rating-star" ng-repeat="star in getTimes(review.numOfStars) track by $index"> <div class="rating"> <a href="#"><i class="fa fa-star active "></i> </div> </span></br>
+              <span>{{review.user.name}}</span> </div>
           </div>
           <div class="wish">
             <p> {{review.review}} </p>
