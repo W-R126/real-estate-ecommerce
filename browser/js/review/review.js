@@ -35,13 +35,73 @@ app.controller('ReviewCtrl', function($scope, theReviews, ReviewFactory) {
 
 
 app.controller('newReviewCtrl', function($scope, ReviewFactory, $state) {
-            $scope.sendReview = function() {
+    var thisrating = 0
+    $scope.rating = 0;
+    $scope.ratings = [{
+        current: 3,
+        max: 5
+    }];
+
+    $scope.getSelectedRating = function(rating) {
+    $scope.newReview.numOfStars = rating
+    }
+    $scope.sendReview = function() {
             ReviewFactory.create($scope.newReview)
-                .then(function(review) {
-                    $state.go('building.reviews')
-                })
-        .catch(function(error) {
-            console.error(error)
-        });
-      }
+            .then(function(review){
+                console.log("###############", review)
+            })
+            .then(function(review) {
+                $state.go('building.reviews')
+            })
+            .catch(function(error) {
+                console.error(error)
+            });
+    }
 });
+
+
+//star controller
+
+
+
+app.directive('starRating', function() {
+    return {
+        restrict: 'A',
+        template: '<ul class="rating">' +
+            '<li ng-repeat="star in stars" ng-class="star" ng-click="toggle($index)">' +
+            '\u2605' +
+            '</li>' +
+            '</ul>',
+        scope: {
+            ratingValue: '=',
+            max: '=',
+            onRatingSelected: '&'
+        },
+        link: function(scope, elem, attrs) {
+
+            var updateStars = function() {
+                scope.stars = [];
+                for (var i = 0; i < scope.max; i++) {
+                    scope.stars.push({
+                        filled: i < scope.ratingValue
+                    });
+                }
+            };
+
+            scope.toggle = function(index) {
+                scope.ratingValue = index + 1;
+                scope.onRatingSelected({
+                    rating: index + 1
+                });
+            };
+
+            scope.$watch('ratingValue', function(oldVal, newVal) {
+                if (newVal) {
+                    updateStars();
+                }
+            });
+        }
+    }
+});
+
+//end of star controller

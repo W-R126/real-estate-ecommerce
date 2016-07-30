@@ -36,7 +36,13 @@
             </div>
           </div>
           <div class="col-xs-12 col-sm-6 ">
-            <div class="form-group"> <span class="your-rate">Your Rating: </span> <span class="rating"> <a href="#" class="fa fa-star-o"> <span class="rating-number">1</span></a> <a href="#" class="fa fa-star active"><span class="rating-number">2</span></a> <a href="#" class="fa fa-star-o"> <span class="rating-number">3</span></a> <a href="#" class="fa fa-star-o"><span class="rating-number">4</span></a> <a href="#" class="fa fa-star-o"><span class="rating-number">5</span></a> </span> </div>
+            <div class="form-group"> <span class="your-rate">Your Rating: </span> <starRating>
+            <div ng-controller="newReviewCtrl"> <span ng-repeat="rating in ratings">{{rating.current}} out of
+            {{rating.max}}
+            <div star-rating rating-value="rating.current" ng-model="newReview.numOfStars" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
+             </span>
+    </div>
+</starRating></div>
           </div>
           <div class="col-md-12 col-xs-12">
             <div class="form-group ">
