@@ -35,13 +35,13 @@ app.controller('ReviewCtrl', function($scope, theReviews, ReviewFactory) {
 
 
 app.controller('newReviewCtrl', function($scope, ReviewFactory, $state) {
-
-        $scope.sendReview = function() {
+            $scope.sendReview = function() {
             ReviewFactory.create($scope.newReview)
                 .then(function(review) {
                     $state.go('building.reviews')
                 })
-        }.catch(function(error) {
+        .catch(function(error) {
             console.error(error)
         });
+      }
 });
