@@ -39,7 +39,7 @@ router.get('/', function(req, res, next){
 //empty cart
 //email user
 router.post('/', function (req, res, next) {
-  console.log('whyyyyyyy posting twice');
+  var purchasedBuildingIds = [];
   Order.create(req.body)
   .then(function (order) {
     return order.setUser(req.session.passport.user)
@@ -51,22 +51,32 @@ router.post('/', function (req, res, next) {
     return cart.getBuildings()
   })
   .then(function (buildings) {
-
     var copyBuildings = buildings.map(function (building) {
        return PurchasedBuilding.create({
         buildingId: building.id,
         purchasePrice: building.price
         })
-/*          .then(purchasedBuilding => {
-            purchasedBuilding.setPurchasedBuildings([1,2]);
-        });*/
+        .then(function (purchasedBuilding) {
+            purchasedBuildingIds.push(purchasedBuilding.id);
+        });
     });
 
     return Promise.all(copyBuildings);
   })
-  .then(function (response) {
-    console.log(response);
-    res.send('yes');
+  .then(function (purchasedBuildings) {
+    return Order.findOne({where: req.body})
+  })
+  .then(function (order) {
+    return order.setPurchasedBuildings(purchasedBuildingIds);
+  })
+  .then(function () {
+    return Cart.findById(req.session.cartId)
+  })
+  .then(function (cart) {
+    cart.setBuildings(null);
+  })
+  .then(function () {
+    res.sendStatus(200);
   })
   .catch(next)
 })
