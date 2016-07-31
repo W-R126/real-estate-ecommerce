@@ -48,12 +48,26 @@ router.get('/', function(req, res, next){
   .catch(next)
 });
 
+router.put('/shipped', function(req, res, next){
+  var message = {
+  from: 'sandbox@mailgun.org',
+  to: req.body.email,
+  text: "Your order #" + order.id+" from Betty's Building Bros has been shipped!"
+  }
+
+  transporter.sendMail(message, function(error, info){
+    if (error) console.log("Confirmation Mail Error: ",error);
+    else console.log('Sent: '+ info.response);
+  });
+  res.sendStatus(200)
+})
+
 router.post('/', function(req, res, next){
   Order.create(req.body)
   .then(function(order){  var message = {
       from: 'sandbox@mailgun.org',
       to: req.body.email,
-      text: "Your order #" + order.id+" from Betty's Building Bros has been received!"
+      text: "Dear "+ order.name+", \n Your order #" + order.id+" from Betty's Building Bros has been received!"
     }
 
     transporter.sendMail(message, function(error, info){
