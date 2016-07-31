@@ -3,11 +3,7 @@ var router = new express.Router();
 var fs = require('fs');
 
 var secretMG= JSON.parse(fs.readFileSync('/home/barry/secretMG.txt','utf8'));
-var message = {
-  from: 'sandbox@mailgun.org',
-  to: 'bjw2119@gmail.com',
-  text: "Your order from Betty's Building Bros has been received!"
-}
+
 
 var nodemailer = require('nodemailer');
 var transport = {
@@ -53,12 +49,20 @@ router.get('/', function(req, res, next){
 });
 
 router.post('/', function(req, res, next){
-  console.log("Testing conf email...user: "+ secretMG.user+"pass "+secretMG.pass);
-  transporter.sendMail(message, function(error, info){
-    if (error) console.log("Confirmation Mail Error: ",error);
-    else console.log('Sent: '+ info.response);
-  });
-  res.sendStatus(200)
+  Order.create(req.body)
+  .then(function(order){  var message = {
+      from: 'sandbox@mailgun.org',
+      to: req.body.email,
+      text: "Your order #" + order.id+" from Betty's Building Bros has been received!"
+    }
+
+    transporter.sendMail(message, function(error, info){
+      if (error) console.log("Confirmation Mail Error: ",error);
+      else console.log('Sent: '+ info.response);
+      });
+    res.sendStatus(200)})
+  .catch(next);
+
 })
 
 module.exports = router;
