@@ -36,9 +36,11 @@ router.get('/', function(req, res, next){
 
 //STILL NEEDS TO EMAIL USER!!
 router.post('/', function (req, res, next) {
+  var orderId;
   var purchasedBuildingIds = [];
   Order.create(req.body)
   .then(function (order) {
+    orderId = order.id;
     return order.setUser(req.session.passport.user)
   })
   .then(function () {
