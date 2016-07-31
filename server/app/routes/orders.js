@@ -5,6 +5,7 @@ var db = require('../../db');
 var Order = db.Order;
 var PurchasedBuilding = db.PurchasedBuilding;
 var Building = db.Building;
+var Cart = db.Cart;
 
 router.get('/:id', function(req, res, next) {
   var returnObj = {};
@@ -38,18 +39,33 @@ router.get('/', function(req, res, next){
 //empty cart
 //email user
 router.post('/', function (req, res, next) {
+  console.log('whyyyyyyy posting twice');
   Order.create(req.body)
   .then(function (order) {
-    order.setUser(req.session.passport.user)
+    return order.setUser(req.session.passport.user)
   })
   .then(function () {
-    Cart.findById(req.session.cartId)
+    return Cart.findById(req.session.cartId)
   })
   .then(function (cart) {
-    cart.getBuildings()
+    return cart.getBuildings()
   })
   .then(function (buildings) {
-    console.log('************buildings', buildings);
+
+    var copyBuildings = buildings.map(function (building) {
+       return PurchasedBuilding.create({
+        buildingId: building.id,
+        purchasePrice: building.price
+        })
+/*          .then(purchasedBuilding => {
+            purchasedBuilding.setPurchasedBuildings([1,2]);
+        });*/
+    });
+
+    return Promise.all(copyBuildings);
+  })
+  .then(function (response) {
+    console.log(response);
     res.send('yes');
   })
   .catch(next)
