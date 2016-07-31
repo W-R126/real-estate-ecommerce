@@ -105,7 +105,9 @@
             return $http.post('/api/users', credentials)
                 .then(() => this.login(credentials))
                 .then(response => response.data)
-                .catch(error=>console.error(error));
+                .catch(function () {
+                    return $q.reject({ message: 'Invalid signup credentials.' });
+                });
         }
 
         this.isAdmin = function() {

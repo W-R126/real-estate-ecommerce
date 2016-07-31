@@ -113,11 +113,24 @@ var seedOrders = function() {
          {
              userId: "2",
              cartId: "1",
+             email: "example@email.com",
+             creditCard: "1234 5678 9012 3456",
+             name: "Name",
+             address1: "123 Address Lane",
+             city: "Fake City",
+             state: "Fake State",
+             zipCode: "10000"
          },
          {
              userId:"3",
-             cartId:"2"
-
+             cartId:"2",
+             email: "example@email.com",
+             creditCard: "1234 5678 9012 3456",
+             name: "Name",
+             address1: "123 Address Lane",
+             city: "Fake City",
+             state: "Fake State",
+             zipCode: "10000"
          }
      ]
 

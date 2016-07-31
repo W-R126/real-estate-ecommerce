@@ -8,19 +8,20 @@ app.config(function ($stateProvider) {
 
 });
 
-app.controller('CheckoutCtrl', function ($scope, $state) {
+app.controller('CheckoutCtrl', function ($scope, $state, OrderFactory) {
 
     $scope.error = null;
 
     $scope.sendCheckout= function(credentials) {
         $scope.error = null;
 
-        AuthService.signup(credentials)
+        OrderFactory.checkout(credentials)
         .then(function() {
-            $state.go('buildings')
+            $state.go('orders');
+            //$state.go('checkoutSuccess')
         })
         .catch(function() {
-            $scope.error = 'Invalid signup credentials';
+            $scope.error = 'Invalid shipping credentials';
         });
     }
 
