@@ -38,7 +38,6 @@ router.get('/:id', function(req, res, next) {
 });
 
 router.get('/', function(req, res, next){
-  console.log('hit this routeafa');
   Order.findAll({
     where: {
       userId: req.session.passport.user
@@ -49,10 +48,11 @@ router.get('/', function(req, res, next){
 });
 
 router.put('/shipped', function(req, res, next){
+  //Update from field with domain once pushed to production server!
   var message = {
-  from: 'sandbox@mailgun.org',
-  to: req.body.email,
-  text: "Your order #" + order.id+" from Betty's Building Bros has been shipped!"
+    from: 'sandbox@mailgun.org',
+    to: req.body.email,
+    text: "Your order #" + order.id+" from Betty's Building Bros has been shipped!"
   }
 
   transporter.sendMail(message, function(error, info){
@@ -63,10 +63,11 @@ router.put('/shipped', function(req, res, next){
 })
 
 router.put('/delivered', function(req, res, next){
+  //Update from field with domain once pushed to production server!
   var message = {
-  from: 'sandbox@mailgun.org',
-  to: req.body.email,
-  text: "Your order #" + order.id+" from Betty's Building Bros has been shipped!"
+    from: 'sandbox@mailgun.org',
+    to: req.body.email,
+    text: "Your order #" + order.id+" from Betty's Building Bros has been shipped!"
   }
 
   transporter.sendMail(message, function(error, info){
@@ -78,7 +79,9 @@ router.put('/delivered', function(req, res, next){
 
 router.post('/', function(req, res, next){
   Order.create(req.body)
-  .then(function(order){  var message = {
+  .then(function(order){
+    //Update from field with domain once pushed to production server!
+    var message = {
       from: 'sandbox@mailgun.org',
       to: req.body.email,
       text: "Dear "+ order.name+", \n Your order #" + order.id+" from Betty's Building Bros has been received!"
