@@ -20,12 +20,12 @@
           <tr>
             <th class="product-cell"><span class="h3">Order Number</span></th>
             <th class="price-cell"><span class="h3">Date</span></th>
-            <th class="total-cell" ><span class="h3">Total</span></th>
+            <th class="total-cell" ><span class="h3">Status</span></th>
           </tr>
           <tr ng-repeat="order in orders">
             <td><a ui-sref="order({id: '{{order.id}}'})" class="saved-product"><img src="/img/empire-state-building.jpg" class="listBuildingImg" /></a> <a ui-sref="order({id: '{{order.id}}'})" class="saved-product"> {{order.convertId}} </a></td>
             <td>{{order.convertDate}}</td>
-            <td><span class="cart-total">$59.95</span></td>
+            <td><span class="cart-total">Processing</span></td>
           </tr>
         </table>
       </div>

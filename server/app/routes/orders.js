@@ -34,10 +34,7 @@ router.get('/', function(req, res, next){
   .catch(next)
 });
 
-//Things this route needs to do:
-//for each building in cart, create purchased building with price and setBuilding id
-//empty cart
-//email user
+//STILL NEEDS TO EMAIL USER!!
 router.post('/', function (req, res, next) {
   var purchasedBuildingIds = [];
   Order.create(req.body)
