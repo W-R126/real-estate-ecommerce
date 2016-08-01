@@ -16,13 +16,14 @@ app.config(function ($stateProvider) {
 
 app.controller('HomeCtrl', function($scope, $state, $log, SearchFactory, useTypes, archStyles){
 
-  // $scope.types = [{name:"Commercial"}, {name:"Residential"}, {name: "Mixed-Use"}];
+  $scope.searchProps = {};
   $scope.price =[];
   $scope.types = useTypes;
   $scope.styles= archStyles;
   $scope.stories = [{range: "1 to 10", i: {$between: [1,10]}}, {range: "11 to 50", i:{$between: [11,50]}}, {range: "50 to 100", i:{$between: [50,100]}}];
-  $scope.message = "Hello!";
+
   $scope.search = function(){
+    $scope.searchProps.price = {$between: [$scope.minPrice*100, $scope.maxPrice*100]};
     var searchProps = JSON.stringify($scope.searchProps);
     $state.go("search-results", {searchProps: searchProps})
     }
