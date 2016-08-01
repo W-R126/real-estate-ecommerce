@@ -17,7 +17,6 @@ app.controller('CheckoutCtrl', function ($scope, $state, OrderFactory) {
 
         OrderFactory.checkout(credentials)
         .then(function(res) {
-            console.log("************ YO", res);
             $state.go('checkoutSuccess', {id: res});
         })
         .catch(function() {
@@ -29,7 +28,7 @@ app.controller('CheckoutCtrl', function ($scope, $state, OrderFactory) {
 app.config(function ($stateProvider) {
 
     $stateProvider.state('checkoutSuccess', {
-        url: '/checkout/success',
+        url: '/checkout/success/:id',
         templateUrl: 'js/checkout/checkout-success.html',
         controller: 'SuccessCtrl',
         resolve: {

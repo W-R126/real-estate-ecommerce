@@ -28,7 +28,8 @@ router.get('/', function(req, res, next){
   Order.findAll({
     where: {
       userId: req.session.passport.user
-    }
+    },
+    order: '"id" DESC'
   })
   .then(orders => res.send(orders))
   .catch(next)
@@ -40,7 +41,7 @@ router.post('/', function (req, res, next) {
   var purchasedBuildingIds = [];
   Order.create(req.body)
   .then(function (order) {
-    orderId = order.id;
+    orderId = order.id.toString();
     return order.setUser(req.session.passport.user)
   })
   .then(function () {
@@ -72,10 +73,10 @@ router.post('/', function (req, res, next) {
     return Cart.findById(req.session.cartId)
   })
   .then(function (cart) {
-    cart.setBuildings(null);
+    return cart.setBuildings(null);
   })
   .then(function () {
-    res.sendStatus(200);
+    res.send(orderId);
   })
   .catch(next)
 })
