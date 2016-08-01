@@ -5,10 +5,14 @@ app.factory('SearchFactory', function($http){
     return $http.get('/api/buildings/types/')
     .then(function(types){return types.data});
   }
+  SearchFactoryObj.getStyles = function(){
+    return $http.get('/api/buildings/styles/')
+    .then(function(types){return types.data});
+  }
 
   SearchFactoryObj.searchFields = function(obj){
-
-    return $http.get('/api/buildings/?'+"propertyType="+obj.propertyType)
+    console.log("SearchFactory obj: ", obj);
+    return $http.get('/api/buildings/', {params:obj})
     .then(buildings=>buildings.data);
   }
 
