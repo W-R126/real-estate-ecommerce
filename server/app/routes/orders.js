@@ -13,7 +13,7 @@ router.get('/admin', function(req, res, next) {
   .catch(next);
 })
 
-router.update('/admin/status/:orderId', function(req, res, next) {
+router.put('/admin/status/:orderId', function(req, res, next) {
   Order.update(req.body,
     {where: {id: req.params.orderId},
     returning: true

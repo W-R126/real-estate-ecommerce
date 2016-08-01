@@ -29,13 +29,14 @@
             <th class="price-cell"><span class="h3">Change Status</span></th>
           </tr>
           <tr ng-repeat="order in orders">
-            <td ui-sref="order({id: order.id})" class="pointer">{{order.id}} | View Details</td>
+            <td><a ui-sref="order({id: order.id})" class="pointer">{{order.id}} | View Details</a></td>
             <td>{{order.convertId}}</td>
             <td>{{order.convertDate}}</td>
             <td>{{order.orderStatus}}</td>
             <td>
-              <form name="statusSelect" ng-submit="changeStatus({{order.id}})">
-                <select ng-options="order as order for order in orderStatuses" ng-model="statusToChange" required>
+              <form name="statusSelect" ng-submit="changeStatus(order.id, $index, statusToChange)">
+                <select ng-options="orderStat as orderStat for orderStat in orderStats" ng-model="statusToChange" required>
+                <option class="select-text" value="">Order Status</option>
                 </select>
                 <button type="submit" class="btn btn-success" ng-disabled="statusSelect.$invalid">Change Status</button>
               </form>

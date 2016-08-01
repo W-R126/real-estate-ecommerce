@@ -17,6 +17,7 @@ module.exports = db.define('order', {
       return "ORDER" + hashids.encode(this.id);
     },
     convertDate: function() {
+      console.log(typeof this.createdAt);
       return this.createdAt.toString().substring(0,15);
     }
   }

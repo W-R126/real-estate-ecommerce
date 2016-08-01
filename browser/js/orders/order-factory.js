@@ -16,8 +16,8 @@ app.factory('OrderFactory', function($http){
       .then(res => res.data);
   }
 
-  OrderFactory.updateOrderStatus = function(orderStatus, orderId) {
-    return $http.update('/api/orders/admin/status/' + orderId, {orderStatus: orderStatus})
+  OrderFactory.updateOrderStatus = function(orderId, orderStatus) {
+    return $http.put('/api/orders/admin/status/' + orderId, {orderStatus: orderStatus})
       .then(res => res.data);
   }
 
