@@ -994,3 +994,6 @@ body #footer h3 {
 body #header, body #footer, body #footer h3, body #footer h4 {
 	font-family: 'Lato', sans-serif;
 }
+
+.fromTop{ padding-top: 45px;
+}
