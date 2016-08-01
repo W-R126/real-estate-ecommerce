@@ -32,10 +32,10 @@
                 </div>
                 <div class="col-md-4 form-field">
                   <div class="btn-group">
-                    <select class="btn dropdown-toggle" name="styleInput" data-toggle="dropdown" ng-model="searchProps.style" ng-options="style.name as style.name for style in styles"> <option class="select-text" value="">Architectural Style</option> </select>
+                    <select class="btn dropdown-toggle" name="styleInput" data-toggle="dropdown" ng-model="searchProps.style" ng-options="style as style for style in styles"> <option class="select-text" value="">Architectural Style</option> </select>
                   </div>
                   <div class="btn-group">
-                    <select class="btn dropdown-toggle" name="floorsRange" data-toggle="dropdown" ng-model="searchProps.floors" ng-options="floor.range as floor.range for floor in floors"> <option class="select-text" value="">Floors</option> </select>
+                    <select class="btn dropdown-toggle" name="floorsRange" data-toggle="dropdown" ng-model="searchProps.floors" ng-options="floor.i as floor.range for floor in floors"> <option class="select-text" value="">Floors</option> </select>
                   </div>
                 </div>
                 <div class="col-md-4 form-field">

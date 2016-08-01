@@ -6,20 +6,20 @@ app.config(function ($stateProvider) {
         resolve:{
           useTypes: function (SearchFactory){
             return SearchFactory.getTypes();
-          }
+          },
           archStyles: function(SearchFactory){
-            return SearchFactory.getStyles;
+            return SearchFactory.getStyles();
           }
     }
     });
 });
 
-app.controller('HomeCtrl', function($scope, $state, $log, SearchFactory, useTypes){
+app.controller('HomeCtrl', function($scope, $state, $log, SearchFactory, useTypes, archStyles){
 
   // $scope.types = [{name:"Commercial"}, {name:"Residential"}, {name: "Mixed-Use"}];
   $scope.types = useTypes;
   $scope.styles= archStyles;
-  $scope.floors = [{range: "1-10"}, {range: "11-50"}, {range: "50-100"}];
+  $scope.floors = [{range: "1 to 10", i: 0}, {range: "11 to 50", i:1}, {range: "50 to 100", i:2}];
   $scope.message = "Hello!";
   $scope.search = function(){
     var searchProps = JSON.stringify($scope.searchProps);
