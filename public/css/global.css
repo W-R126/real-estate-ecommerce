@@ -399,7 +399,7 @@ left: 150%;
  3) Header Section
  ----------------------------------------*/
 #header {
-	position: fixed;
+	position: relative;
 	z-index: 9999;
 	top: 0px;
 	left: 0px;
@@ -733,6 +733,7 @@ body .navbar .btn-default {
 	padding-bottom: 60px;
 }
 body #footer h3 {
+	position: fixed;
 	color: #fff;
 	margin-bottom: 0;
 	font-size: 24px;
