@@ -11,5 +11,15 @@ app.factory('OrderFactory', function($http){
     .then(res => res.data);
   }
 
+  OrderFactory.getAllAdminOrders = function(args) {
+    return $http.get('/api/orders/admin', {params: args})
+      .then(res => res.data);
+  }
+
+  OrderFactory.updateOrderStatus = function(orderId, orderStatus) {
+    return $http.put('/api/orders/admin/status/' + orderId, {orderStatus: orderStatus})
+      .then(res => res.data);
+  }
+
   return OrderFactory;
 })

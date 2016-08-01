@@ -38,7 +38,6 @@ app.config(function ($stateProvider) {
     controller: 'BuildingsCtrl',
     resolve: {
       allBuildings: function (BuildingFactory, $stateParams) {
-        console.log("Type:", $stateParams.type);
         return BuildingFactory.fetchAll({propertyType: $stateParams.type});
       }
     }

@@ -6,8 +6,23 @@ var Order = db.Order;
 var PurchasedBuilding = db.PurchasedBuilding;
 var Building = db.Building;
 
+
+router.get('/admin', function(req, res, next) {
+  Order.findAll({where:req.query})
+  .then(orders => res.send(orders))
+  .catch(next);
+})
+
+router.put('/admin/status/:orderId', function(req, res, next) {
+  Order.update(req.body,
+    {where: {id: req.params.orderId},
+    returning: true
+  })
+  .then(orderUpdated => res.send(orderUpdated[1][0]))
+  .catch(next);
+})
+
 router.get('/:id', function(req, res, next) {
-  var returnObj = {};
   Order.findById(req.params.id, {
     include: [
       {
@@ -23,8 +38,8 @@ router.get('/:id', function(req, res, next) {
   .catch(next);
 });
 
+
 router.get('/', function(req, res, next){
-  console.log('hit this routeafa');
   Order.findAll({
     where: {
       userId: req.session.passport.user
