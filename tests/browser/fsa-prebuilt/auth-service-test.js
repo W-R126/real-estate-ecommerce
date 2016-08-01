@@ -23,7 +23,7 @@ describe('AuthService', function () {
         expect(AuthService).to.be.an('object');
     });
 
-    describe('isAuthenicated', function () {
+    describe('isAuthenticated', function () {
 
         it('should return true if a Session exists', function () {
             Session.create('testID', {email: 'cool@gmail.com'});
