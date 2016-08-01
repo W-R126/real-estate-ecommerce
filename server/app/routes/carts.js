@@ -7,6 +7,7 @@ var Building = db.Building;
 
 
 router.get('/', function(req, res, next){
+  console.log("****************", req.session);
   Cart.findById(req.session.cartId, {include:[Building]})
   .then(cart=> res.send(cart))
   .catch(next);
@@ -16,8 +17,11 @@ router.get('/', function(req, res, next){
 router.put('/:id', function (req, res, next) {
   if(!req.session.cartId){
     Cart.create(req.body)
-    .then(cart=>cart.addBuilding(req.params.id))
-    .then(cart=>res.send(cart))
+    .tap(cart=>cart.addBuilding(req.params.id))
+    .then(cart=> {
+      req.session.cartId = cart.id;
+      res.send(cart);
+    })
     .catch(next);
   }
   else {
