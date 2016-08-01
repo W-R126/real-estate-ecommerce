@@ -33,7 +33,7 @@
         </table>
       </div>
       <div class="cart-widget clearfix">
-        <div class="price-total"> <span class="h3"> Cart total: <b>${{ getTotal() }}</b> </span> <a ui-sref="cart.checkout" class="btn btn-default btn-effect"> checkout <i><img src="/img/arrow-btn.png" alt="" /> </i> </a> </div>
+        <div class="price-total"> <span class="h3"> Cart total: <b>{{ getTotal() }}</b> </span> <button ui-sref="cart.checkout" class="btn btn-default btn-effect" ng-disabled="{{cartEmpty}}"> checkout <i><img src="/img/arrow-btn.png" alt="" /> </i> </button> </div>
       </div>
     </section>
 

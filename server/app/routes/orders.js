@@ -112,8 +112,8 @@ router.post('/', function (req, res, next) {
     var message = {
       from: 'sandbox@mailgun.org',
       to: savedOrder.email,
-      subject: "Your order #" + savedORder.convertId +" has been received",
-      text: "Dear "+ savedOrder.name+", \n Your order #" + savedOrder.convertId +" from Betty's Building Bros has been received!"
+      subject: "Your order #" + savedOrder.convertId +" has been received",
+      text: "Dear "+ savedOrder.name+", \n\nYour order #" + savedOrder.convertId +" from Betty's Building Bros has been received!\n\nYour bros,\nBarry, Richard, Samuel, and Betty"
     }
 
     transporter.sendMail(message, function(error, info){
