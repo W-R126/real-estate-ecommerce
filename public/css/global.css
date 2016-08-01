@@ -682,7 +682,7 @@ body .navbar .btn-default {
 	transition: all 0.4s ease-in-out;
 }
 #header.fixed {
-	position: fixed;
+	position: relative;
 	width: 100%;
 	left: 0;
 	top: 0;
