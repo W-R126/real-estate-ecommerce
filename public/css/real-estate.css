@@ -138,7 +138,7 @@
 	width: auto;
 }
 .homepage-10 .resto-info .btn-default {
-	height: 56px;
+	height: 45px;
 	font-size: 20px;
 	line-height: 2.6
 }
@@ -180,7 +180,7 @@
 	.homepage-10 .btn.btn-default.btn-effect {
     position: relative;
 }
-	
+
 /* Rent Features
  ------------------------------------*/
 .rent-features {
@@ -1015,7 +1015,6 @@ body .price-meter-wrap .ui-widget-content {
 	margin-bottom: 50px;
 }
 .real-estate-two form input, .real-estate-two form textarea {
-	text-transform: capitalize;
 	font-family: Lato;
 	font-size: 20px;
 	color: #828287;
@@ -1094,4 +1093,4 @@ body .price-meter-wrap .ui-widget-content {
 }
 .new-properties-block .pagination > li > a{
 	background:#f0f0f0;
-	}	
+	}

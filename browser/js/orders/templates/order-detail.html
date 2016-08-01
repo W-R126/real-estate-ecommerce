@@ -26,7 +26,7 @@
           </tr>
           <tr ng-repeat="building in theOrder.purchasedBuildings">
             <td><a ui-sref="building({id: {{building.building.id}} })"><img class="listBuildingImg" src="{{building.building.photoURL}}" />  {{building.building.streetAddress}} </a></td>
-            <td><span class="cart-total">{{theOrder.convertDate}}</span></td>
+            <td><span class="cart-total">{{theOrder.date}}</span></td>
             <td><span class="cart-total">1</span></td>
             <td><span class="cart-total">${{building.purchasePrice}}</span></td>
           </tr>

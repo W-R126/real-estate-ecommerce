@@ -40,15 +40,22 @@ module.exports = db.define('order', {
   zipCode: {
     type: Sequelize.STRING(5),
     allowNull: false
+  },
+  orderStatus: {
+    type: Sequelize.ENUM('Created', 'Processing', 'Cancelled', 'Completed'),
+    defaultValue: 'Created'
+  },
+  date: {
+    type: Sequelize.DATE,
+    defaultValue: Sequelize.NOW,
+    get: function() {
+      return this.getDataValue('date').toString().substring(0, 15);
+    }
   }
-
 }, {
   getterMethods: {
     convertId: function() {
       return "ORDER" + hashids.encode(this.id);
-    },
-    convertDate: function() {
-      return this.createdAt.toString().substring(0,15);
     }
   }
 })

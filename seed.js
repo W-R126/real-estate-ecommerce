@@ -59,23 +59,27 @@ var seedUsers = function () {
 var seedReviews = function(){
     var reviews = [
     {
+     headline: "this building is so so-so",
      review:"This string should probably be over 250 characters just to be safe, so we know that it definetly works, and is not broken. To confirm that this string can be over 250 characters, this paragaph is going to continue on and on, till it reaches 250 characters, I am going to guess this is not over 250 characters.",
      numOfStars:"1",
      buildingId:"2",
      userId:"2"
     },{
+        headline: "this is the nickleback of buildings",
         review:"Second Review this building is just aiiiittteeee",
      numOfStars:"2",
      buildingId:"2",
      userId:"1"
     },
     {
+        headline: "this building is missing a roof",
         review:"this building is not so good",
      numOfStars:"3",
      buildingId:"2",
      userId:"1"
     },
     {
+        headline: "HEADLINES@@@@!!!!",
         review:"REVIEW FOR BUILDING 3!!!!",
      numOfStars:"3",
      buildingId:"2",
@@ -119,7 +123,8 @@ var seedOrders = function() {
              address1: "123 Address Lane",
              city: "Fake City",
              state: "Fake State",
-             zipCode: "10000"
+             zipCode: "10000",
+             orderStatus: 'Created'
          },
          {
              userId:"3",
@@ -130,7 +135,32 @@ var seedOrders = function() {
              address1: "123 Address Lane",
              city: "Fake City",
              state: "Fake State",
-             zipCode: "10000"
+             zipCode: "10000",
+             orderStatus: 'Processing'
+         },
+         {
+             userId:"3",
+             cartId:"2",
+             email: "example@email.com",
+             creditCard: "1234 5678 9012 3456",
+             name: "Name",
+             address1: "123 Address Lane",
+             city: "Fake City",
+             state: "Fake State",
+             zipCode: "10000",
+             orderStatus: 'Cancelled'
+         },
+         {
+             userId:"3",
+             cartId:"1",
+             email: "example@email.com",
+             creditCard: "1234 5678 9012 3456",
+             name: "Name",
+             address1: "123 Address Lane",
+             city: "Fake City",
+             state: "Fake State",
+             zipCode: "10000",
+             orderStatus: 'Completed'
          }
      ]
 

@@ -22,7 +22,7 @@
                 <div class="print"> <a href="#" class="print-icon"> Print </a> </div>
               </div>
               <div class="property-description">
-              {{building.description}}
+              <h5>Building Description:</h5> {{building.description}}
               </div>
               <ul class="cont-info">
                 <li> <strong>Street Address: </strong><span>{{building.streetAddress}}</span> </li>
@@ -49,7 +49,8 @@
 
             <div>
               <a class="btn btn-default btn-effect" ui-sref="building.reviews" id="reviews-button">Click to see reviews</a>
-              <a class="btn btn-default btn-effect" id="reviews-button" ui-sref="building.write" id="reviews-button">Write a review<i class="fa fa-pencil"></i></a>
+              <button class="btn btn-default btn-effect" id="reviews-button" ui-sref="building.write" ng-disabled="loggedIn">Write a review<i class="fa fa-pencil"></i></button>
+              <span ng-show="loggedIn">{{message}}</span>
 
               <ui-view></ui-view>
             </div>
@@ -58,7 +59,7 @@
         </div>
 
         <div class="col-md-3 col-sm-3 col-md-offset-1">
-          <div ng-click="addToCart()" class="sale-rent-info" id="cart-box">
+          <div ng-click="addToCart()" id="cart-box">
             <div class="resto-info">
               <br><br>
               <button class="btn btn-default btn-effect"><h2 class="text-center">Add to Cart<i class="fa fa-shopping-cart"></i></h2></button>

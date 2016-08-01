@@ -40,7 +40,13 @@
                               <a ui-sref="orders">Your Orders</a>
                             </li>
                             <li>
-                              <a ng-show="isAdmin()">User Control</a>
+                              <a ng-show="isAdmin()">Product Control</a>
+                            </li>
+                            <li>
+                              <a ng-show="isAdmin()" ui-sref="ordersAdmin">Order Control</a>
+                            </li>
+                            <li>
+                              <a ng-show="isAdmin()" ui-sref="users">User Control</a>
                             </li>
                             <li>
                               <a ng-click="logout()" class="pointer">Logout</a>

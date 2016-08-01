@@ -1,6 +1,7 @@
-app.controller('BuildingCtrl', function($scope, theBuilding, CartFactory, $state){
+app.controller('BuildingCtrl', function($scope, theBuilding, CartFactory, $state, AuthService){
   $scope.building = theBuilding;
-
+  $scope.loggedIn = !AuthService.isAuthenticated();
+  $scope.message = "Please Sign In To Leave a Review";
   $scope.addToCart = function () {
     CartFactory.add(theBuilding.id);
     $state.go('cart');
@@ -25,6 +26,7 @@ app.config(function ($stateProvider) {
 
 app.controller('BuildingsCtrl', function($scope, allBuildings) {
   $scope.buildings = allBuildings;
+
 })
 
 
