@@ -29,10 +29,7 @@ app.controller('CartController', function ($scope, theCart, CartFactory) {
     CartFactory.delete(buildingId)
     .then(function () {
       $scope.cart.buildings.splice(index, 1);
-      $scope.$digest();
     })
   }
-
-  $scope.cartEmpty = ($scope.cart.buildings.length) ? false : true;
 
 });
