@@ -35,10 +35,7 @@
               </label>
             </td>
             <td>
-              <label class="switch">
-                <input type="checkbox">
-                <div class="slider round"></div>
-              </label>
+              <button class="btn btn-success" ng-click="togglePassword(user.id)">Reset</button>
             </td>
             <td><a ng-click="deleteUser(user.id,$index)" class="fa fa-close pointer"></a></td>
           </tr>

@@ -33,7 +33,7 @@ router.post('/', function(req, res, next){
   .catch(next)
 })
 
-router.post('/changeAdmin/:id', function(req, res, next) {
+router.put('/changeAdmin/:id', function(req, res, next) {
   User.update(req.body,
     { where: { id: req.params.id},
     returning: true
@@ -41,6 +41,17 @@ router.post('/changeAdmin/:id', function(req, res, next) {
   .then(user => res.send(user[1][0]))
   .catch(next)
 });
+
+router.put('/changePass/:id', function(req, res, next) {
+  User.update(req.body,
+    { where: { id: req.params.id},
+    returning: true
+  })
+  .then(user => res.send(user[1][0]))
+  .catch(next)
+});
+
+router.put
 
 router.delete('/:id', function (req, res, next) {
   User.destroy({

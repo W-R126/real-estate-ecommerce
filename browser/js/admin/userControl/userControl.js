@@ -32,4 +32,10 @@ app.controller('UserController', function ($scope, allUsers, UserFactory) {
     .catch(console.error);
   }
 
+  $scope.togglePassword = function(userId) {
+    UserFactory.changePassword(userId)
+      .then()
+      .catch(console.error);
+  }
+
 });

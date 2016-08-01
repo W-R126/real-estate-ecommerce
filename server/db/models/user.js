@@ -26,6 +26,11 @@ module.exports = db.define('user', {
         type: Sequelize.BOOLEAN,
         defaultValue: "false"
     },
+    resetPassword: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: "true",
+        allowNull: false
+    },
     orderHistory:{
         type: Sequelize.ARRAY(Sequelize.INTEGER)
     },
