@@ -35,17 +35,18 @@ app.controller('ReviewCtrl', function($scope, theReviews, ReviewFactory) {
 
 
 app.controller('newReviewCtrl', function($scope, ReviewFactory, $state) {
-    $scope.rating = 1;
-    $scope.ratings = [{
+      $scope.ratings = [{
         current: 1,
         max: 5
     }];
 
     $scope.getSelectedRating = function(rating) {
     $scope.newReview.numOfStars = rating
+
     }
-    $scope.sendReview = function() {
-            ReviewFactory.create($scope.newReview)
+
+    $scope.sendReview = function(review) {
+            ReviewFactory.create(review)
             .then(function(review) {
                 $state.go('building.reviews')
             })
@@ -57,7 +58,6 @@ app.controller('newReviewCtrl', function($scope, ReviewFactory, $state) {
 
 
 //star controller
-
 
 
 app.directive('starRating', function() {
@@ -73,25 +73,25 @@ app.directive('starRating', function() {
             max: '=',
             onRatingSelected: '&'
         },
-        link: function(scope, elem, attrs) {
+        link: function($scope, elem, attrs) {
 
             var updateStars = function() {
-                scope.stars = [];
-                for (var i = 0; i < scope.max; i++) {
-                    scope.stars.push({
-                        filled: i < scope.ratingValue
+                $scope.stars = [];
+                for (var i = 0; i < $scope.max; i++) {
+                    $scope.stars.push({
+                        filled: i < $scope.ratingValue
                     });
                 }
             };
 
-            scope.toggle = function(index) {
-                scope.ratingValue = index + 1;
-                scope.onRatingSelected({
+            $scope.toggle = function(index) {
+                $scope.ratingValue = index + 1;
+                $scope.onRatingSelected({
                     rating: index + 1
                 });
             };
 
-            scope.$watch('ratingValue', function(oldVal, newVal) {
+            $scope.$watch('ratingValue', function(oldVal, newVal) {
                 if (newVal) {
                     updateStars();
                 }
