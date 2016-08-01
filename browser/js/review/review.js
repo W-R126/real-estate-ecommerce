@@ -27,9 +27,7 @@ app.controller('ReviewCtrl', function($scope, theReviews, ReviewFactory) {
             .then(function(review) {
                 $state.go('building.reviews')
             })
-            .catch(function(error) {
-                console.error(error)
-            });
+            .catch(console.error);
     }
 });
 
@@ -50,9 +48,7 @@ app.controller('newReviewCtrl', function($scope, ReviewFactory, $state) {
             .then(function(review) {
                 $state.go('building.reviews')
             })
-            .catch(function(error) {
-                console.error(error)
-            });
+            .catch(console.error);
     }
 });
 
