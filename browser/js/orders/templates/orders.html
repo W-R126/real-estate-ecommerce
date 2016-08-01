@@ -24,7 +24,7 @@
           </tr>
           <tr ng-repeat="order in orders">
             <td><a ui-sref="order({id: '{{order.id}}'})" class="saved-product"><img src="/img/empire-state-building.jpg" alt="" /></a> <a ui-sref="order({id: '{{order.id}}'})" class="saved-product"> {{order.convertId}} </a></td>
-            <td>{{order.convertDate}}</td>
+            <td>{{order.date}}</td>
             <td><span class="cart-total">$59.95</span></td>
           </tr>
         </table>

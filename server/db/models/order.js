@@ -13,15 +13,15 @@ module.exports = db.define('order', {
   },
   date: {
     type: Sequelize.DATE,
-    defaultValue: Sequelize.NOW
+    defaultValue: Sequelize.NOW,
+    get: function() {
+      return this.getDataValue('date').toString().substring(0, 15);
+    }
   }
 }, {
   getterMethods: {
     convertId: function() {
       return "ORDER" + hashids.encode(this.id);
-    },
-    convertDate: function() {
-      return this.date.toString().substring(0,15);
     }
   }
 })

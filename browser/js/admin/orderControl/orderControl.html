@@ -31,7 +31,7 @@
           <tr ng-repeat="order in orders">
             <td><a ui-sref="order({id: order.id})" class="pointer">{{order.id}} | View Details</a></td>
             <td>{{order.convertId}}</td>
-            <td>{{order.convertDate}}</td>
+            <td>{{order.date}}</td>
             <td>{{order.orderStatus}}</td>
             <td>
               <form name="statusSelect" ng-submit="changeStatus(order.id, $index, statusToChange)">
