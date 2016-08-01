@@ -4,7 +4,7 @@ var db = require('../_db');
 
 module.exports = db.define('building', {
 
-    //maybe address gets it own table??
+    // maybe address gets it own table??
     streetAddress: {
         type: Sequelize.STRING,
         allowNull: false
@@ -18,13 +18,19 @@ module.exports = db.define('building', {
         allowNull: false
     },
     zipCode: {
-        type: Sequelize.STRING(5)
+        type: Sequelize.STRING(5),
+        validate: {len: 5 }
     },
     price: {
         type: Sequelize.INTEGER //in cents
     },
+    isAvailable: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: "true"
+    },
     propertyType: {
-        type: Sequelize.ENUM('Commercial', 'Residential', 'Mixed')
+        type: Sequelize.ENUM('Commercial', 'Residential', 'Mixed'),
+        allowNull: false
     },
     lotSize: {
         type: Sequelize.STRING
@@ -56,6 +62,3 @@ module.exports = db.define('building', {
 
 
 });
-
-
-//make getter for date
