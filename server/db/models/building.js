@@ -23,6 +23,10 @@ module.exports = db.define('building', {
     price: {
         type: Sequelize.INTEGER //in cents
     },
+    isAvailable: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: "true"
+    },
     propertyType: {
         type: Sequelize.ENUM('Commercial', 'Residential', 'Mixed')
     },

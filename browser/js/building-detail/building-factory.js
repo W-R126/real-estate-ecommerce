@@ -12,5 +12,10 @@ app.factory('BuildingFactory', function ($http) {
     .then(function (response) { return response.data; });
   };
 
+  BuildingFactory.changeStatus = function(id, propertyStatus) {
+    return $http.put('/api/buildings/changeStatus/' + id, {isAvailable: propertyStatus})
+      .then(res => res.data);
+  }
+
   return BuildingFactory;
 });

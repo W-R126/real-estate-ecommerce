@@ -22,5 +22,13 @@ router.get('/', function(req, res, next){
   .catch(next);
 })
 
+router.put('/changeStatus/:id', function(req, res, next){
+  Building.update(req.body, {where: { id: req.params.id},
+    returning: true
+  })
+  .then(building => res.send(building[1][0]))
+  .catch(next);
+})
+
 
 module.exports = router;
