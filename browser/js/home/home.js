@@ -9,13 +9,18 @@ app.config(function ($stateProvider) {
           },
           archStyles: function(SearchFactory){
             return SearchFactory.getStyles();
-          }
+          },
+          allBuildings: function (BuildingFactory) {
+            return BuildingFactory.fetchAll({
+
+            });
+      }
     }
     });
 });
 
-app.controller('HomeCtrl', function($scope, $state, $log, SearchFactory, useTypes, archStyles){
-
+app.controller('HomeCtrl', function($scope, $state, $log, SearchFactory, useTypes, archStyles, allBuildings){
+  $scope.buildings = allBuildings;
   $scope.searchProps = {};
   $scope.price =[];
   $scope.types = useTypes;
