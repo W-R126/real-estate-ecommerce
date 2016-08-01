@@ -1,5 +1,19 @@
 var express = require('express');
 var router = new express.Router();
+var fs = require('fs');
+
+var secretMG= JSON.parse(fs.readFileSync('/home/barry/secretMG.txt','utf8'));
+
+
+var nodemailer = require('nodemailer');
+var transport = {
+  service:'Mailgun',
+  auth: {
+    user: secretMG.user,
+    pass: secretMG.pass
+  }
+}
+var transporter = nodemailer.createTransport(transport);
 
 var db = require('../../db');
 var Order = db.Order;
@@ -49,5 +63,53 @@ router.get('/', function(req, res, next){
   .catch(next)
 });
 
+router.put('/shipped', function(req, res, next){
+  //Update from field with domain once pushed to production server!
+  var message = {
+    from: 'sandbox@mailgun.org',
+    to: req.body.email,
+    text: "Your order #" + order.id+" from Betty's Building Bros has been shipped!"
+  }
+
+  transporter.sendMail(message, function(error, info){
+    if (error) console.log("Confirmation Mail Error: ",error);
+    else console.log('Sent: '+ info.response);
+  });
+  res.sendStatus(200)
+})
+
+router.put('/delivered', function(req, res, next){
+  //Update from field with domain once pushed to production server!
+  var message = {
+    from: 'sandbox@mailgun.org',
+    to: req.body.email,
+    text: "Your order #" + order.id+" from Betty's Building Bros has been shipped!"
+  }
+
+  transporter.sendMail(message, function(error, info){
+    if (error) console.log("Confirmation Mail Error: ",error);
+    else console.log('Sent: '+ info.response);
+  });
+  res.sendStatus(200)
+})
+
+router.post('/', function(req, res, next){
+  Order.create(req.body)
+  .then(function(order){
+    //Update from field with domain once pushed to production server!
+    var message = {
+      from: 'sandbox@mailgun.org',
+      to: req.body.email,
+      text: "Dear "+ order.name+", \n Your order #" + order.id+" from Betty's Building Bros has been received!"
+    }
+
+    transporter.sendMail(message, function(error, info){
+      if (error) console.log("Confirmation Mail Error: ",error);
+      else console.log('Sent: '+ info.response);
+      });
+    res.sendStatus(200)})
+  .catch(next);
+
+})
 
 module.exports = router;
