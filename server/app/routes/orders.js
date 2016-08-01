@@ -2,6 +2,7 @@ var express = require('express');
 var router = new express.Router();
 var fs = require('fs');
 
+
 var secretMG = JSON.parse(fs.readFileSync(__dirname+'/../../../../secretMG.txt','utf8'));
 
 var nodemailer = require('nodemailer');
@@ -29,11 +30,29 @@ router.get('/admin', function(req, res, next) {
 })
 
 router.put('/admin/status/:orderId', function(req, res, next) {
+  var message = {from: 'sandbox@mailgun.org'};
+
+
   Order.update(req.body,
     {where: {id: req.params.orderId},
     returning: true
   })
-  .then(orderUpdated => res.send(orderUpdated[1][0]))
+  .then(orderUpdated => {
+     if(req.body.orderStatus ==="Processing") {
+      message.to = orderUpdated[1][0].email;
+      message.subject = "Betty's Building Bro's Order #"+orderUpdated[1][0].convertId + " has shipped!";
+      message.text = "Dear "+ orderUpdated[1][0].name+", \nYour order #" + orderUpdated[1][0].convertId +" from Betty's Building Bros has been processed for shipping!\n\nYour bros,\nBarry, Richard, Samuel, and Betty"
+    } else if (req.body.orderStatus === "Completed") {
+      message.to = orderUpdated[1][0].email;
+      message.subject = "Betty's Building Bro's Order #"+orderUpdated[1][0].convertId + " has been delivered!";
+      message.text = "Dear "+ orderUpdated[1][0].name+", \nYour order #" + orderUpdated[1][0].convertId +" from Betty's Building Bros has been delivered! Enjoy your new digs!\n\nYour bros,\nBarry, Richard, Samuel, and Betty"
+    }
+    transporter.sendMail(message, function(error, info) {
+      if (error) console.log("Confirmation Mail Error: ",error);
+      else console.log('Sent: '+ info.response);
+    });
+
+    res.send(orderUpdated[1][0])})
   .catch(next);
 })
 
