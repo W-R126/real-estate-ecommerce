@@ -117,21 +117,49 @@ var seedOrders = function() {
          {
              userId: "2",
              cartId: "1",
+             email: "example@email.com",
+             creditCard: "1234 5678 9012 3456",
+             name: "Name",
+             address1: "123 Address Lane",
+             city: "Fake City",
+             state: "Fake State",
+             zipCode: "10000",
              orderStatus: 'Created'
          },
          {
              userId:"3",
              cartId:"2",
+             email: "example@email.com",
+             creditCard: "1234 5678 9012 3456",
+             name: "Fake Name",
+             address1: "123 Address Lane",
+             city: "Fake City",
+             state: "Fake State",
+             zipCode: "10000",
              orderStatus: 'Processing'
          },
          {
              userId:"3",
              cartId:"2",
+             email: "example@email.com",
+             creditCard: "1234 5678 9012 3456",
+             name: "Name",
+             address1: "123 Address Lane",
+             city: "Fake City",
+             state: "Fake State",
+             zipCode: "10000",
              orderStatus: 'Cancelled'
          },
          {
              userId:"3",
              cartId:"1",
+             email: "example@email.com",
+             creditCard: "1234 5678 9012 3456",
+             name: "Name",
+             address1: "123 Address Lane",
+             city: "Fake City",
+             state: "Fake State",
+             zipCode: "10000",
              orderStatus: 'Completed'
          }
      ]

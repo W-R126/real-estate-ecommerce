@@ -23,20 +23,20 @@ app.config(function ($stateProvider) {
     templateUrl: 'js/orders/templates/order-detail.html',
     controller: 'OrderController',
     resolve: {
-      theIndOrders: function (OrderFactory, $stateParams){
+      theOrder: function (OrderFactory, $stateParams){
         return OrderFactory.findAllForOrderId($stateParams.id);
       }
     }
   })
 })
 
-app.controller('OrderController', function ($scope, theIndOrders) {
-  $scope.theorders = theIndOrders;
+app.controller('OrderController', function ($scope, theOrder) {
+  $scope.theOrder = theOrder;
 
   $scope.getTotal = function () {
       var total = 0;
-      for(var i = 0; i < $scope.theorders.purchasedBuildings.length; i++){
-          total += $scope.theorders.purchasedBuildings[i].purchasePrice;
+      for(var i = 0; i < theOrder.purchasedBuildings.length; i++){
+          total += theOrder.purchasedBuildings[i].purchasePrice;
       }
       return total;
   }

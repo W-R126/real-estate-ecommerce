@@ -16,6 +16,14 @@ app.config(function ($stateProvider) {
 app.controller('CartController', function ($scope, theCart, CartFactory) {
   $scope.cart = theCart;
 
+  $scope.getTotal = function () {
+      var total = 0;
+      for(var i = 0; i < $scope.cart.buildings.length; i++){
+          total += $scope.cart.buildings[i].price;
+      }
+      return total;
+  }
+
   $scope.deleteItem = function (buildingId, index) {
     CartFactory.delete(buildingId)
     .then(function () {
