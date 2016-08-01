@@ -42,11 +42,11 @@ router.put('/admin/status/:orderId', function(req, res, next) {
      if(req.body.orderStatus ==="Processing") {
       message.to = orderUpdated[1][0].email;
       message.subject = "Betty's Building Bro's Order #"+orderUpdated[1][0].convertId + " has shipped!";
-      message.text = "Dear "+ orderUpdated[1][0].name+", \n Your order #" + orderUpdated[1][0].convertId +" from Betty's Building Bros has been processed for shipping!"
+      message.text = "Dear "+ orderUpdated[1][0].name+", \nYour order #" + orderUpdated[1][0].convertId +" from Betty's Building Bros has been processed for shipping!"
      } else if (req.body.orderStatus === "Completed"){
        message.to = orderUpdated[1][0].email;
-       message.subject = "Betty's Building Bro's Order #"+orderUpdated.convertId + " has been delivered!";
-       message.text = "Dear "+ orderUpdated[1][0].name+", \n Your order #" + orderUpdated[1][0].convertId +" from Betty's Building Bros has been delivered! Enjoy your new digs!"
+       message.subject = "Betty's Building Bro's Order #"+orderUpdated[1][0].convertId + " has been delivered!";
+       message.text = "Dear "+ orderUpdated[1][0].name+", \nYour order #" + orderUpdated[1][0].convertId +" from Betty's Building Bros has been delivered! Enjoy your new digs!"
      }
      console.log(message);
     transporter.sendMail(message, function(error, info) {
@@ -56,12 +56,6 @@ router.put('/admin/status/:orderId', function(req, res, next) {
 
     res.send(orderUpdated[1][0])})
   .catch(next);
-})
-
-router.get('/test', function(req, res, next){
-  console.log('Current path: '+__dirname);
-  console.log(secretMG);
-  res.sendStatus(200);
 })
 
 router.get('/:id', function(req, res, next) {
@@ -140,7 +134,7 @@ router.post('/', function (req, res, next) {
       from: 'sandbox@mailgun.org',
       to: savedOrder.email,
       subject: "Your order #" + savedOrder.convertId +" has been received",
-      text: "Dear "+ savedOrder.name+", \n Your order #" + savedOrder.convertId +" from Betty's Building Bros has been received!"
+      text: "Dear "+ savedOrder.name+", \nYour order #" + savedOrder.convertId +" from Betty's Building Bros has been received!"
     }
 
     transporter.sendMail(message, function(error, info){
