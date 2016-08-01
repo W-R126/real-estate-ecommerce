@@ -10,6 +10,10 @@ module.exports = db.define('order', {
   orderStatus: {
     type: Sequelize.ENUM('Created', 'Processing', 'Cancelled', 'Completed'),
     defaultValue: 'Created'
+  },
+  date: {
+    type: Sequelize.DATE,
+    defaultValue: Sequelize.NOW
   }
 }, {
   getterMethods: {
@@ -17,8 +21,7 @@ module.exports = db.define('order', {
       return "ORDER" + hashids.encode(this.id);
     },
     convertDate: function() {
-      console.log(typeof this.createdAt);
-      return this.createdAt.toString().substring(0,15);
+      return this.date.toString().substring(0,15);
     }
   }
 })
