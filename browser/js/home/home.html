@@ -35,13 +35,7 @@
                     <select class="btn dropdown-toggle" name="styleInput" data-toggle="dropdown" ng-model="searchProps.style" ng-options="style.name as style.name for style in styles"> <option class="select-text" value="">Architectural Style</option> </select>
                   </div>
                   <div class="btn-group">
-                    <button class="btn dropdown-toggle" name="recordinput" data-toggle="dropdown"> <span class="select-text">Baths</span><span class="caret">&nbsp;</span> </button>
-                    <ul class="dropdown-menu choice">
-                      <li> <a href="#">360 Modena</a> </li>
-                      <li> <a href="#">DS3 </a> </li>
-                      <li> <a href="#">M32dr</a> </li>
-                      <li> <a href="#">V40 </a> </li>
-                    </ul>
+                    <select class="btn dropdown-toggle" name="floorsRange" data-toggle="dropdown" ng-model="searchProps.floors" ng-options="floor.range as floor.range for floor in floors"> <option class="select-text" value="">Floors</option> </select>
                   </div>
                 </div>
                 <div class="col-md-4 form-field">

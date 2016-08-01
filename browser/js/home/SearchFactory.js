@@ -5,6 +5,10 @@ app.factory('SearchFactory', function($http){
     return $http.get('/api/buildings/types/')
     .then(function(types){return types.data});
   }
+  SearchFactoryObj.getStyles = function(){
+    return $http.get('/api/buildings/styles/')
+    .then(function(types){return types.data});
+  }
 
   SearchFactoryObj.searchFields = function(obj){
 

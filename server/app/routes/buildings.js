@@ -8,6 +8,9 @@ router.get('/types', function(req, res, next){
   res.send(Building.rawAttributes.propertyType.values);
 })
 
+router.get('/styles', function(req, res, next){
+  res.send(Building.rawAttributes.architecturalStyle.values);
+})
 
 router.get('/:id', function(req, res, next){
 

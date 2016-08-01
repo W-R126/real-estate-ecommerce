@@ -5,8 +5,11 @@ app.config(function ($stateProvider) {
         controller: 'HomeCtrl',
         resolve:{
           useTypes: function (SearchFactory){
-        return SearchFactory.getTypes();
-      }
+            return SearchFactory.getTypes();
+          }
+          archStyles: function(SearchFactory){
+            return SearchFactory.getStyles;
+          }
     }
     });
 });
@@ -15,7 +18,8 @@ app.controller('HomeCtrl', function($scope, $state, $log, SearchFactory, useType
 
   // $scope.types = [{name:"Commercial"}, {name:"Residential"}, {name: "Mixed-Use"}];
   $scope.types = useTypes;
-  $scope.styles= [{name:"Beaux Arts"}, {name:"Modern"}, {name: "Art Deco"}, {name: "International"}, {name:"Brutalist"}, {name:"Federalist"}, {name:"Renaissance Revival"}, {name:"Greek Revival"}];
+  $scope.styles= archStyles;
+  $scope.floors = [{range: "1-10"}, {range: "11-50"}, {range: "50-100"}];
   $scope.message = "Hello!";
   $scope.search = function(){
     var searchProps = JSON.stringify($scope.searchProps);
