@@ -15,9 +15,6 @@ app.config(function ($stateProvider) {
 
 });
 
-
-//NOTE: I copied pasted from fsg's login and replaced login=> signup
-//we still need to write this controller properly
 app.controller('SignupCtrl', function ($scope, AuthService, $state) {
 
     $scope.signup = {};

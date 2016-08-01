@@ -26,10 +26,7 @@
   cursor: pointer;
 }
 
-#cart-box {
-  position: fixed;
-  width: 287px;
-}
+
 
 #reviews-button {
   width: 173px;
@@ -43,6 +40,19 @@
 .tab {
   margin-right: 10px;
   margin-bottom: 20px;
+}
+
+.listBuildingImg {
+  width: 150px;
+}
+
+.red-text {
+  color: red;
+}
+
+.button-center {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* The switch - the box around the slider */
@@ -104,6 +114,27 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-.cartBuildingImg {
-  width: 150px;
+
+/*star rating css*/
+
+.rating {
+    color: #a9a9a9;
+    margin: 0;
+    padding: 0;
 }
+ul.rating {
+    display: inline-block;
+}
+.rating li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 1px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+.rating .filled {
+    color: #69c1ff;
+}
+
+/*end of star rating css*/

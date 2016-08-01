@@ -5,7 +5,15 @@
     <div class="review-form ">
       <form class="form-inline clearfix" ng-submit="sendReview(newReview)">
         <div class="row">
-          <div class="col-xs-12 col-sm-6">
+
+           <div class="col-xs-12 col-sm-12">
+            <div class="form-group">
+              <label class="sr-only" for="exampleInputname">Headline for review</label>
+              <input type="text" ng-model="newReview.headline" class="form-control" id="exampleInputname" placeholder="Headline for Review">
+            </div>
+          </div>
+
+<!--           <div class="col-xs-12 col-sm-6">
             <div class="form-group">
               <label class="sr-only" for="exampleInputname">Name</label>
               <input type="text" ng-model="newReview.name" class="form-control" id="exampleInputname" placeholder="Name" required="required">
@@ -13,31 +21,21 @@
           </div>
           <div class="col-xs-12 col-sm-6">
             <div class="form-group">
-              <label class="sr-only" for="exampleInputweb">Website</label>
-              <input type="url" ng-model="newReview.website" class="form-control" id="exampleInputweb" placeholder="Website">
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6">
-            <div class="form-group">
               <label class="sr-only" for="exampleInputEmail3">E-mail (required)</label>
               <input type="email" ng-model="newReview.email" class="form-control" id="exampleInputEmail3" placeholder="E-mail" required="required">
             </div>
+          </div> -->
+       <div class="col-xs-12 col-sm-6 " ng-hide="!newReview.headline.length &&!newReview.review.length" >
+         <div ng-controller="newReviewCtrl"> <span class="your-rate">Your Rating:
+         </span>
+         <starRating >
+          <div> <span ng-repeat="rating in ratings">{{rating.current}} out of  {{rating.max}}
+              <div star-rating rating-value="rating.current"  max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
+                </span>
           </div>
-          <div class="col-xs-12 col-sm-6 ">
-            <div class="form-group">
-              <label class="sr-only" for="exampleInputTitle">Title (required)</label>
-              <input type="text" ng-model="newReview.title" class="form-control" id="exampleInputTitle" placeholder="Title">
-            </div>
+            </starRating>
           </div>
-          <div class="col-xs-12 col-sm-6 ">
-            <div class="form-group">
-              <label class="sr-only" for="exampleInputEmail3">Profession</label>
-              <input type="text" ng-model="newReview.profession" class="form-control" id="exampleInputprofession" placeholder="Profession">
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 ">
-            <div class="form-group"> <span class="your-rate">Your Rating: </span> <span class="rating"> <a href="#" class="fa fa-star-o"> <span class="rating-number">1</span></a> <a href="#" class="fa fa-star active"><span class="rating-number">2</span></a> <a href="#" class="fa fa-star-o"> <span class="rating-number">3</span></a> <a href="#" class="fa fa-star-o"><span class="rating-number">4</span></a> <a href="#" class="fa fa-star-o"><span class="rating-number">5</span></a> </span> </div>
-          </div>
+        </div>
           <div class="col-md-12 col-xs-12">
             <div class="form-group ">
               <label class="sr-only" for="exampleInputEmail3">Message</label>

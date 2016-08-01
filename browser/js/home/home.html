@@ -32,22 +32,16 @@
                 </div>
                 <div class="col-md-4 form-field">
                   <div class="btn-group">
-                    <select class="btn dropdown-toggle" name="styleInput" data-toggle="dropdown" ng-model="searchProps.style" ng-options="style.name as style.name for style in styles"> <option class="select-text" value="">Architectural Style</option> </select>
+                    <select class="btn dropdown-toggle" name="styleInput" data-toggle="dropdown" ng-model="searchProps.architecturalStyle" ng-options="style as style for style in styles"> <option class="select-text" value="">Architectural Style</option> </select>
                   </div>
                   <div class="btn-group">
-                    <button class="btn dropdown-toggle" name="recordinput" data-toggle="dropdown"> <span class="select-text">Baths</span><span class="caret">&nbsp;</span> </button>
-                    <ul class="dropdown-menu choice">
-                      <li> <a href="#">360 Modena</a> </li>
-                      <li> <a href="#">DS3 </a> </li>
-                      <li> <a href="#">M32dr</a> </li>
-                      <li> <a href="#">V40 </a> </li>
-                    </ul>
+                    <select class="btn dropdown-toggle" name="floorsRange" data-toggle="dropdown" ng-model="searchProps.stories" ng-options="story.i as story.range for story in stories"> <option class="select-text" value="">Floors</option> </select>
                   </div>
                 </div>
                 <div class="col-md-4 form-field">
                   <div class="price-meter-wrap"> <span class="meter-label">Price </span>
-                   <input type="number" ng-model="searchProps.min"/>
-                   <input type="number" ng-model="searchProps.max"/>
+                   <input type="number" ng-model="minPrice"/>
+                   <input type="number" ng-model="maxPrice"/>
                    <!--  <div class="range-wrap"> <span id="amount1"> </span> <span id="amount"> </span>
                       <div id="slider-range" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false">
                         <div class="ui-slider-range ui-widget-header ui-corner-all" sytle="left: 0%; width:100%;"></div>
@@ -59,7 +53,7 @@
                   </div> -->
                   <div class="row">
                 </form>
-                    <div class="col-xs-12"> <button type="submit" class="btn btn-default btn-effect"> search properties <i> <img src="/img/arrow-btn.png" alt="" /> </i> </input> </div>
+                    <div class="col-xs-12"> <button type="submit" class="btn btn-default btn-effect" ng-click="search()"> search properties <i> <img src="/img/arrow-btn.png" alt="" /> </i> </input> </div>
                     </div>
                   </div>
                 </div>
