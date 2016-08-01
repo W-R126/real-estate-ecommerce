@@ -13,7 +13,6 @@ router.get('/styles', function(req, res, next){
 })
 
 router.get('/:id', function(req, res, next){
-  console.log("Hit ID route");
   Building.findById(req.params.id)
   .then(building=> res.send(building))
   .catch(next);

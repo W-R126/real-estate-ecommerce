@@ -1,0 +1,50 @@
+<div id="content" class="margin-bottom">
+  <div class="container your-cart padding-bottom">
+
+    <!--Content Header -->
+    <header class="content-header row ">
+      <div class="heading col-md-8 col-sm-6 col-xs-12">
+        <h1>Orders Admin Control</h1>
+        <a class="btn btn-default btn-effect tab" ui-sref="ordersAdmin({type:''})">All</a>
+        <a class="btn btn-default btn-effect tab" ui-sref="ordersAdmin({type:'Created'})">Created</a>
+        <a class="btn btn-default btn-effect tab" ui-sref="ordersAdmin({type: 'Processing'})">Processing</a>
+        <a class="btn btn-default btn-effect tab" ui-sref="ordersAdmin({type: 'Cancelled'})">Cancelled</a>
+        <a class="btn btn-default btn-effect tab" ui-sref="ordersAdmin({type: 'Completed'})">Completed</a>
+      </div>
+      <ul class="col-md-4 col-sm-6 col-xs-12 breadcrumb ">
+        <li> <a ui-sref="home">Main Page</a> </li>
+        <li class="active"> Admin Orders </li>
+      </ul>
+    </header>
+    <!--Content Header -->
+
+    <section class="cart-section">
+      <div class="cart-table-wrapper">
+        <table class="table cart-table">
+          <tr>
+            <th class="product-cell"><span class="h3">Order ID</span></th>
+            <th class="price-cell"><span class="h3">Order Hashed ID</span></th>
+            <th class="price-cell"><span class="h3">Order Date</span></th>
+            <th class="price-cell"><span class="h3">Order Status</span></th>
+            <th class="price-cell"><span class="h3">Change Status</span></th>
+          </tr>
+          <tr ng-repeat="order in orders">
+            <td><a ui-sref="order({id: order.id})" class="pointer">{{order.id}} | View Details</a></td>
+            <td>{{order.convertId}}</td>
+            <td>{{order.date}}</td>
+            <td>{{order.orderStatus}}</td>
+            <td>
+              <form name="statusSelect" ng-submit="changeStatus(order.id, $index, statusToChange)">
+                <select ng-options="orderStat as orderStat for orderStat in orderStats" ng-model="statusToChange" required>
+                <option class="select-text" value="">Order Status</option>
+                </select>
+                <button type="submit" class="btn btn-success" ng-disabled="statusSelect.$invalid">Change Status</button>
+              </form>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </section>
+  </div>
+</div>
+<!--content Section End Here -->
