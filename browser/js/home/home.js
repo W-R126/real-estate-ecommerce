@@ -28,7 +28,9 @@ app.controller('HomeCtrl', function($scope, $state, $log, SearchFactory, useType
   $scope.stories = [{range: "1 to 10", i: {$between: [1,10]}}, {range: "11 to 50", i:{$between: [11,50]}}, {range: "50 to 100", i:{$between: [50,100]}}];
 
   $scope.search = function(){
-    $scope.searchProps.price = {$between: [$scope.minPrice*100, $scope.maxPrice*100]};
+    if($scope.minPrice || $scope.minPrice){
+      $scope.searchProps.price = {$between: [$scope.minPrice*100, $scope.maxPrice*100]};
+    }else delete $scope.searchProps.price;
     var searchProps = JSON.stringify($scope.searchProps);
     $state.go("search-results", {searchProps: searchProps})
     }
