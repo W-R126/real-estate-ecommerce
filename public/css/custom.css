@@ -138,3 +138,8 @@ ul.rating {
 }
 
 /*end of star rating css*/
+
+
+.position-fixed {
+  position: fixed;
+}

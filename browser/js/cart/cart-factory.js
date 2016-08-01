@@ -1,4 +1,4 @@
-app.factory('CartFactory', function ($http) {
+app.factory('CartFactory', function ($http, $q) {
 
   var CartFactory = {};
 
@@ -8,7 +8,11 @@ app.factory('CartFactory', function ($http) {
   };
 
   CartFactory.add = function (buildingId) {
-    return $http.put('/api/carts/' + buildingId);
+    return $http.put('/api/carts/' + buildingId)
+    .then(res => res.data)
+    .catch(function () {
+      return $q.reject({ message: 'Error: Cart already has building in it'});
+    });
   }
 
   CartFactory.delete = function (buildingId) {

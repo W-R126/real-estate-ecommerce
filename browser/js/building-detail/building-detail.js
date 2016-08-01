@@ -2,10 +2,12 @@ app.controller('BuildingCtrl', function($scope, theBuilding, CartFactory, $state
   $scope.building = theBuilding;
   $scope.loggedIn = !AuthService.isAuthenticated();
   $scope.message = "Please Sign In To Leave a Review";
+
+  $scope.error = null;
   $scope.addToCart = function () {
     CartFactory.add(theBuilding.id)
     .then( () => { $state.go('cart'); })
-    .catch( err => { console.error (err)})
+    .catch( () => { $scope.error = 'Already in your Cart!' })
   }
 })
 

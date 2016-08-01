@@ -63,7 +63,8 @@
           <div ng-click="addToCart()">
             <div>
               <br><br>
-              <button class="btn btn-default btn-effect addToCartButton"><h2 class="text-center">Add to Cart<i class="fa fa-shopping-cart"></i></h2></button>
+              <button class="btn btn-default btn-effect addToCartButton"><h2 class="text-center">Add to Cart
+              <alert type="danger" class="position-fixed" ng-show="error">{{ error }}</alert><i class="fa fa-shopping-cart"></i></h2></button>
             </div>
           </div>
         </div>
