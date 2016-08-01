@@ -70,8 +70,12 @@ mark {
 }
 img {
 	max-width: 100%;
-	height: auto;
 }
+.imgInProperties{
+	max-width: 100%;
+	height: 240px !important ;
+}
+
 ul, ol {
 	padding-left: 0px;
 	margin-bottom: 0px;
@@ -995,5 +999,6 @@ body #header, body #footer, body #footer h3, body #footer h4 {
 	font-family: 'Lato', sans-serif;
 }
 
-.fromTop{ padding-top: 45px;
+.fromTop{
+	padding-top: 45px;
 }
