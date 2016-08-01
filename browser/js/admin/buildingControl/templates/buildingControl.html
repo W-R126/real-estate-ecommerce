@@ -16,18 +16,22 @@
 
                 <div class="form-group">
                     <label for="streetAddress">Street Address</label>
+                    <span class="red-text">*</span>
                     <input type="text" ng-model="property.streetAddress" class="form-control" placeholder="Enter Street Address" required>
                 </div>
                 <div class="form-group">
                     <label for="state">State</label>
+                    <span class="red-text">*</span>
                     <input type="text" ng-model="property.state" class="form-control" placeholder="Enter State" required>
                 </div>
                 <div class="form-group">
                     <label for="city">City</label>
+                    <span class="red-text">*</span>
                     <input type="text" ng-model="property.city" class="form-control" placeholder="Enter City" required>
                 </div>
                 <div class="form-group">
-                    <label for="zipCode">ZIP Code</label>
+                    <label for="zipCode">ZIP Code (5 digits required)</label>
+                    <span class="red-text">*</span>
                     <input type="text" ng-model="property.zipCode" class="form-control" placeholder="Enter zipCode" required>
                 </div>
 
@@ -43,7 +47,7 @@
                 </div>
                 <div class="form-group">
                     <label for="stories">Stories</label>
-                    <input type="text" ng-model="property.stories" class="form-control" placeholder="Enter stories">
+                    <input type="number" ng-model="property.stories" class="form-control" placeholder="Enter stories">
                 </div>
                 <div class="form-group">
                     <label for="squareFootage" >Square Footage</label>
@@ -69,6 +73,8 @@
                     <label for="photoUrl">Property Photo</label>
                     <input type="text" ng-model="property.photoURL" class="form-control" placeholder="Enter a Photo URL">
                 </div>
+
+                <span class="red-text">*</span><span> = required field</span>
 
                 <alert type="danger" ng-show="error">
                     {{ error }}

@@ -54,7 +54,7 @@ app.controller('PropertyAdminController', function($scope, fetchProperty, Buildi
     BuildingFactory.updateProperty(id, propertyInfo)
     .then(() => $state.go('propertiesAdmin'))
     .catch(err => {
-      $scope.error = 'Invalid update info for property.';
+      $scope.error = 'Invalid update info for property. Error: ' + err.data;
       console.error(err);
     });
   }

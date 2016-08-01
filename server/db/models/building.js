@@ -18,7 +18,8 @@ module.exports = db.define('building', {
         allowNull: false
     },
     zipCode: {
-        type: Sequelize.STRING(5)
+        type: Sequelize.STRING(5),
+        validate: {len: 5 }
     },
     price: {
         type: Sequelize.INTEGER //in cents
