@@ -38,17 +38,15 @@ router.put('/changeAdmin/:id', function(req, res, next) {
     { where: { id: req.params.id},
     returning: true
   })
-  .then(user => res.send(user[1][0]))
+  .then(user => {
+    res.send(user[1][0]);
+  })
   .catch(next)
 });
 
 router.put('/changePass/:id', function(req, res, next) {
-  User.update(req.body,
-    { where: { id: req.params.id},
-    returning: true
-  })
-  .then(user => res.send(user[1][0]))
-  .catch(next)
+  req.session.resetPassword = true;
+  res.sendStatus(200);
 });
 
 router.put
