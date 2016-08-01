@@ -341,6 +341,7 @@ body .price-meter-wrap .ui-widget-content {
 	background: #f6f6f6;
 }
 .rent-description {
+	height:200px;
 	background: #f0f0f0;
 }
 .new-properties h2 {
@@ -446,7 +447,7 @@ body .price-meter-wrap .ui-widget-content {
  ------------------------------*/
 
 .new-sale {
-	padding: 114px 0 110px;
+	padding: 0px 0 110px;
 }
 .new-sale h2 {
 	margin-bottom: 61px;

@@ -1168,10 +1168,10 @@ transform:translateY(-10%);
  1.1) Content Header
  -----------------------------*/
 .sub-page #content {
-	padding-top: 120px;
+	padding-top: 45px;
 }
 .content-header {
-	padding: 113px 0 44px;
+	padding: 0px 0 44px;
 }
 .content-header h1 {
 	margin-bottom: 0;
@@ -6533,7 +6533,7 @@ figure:hover .image-overlay {
 /* Cart
  =====================================*/
 .your-cart .content-header {
-	padding: 98px 0 35px;
+	padding: 0px 0 35px;
 }
 .your-cart {
 	padding-bottom: 169px;
