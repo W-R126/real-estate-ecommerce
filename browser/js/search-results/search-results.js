@@ -7,6 +7,7 @@ app.config(function($stateProvider){
       theBuildings: function($stateParams, SearchFactory){
         console.log("****Props***", $stateParams.searchProps);
         var searchProps = JSON.parse($stateParams.searchProps);
+        console.log("%%%%Parsed: "+searchProps);
         return SearchFactory.searchFields(searchProps);
       }
     }

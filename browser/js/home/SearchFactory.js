@@ -11,8 +11,8 @@ app.factory('SearchFactory', function($http){
   }
 
   SearchFactoryObj.searchFields = function(obj){
-
-    return $http.get('/api/buildings/?'+"propertyType="+obj.propertyType)
+    console.log("SearchFactory obj: ", obj);
+    return $http.get('/api/buildings/', {params:obj})
     .then(buildings=>buildings.data);
   }
 

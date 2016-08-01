@@ -13,7 +13,7 @@ router.get('/styles', function(req, res, next){
 })
 
 router.get('/:id', function(req, res, next){
-
+  console.log("Hit ID route");
   Building.findById(req.params.id)
   .then(building=> res.send(building))
   .catch(next);
@@ -21,6 +21,7 @@ router.get('/:id', function(req, res, next){
 
 
 router.get('/', function(req, res, next){
+  if(req.query.stories) req.query.stories = JSON.parse(req.query.stories);
   Building.findAll({where:req.query})
   .then(buildings=>res.send(buildings))
   .catch(next);
