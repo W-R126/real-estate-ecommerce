@@ -4,10 +4,11 @@
     <!--Content Header -->
     <header class="content-header row ">
       <div class="heading col-md-8 col-sm-6 col-xs-12">
-        <h1>All Users</h1>
+        <h1>Orders Admin Control</h1>
         <a class="btn btn-default btn-effect tab" ui-sref="ordersAdmin({type:''})">All</a>
-        <a class="btn btn-default btn-effect tab" ui-sref="ordersAdmin({type: 'Processing'})" ui-sref="building.write">Processing</a>
-        <a class="btn btn-default btn-effect tab" ui-sref="ordersAdmin({type: 'Canceled'})" ui-sref="building.write">Canceled</a>
+        <a class="btn btn-default btn-effect tab" ui-sref="ordersAdmin({type:'Created'})">Created</a>
+        <a class="btn btn-default btn-effect tab" ui-sref="ordersAdmin({type: 'Processing'})">Processing</a>
+        <a class="btn btn-default btn-effect tab" ui-sref="ordersAdmin({type: 'Cancelled'})">Cancelled</a>
         <a class="btn btn-default btn-effect tab" ui-sref="ordersAdmin({type: 'Completed'})">Completed</a>
       </div>
       <ul class="col-md-4 col-sm-6 col-xs-12 breadcrumb ">
@@ -21,30 +22,24 @@
       <div class="cart-table-wrapper">
         <table class="table cart-table">
           <tr>
-            <th class="product-cell"><span class="h3">User</span></th>
-            <th class="price-cell"><span class="h3">Email</span></th>
-            <th class="price-cell"><span class="h3">Admin Status</span></th>
-            <th class="price-cell"><span class="h3">Toggle Admin</span></th>
-            <th class="total-cell" ><span class="h3">Password Reset</span></th>
-            <th class="total-cell" ><span class="h3">Delete User</span></th>
+            <th class="product-cell"><span class="h3">Order ID</span></th>
+            <th class="price-cell"><span class="h3">Order Hashed ID</span></th>
+            <th class="price-cell"><span class="h3">Order Date</span></th>
+            <th class="price-cell"><span class="h3">Order Status</span></th>
+            <th class="price-cell"><span class="h3">Change Status</span></th>
           </tr>
-          <tr ng-repeat="user in users">
-            <td>{{user.name}}</td>
-            <td>{{user.email}}</td>
-            <td>{{user.isAdmin}}</td>
+          <tr ng-repeat="order in orders">
+            <td ui-sref="order({id: order.id})" class="pointer">{{order.id}} | View Details</td>
+            <td>{{order.convertId}}</td>
+            <td>{{order.convertDate}}</td>
+            <td>{{order.orderStatus}}</td>
             <td>
-              <label class="switch">
-                <input type="checkbox" ng-click="toggleAdmin(user.id, user.isAdmin, $index)">
-                <div class="slider round"></div>
-              </label>
+              <form name="statusSelect" ng-submit="changeStatus({{order.id}})">
+                <select ng-options="order as order for order in orderStatuses" ng-model="statusToChange" required>
+                </select>
+                <button type="submit" class="btn btn-success" ng-disabled="statusSelect.$invalid">Change Status</button>
+              </form>
             </td>
-            <td>
-              <label class="switch">
-                <input type="checkbox">
-                <div class="slider round"></div>
-              </label>
-            </td>
-            <td><a ng-click="deleteUser(user.id,$index)" class="fa fa-close pointer"></a></td>
           </tr>
         </table>
       </div>

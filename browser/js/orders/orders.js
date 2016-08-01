@@ -19,7 +19,7 @@ app.controller('OrdersController', function ($scope, theOrders) {
 
 app.config(function ($stateProvider) {
   $stateProvider.state('order', {
-    url: '/orders/:id',
+    url: '/order/:id',
     templateUrl: 'js/orders/templates/order-detail.html',
     controller: 'OrderController',
     resolve: {
@@ -32,6 +32,7 @@ app.config(function ($stateProvider) {
 
 app.controller('OrderController', function ($scope, theIndOrders) {
   $scope.theorders = theIndOrders;
+
   $scope.getTotal = function () {
       var total = 0;
       for(var i = 0; i < $scope.theorders.purchasedBuildings.length; i++){

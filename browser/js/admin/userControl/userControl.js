@@ -21,16 +21,15 @@ app.controller('UserController', function ($scope, allUsers, UserFactory) {
       .then(() => {
         $scope.users[index].isAdmin = !adminStatus;
       })
-      .catch(console.error('Error in setting admin'))
+      .catch(console.error);
   }
 
   $scope.deleteUser = function(userId, index) {
-    console.log('I was clicked!!');
     UserFactory.delete(userId)
     .then(function () {
       $scope.users.splice(index, 1);
     })
-    .catch(console.error('Error in deleting user'))
+    .catch(console.error);
   }
 
 });

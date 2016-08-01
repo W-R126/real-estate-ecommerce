@@ -8,7 +8,7 @@ var db = require('../_db');
 
 module.exports = db.define('order', {
   orderStatus: {
-    type: Sequelize.ENUM('Created', 'Processing', 'Canceled', 'Completed'),
+    type: Sequelize.ENUM('Created', 'Processing', 'Cancelled', 'Completed'),
     defaultValue: 'Created'
   }
 }, {

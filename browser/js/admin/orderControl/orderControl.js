@@ -13,24 +13,16 @@ app.config(function($stateProvider) {
 
 })
 
-app.controller('OrderController', function ($scope, allOrders, OrderFactory) {
-  $scope.users = allUsers;
+app.controller('OrdersAdminController', function ($scope, allOrders, OrderFactory) {
 
-  $scope.toggleAdmin = function(userId, adminStatus, index) {
-    UserFactory.changeAdmin(userId, !adminStatus)
-      .then(() => {
-        $scope.users[index].isAdmin = !adminStatus;
-      })
-      .catch(console.error('Error in setting admin'))
-  }
+  $scope.orders = allOrders;
 
-  $scope.deleteUser = function(userId, index) {
-    console.log('I was clicked!!');
-    UserFactory.delete(userId)
-    .then(function () {
-      $scope.users.splice(index, 1);
-    })
-    .catch(console.error('Error in deleting user'))
+  $scope.orderStatuses = ["Created", "Processing", "Cancelled", "Completed"];
+
+  $scope.changeStatus = function(orderId) {
+    OrderFactory.updateOrderStatus($scope.statusToChange, orderId)
+    .then()
+    .catch(console.error);
   }
 
 });

@@ -113,11 +113,22 @@ var seedOrders = function() {
          {
              userId: "2",
              cartId: "1",
+             orderStatus: 'Created'
          },
          {
              userId:"3",
-             cartId:"2"
-
+             cartId:"2",
+             orderStatus: 'Processing'
+         },
+         {
+             userId:"3",
+             cartId:"2",
+             orderStatus: 'Cancelled'
+         },
+         {
+             userId:"3",
+             cartId:"1",
+             orderStatus: 'Completed'
          }
      ]
 

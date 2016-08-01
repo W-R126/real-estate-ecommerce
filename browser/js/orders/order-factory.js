@@ -12,7 +12,12 @@ app.factory('OrderFactory', function($http){
   }
 
   OrderFactory.getAllAdminOrders = function(args) {
-    return $http.get('/api/buildings', {params: args})
+    return $http.get('/api/orders/admin', {params: args})
+      .then(res => res.data);
+  }
+
+  OrderFactory.updateOrderStatus = function(orderStatus, orderId) {
+    return $http.update('/api/orders/admin/status/' + orderId, {orderStatus: orderStatus})
       .then(res => res.data);
   }
 
