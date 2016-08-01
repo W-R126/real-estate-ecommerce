@@ -120,7 +120,7 @@ router.post('/', function (req, res, next) {
       else console.log('Sent: '+ info.response);
       });
 
-    res.send(savedOrder.id);
+    res.send(savedOrder.id.toString());
   })
   .catch(next)
 })
