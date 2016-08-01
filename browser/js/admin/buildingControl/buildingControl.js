@@ -14,7 +14,12 @@ app.config(function($stateProvider) {
   $stateProvider.state('propertyAdmin', {
     url: '/property-control/admin/:id',
     controller: 'PropertyAdminController',
-    templateUrl: 'js/admin/buildingControl/templates/buildingControl.html'
+    templateUrl: 'js/admin/buildingControl/templates/buildingControl.html',
+    resolve: {
+      fetchProperty: function(BuildingFactory, $stateParams) {
+        return BuildingFactory.fetchOne($stateParams.id)
+      }
+    }
   })
 
 })
@@ -37,3 +42,9 @@ app.controller('PropertiesAdminController', function($scope, allProperties, Buil
   }
 
 });
+
+app.controller('propertyAdmin', function($scope, fetchProperty) {
+
+  $scope.property = fetchProperty;
+
+})
