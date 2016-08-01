@@ -42,6 +42,19 @@
   margin-bottom: 20px;
 }
 
+.listBuildingImg {
+  width: 150px;
+}
+
+.red-text {
+  color: red;
+}
+
+.button-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* The switch - the box around the slider */
 .switch {
   position: relative;
@@ -99,10 +112,6 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
-}
-
-.cartBuildingImg {
-  width: 150px;
 }
 
 
