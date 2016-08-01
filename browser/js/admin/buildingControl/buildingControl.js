@@ -17,7 +17,7 @@ app.config(function($stateProvider) {
     templateUrl: 'js/admin/buildingControl/templates/buildingControl.html',
     resolve: {
       fetchProperty: function(BuildingFactory, $stateParams) {
-        return BuildingFactory.fetchOne($stateParams.id)
+        return BuildingFactory.fetchOne($stateParams.id);
       }
     }
   })
@@ -43,8 +43,20 @@ app.controller('PropertiesAdminController', function($scope, allProperties, Buil
 
 });
 
-app.controller('propertyAdmin', function($scope, fetchProperty) {
+app.controller('PropertyAdminController', function($scope, fetchProperty, BuildingFactory, $state) {
 
   $scope.property = fetchProperty;
+
+  $scope.error = null;
+
+  $scope.updateProperty = function(id, propertyInfo) {
+    $scope.error = null;
+    BuildingFactory.updateProperty(id, propertyInfo)
+    .then(() => $state.go('propertiesAdmin'))
+    .catch(err => {
+      $scope.error = 'Invalid update info for property.';
+      console.error(err);
+    });
+  }
 
 })

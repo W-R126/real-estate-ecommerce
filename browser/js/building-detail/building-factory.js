@@ -22,5 +22,11 @@ app.factory('BuildingFactory', function ($http) {
       .then(res => res.data);
   }
 
+  BuildingFactory.updateProperty = function(id, propertyInfo) {
+    return $http.put('/api/buildings/updateBuilding/' + id, propertyInfo)
+      .then(res => res.data);
+  }
+
   return BuildingFactory;
+
 });
