@@ -25,7 +25,7 @@
             <th class="total-cell" ><span class="h3">Total</span></th>
           </tr>
           <tr ng-repeat="building in cart.buildings">
-            <td ><a ui-sref="building({ id: {{building.id}} })" class="saved-product"> <img class="listBuildingImg" src="{{building.photoURL}}"/>{{ building.streetAddress }}</a></td>
+            <td ><a ui-sref="building({ id: {{building.id}} })" class="saved-product"> <img class="listBuildingImg" ng-src="{{building.photoURL}}"/>{{ building.streetAddress }}</a></td>
             <td>{{ building.lotSize }}</td>
             <td><span class="cart-number quantity-value"><input type="text" value="1"></span></td>
             <td><span class="cart-total">${{ building.price }}<a ng-click=deleteItem(building.id,$index) class="fa fa-close pointer"></a></span></td>
