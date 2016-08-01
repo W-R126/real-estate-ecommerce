@@ -17,7 +17,7 @@ app.config(function($stateProvider) {
 });
 
 
-app.controller('ReviewCtrl', function($scope, theReviews, ReviewFactory) {
+app.controller('ReviewCtrl', function($scope, theReviews, ReviewFactory, $log) {
     $scope.reviews = theReviews;
     $scope.getTimes = function(n) {
         return new Array(n)
@@ -27,12 +27,12 @@ app.controller('ReviewCtrl', function($scope, theReviews, ReviewFactory) {
             .then(function(review) {
                 $state.go('building.reviews')
             })
-            .catch(console.error);
+            .catch($log.error);
     }
 });
 
 
-app.controller('newReviewCtrl', function($scope, ReviewFactory, $state) {
+app.controller('newReviewCtrl', function($scope, ReviewFactory, $state, $log) {
       $scope.ratings = [{
         current: 1,
         max: 5
@@ -48,7 +48,7 @@ app.controller('newReviewCtrl', function($scope, ReviewFactory, $state) {
             .then(function(review) {
                 $state.go('building.reviews')
             })
-            .catch(console.error);
+            .catch($log.error);
     }
 });
 
