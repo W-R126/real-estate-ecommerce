@@ -25,6 +25,7 @@ app.controller('CheckoutCtrl', function ($scope, $state, OrderFactory) {
     }
 
 });
+
 app.config(function ($stateProvider) {
 
     $stateProvider.state('checkoutSuccess', {
