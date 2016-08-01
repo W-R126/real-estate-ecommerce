@@ -4,7 +4,7 @@ var db = require('../_db');
 
 module.exports = db.define('building', {
 
-    //maybe address gets it own table??
+    // maybe address gets it own table??
     streetAddress: {
         type: Sequelize.STRING,
         allowNull: false
@@ -56,6 +56,3 @@ module.exports = db.define('building', {
 
 
 });
-
-
-//make getter for date
