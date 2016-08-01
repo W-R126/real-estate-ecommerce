@@ -30,31 +30,25 @@ router.get('/admin', function(req, res, next) {
 })
 
 router.put('/admin/status/:orderId', function(req, res, next) {
-  var message = {
-    from: 'sandbox@mailgun.org',
-    to: savedOrder.email,
-  }
+  var message = {from: 'sandbox@mailgun.org'};
 
-
-
-  transporter.sendMail(message, function(error, info) {
-    if (error) console.log("Confirmation Mail Error: ",error);
-    else console.log('Sent: '+ info.response);
-  });
 
   Order.update(req.body,
     {where: {id: req.params.orderId},
     returning: true
   })
   .then(orderUpdated => {
+    console.log(orderUpdated[1][0]);
      if(req.body.orderStatus ==="Processing") {
-      message.subject = "Betty's Building Bro's Order #"+orderUpdated.convertId + " has shipped!";
-      message.text = "Dear "+ orderUpdated.name+", \n Your order #" + orderUpdated.convertId +" from Betty's Building Bros has been processed for shipping!"
+      message.to = orderUpdated[1][0].email;
+      message.subject = "Betty's Building Bro's Order #"+orderUpdated[1][0].convertId + " has shipped!";
+      message.text = "Dear "+ orderUpdated[1][0].name+", \n Your order #" + orderUpdated[1][0].convertId +" from Betty's Building Bros has been processed for shipping!"
      } else if (req.body.orderStatus === "Completed"){
+       message.to = orderUpdated[1][0].email;
        message.subject = "Betty's Building Bro's Order #"+orderUpdated.convertId + " has been delivered!";
-       message.text = "Dear "+ orderUpdated.name+", \n Your order #" + orderUpdated.convertId +" from Betty's Building Bros has been delivered! Enjoy your new digs!"
+       message.text = "Dear "+ orderUpdated[1][0].name+", \n Your order #" + orderUpdated[1][0].convertId +" from Betty's Building Bros has been delivered! Enjoy your new digs!"
      }
-
+     console.log(message);
     transporter.sendMail(message, function(error, info) {
       if (error) console.log("Confirmation Mail Error: ",error);
       else console.log('Sent: '+ info.response);
@@ -145,7 +139,7 @@ router.post('/', function (req, res, next) {
     var message = {
       from: 'sandbox@mailgun.org',
       to: savedOrder.email,
-      subject: "Your order #" + savedORder.convertId +" has been received",
+      subject: "Your order #" + savedOrder.convertId +" has been received",
       text: "Dear "+ savedOrder.name+", \n Your order #" + savedOrder.convertId +" from Betty's Building Bros has been received!"
     }
 
