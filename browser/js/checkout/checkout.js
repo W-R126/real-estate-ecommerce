@@ -40,8 +40,13 @@ app.config(function ($stateProvider) {
 
 });
 
-app.controller('SuccessCtrl', function ($scope, $state, theOrder) {
+app.controller('SuccessCtrl', function ($scope, $state, theOrder, AuthService) {
 
+    $scope.email = theOrder.email;
     $scope.orderNum = theOrder.convertId;
+
+    $scope.isLoggedIn = function () {
+        return AuthService.isAuthenticated();
+    };
 
 });

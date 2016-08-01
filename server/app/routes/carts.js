@@ -7,7 +7,6 @@ var Building = db.Building;
 
 
 router.get('/', function(req, res, next){
-  console.log("****************", req.session);
   Cart.findById(req.session.cartId, {include:[Building]})
   .then(cart=> res.send(cart))
   .catch(next);
