@@ -180,7 +180,10 @@
 	.homepage-10 .btn.btn-default.btn-effect {
     position: relative;
 }
-
+.addToCartButton {
+	position: fixed !important;
+	top: 140px !important;
+}
 /* Rent Features
  ------------------------------------*/
 .rent-features {
@@ -544,7 +547,7 @@ body .price-meter-wrap .ui-widget-content {
  ============================================*/
 
 .real-estate-two .property-details {
-	padding-top: 110px;
+	padding-top: 45px;
 }
 .real-estate-two .head h1 {
 	margin-bottom: 16px;
