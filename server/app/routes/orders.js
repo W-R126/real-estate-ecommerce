@@ -2,7 +2,7 @@ var express = require('express');
 var router = new express.Router();
 var fs = require('fs');
 
-var secretMG= JSON.parse(fs.readFileSync('/home/barry/secretMG.txt','utf8'));
+var secretMG= JSON.parse(fs.readFileSync(__dirname+'/../../../../secretMG.txt','utf8'));
 
 
 var nodemailer = require('nodemailer');
@@ -19,6 +19,12 @@ var db = require('../../db');
 var Order = db.Order;
 var PurchasedBuilding = db.PurchasedBuilding;
 var Building = db.Building;
+
+router.get('/test', function(req, res, next){
+  console.log('Current path: '+__dirname);
+  console.log(secretMG);
+  res.sendStatus(200);
+})
 
 router.get('/:id', function(req, res, next) {
   var returnObj = {};
