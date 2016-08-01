@@ -112,6 +112,7 @@ router.post('/', function (req, res, next) {
     var message = {
       from: 'sandbox@mailgun.org',
       to: savedOrder.email,
+      subject: "Your order #" + savedORder.convertId +" has been received",
       text: "Dear "+ savedOrder.name+", \n Your order #" + savedOrder.convertId +" from Betty's Building Bros has been received!"
     }
 
