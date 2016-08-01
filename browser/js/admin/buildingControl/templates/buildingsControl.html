@@ -20,27 +20,30 @@
             <th class="product-cell"><span class="h3">Building ID</span></th>
             <th class="price-cell"><span class="h3">Building Street Address</span></th>
             <th class="price-cell"><span class="h3">Availability</span></th>
-            <th class="price-cell"><span class="h3">Change Status</span></th>
+            <th class="price-cell"><span class="h3">Property Category</span></th>
+            <th class="price-cell"><span class="h3">Change Category</span></th>
             <th class="price-cell"><span class="h3">Edit Property Details</span></th>
           </tr>
           <tr ng-repeat="property in properties">
             <td><a ui-sref="order({id: order.id})" class="pointer">{{property.id}}</a></td>
             <td>{{property.streetAddress}}</td>
-            <td>{{property.isAvailable}}</td>
-            <td>
+            <td>{{property.isAvailable}}<br>
               <label class="switch">
                 <input type="checkbox" ng-click="toggleAvailable(property.id, property.isAvailable, $index)">
                 <div class="slider round"></div>
               </label>
             </td>
-            <td></td>
+            <td>{{property.propertyType}}</td>
             <td>
-              <form name="statusSelect" ng-submit="changeStatus(order.id, $index, statusToChange)">
-                <select ng-options="orderStat as orderStat for orderStat in orderStats" ng-model="statusToChange" required>
-                <option class="select-text" value="">Order Status</option>
+              <form name="propertyTypeSelect" ng-submit="changeType(property.id, $index, typeToChange)">
+                <select ng-options="propertyType as propertyType for propertyType in propertyTypes" ng-model="typeToChange" required>
+                <option class="select-text" value="">Category</option>
                 </select>
-                <button type="submit" class="btn btn-success" ng-disabled="statusSelect.$invalid">Change Status</button>
+                <button type="submit" class="btn btn-success" ng-disabled="propertyTypeSelect.$invalid">Update</button>
               </form>
+            </td>
+            <td>
+              <button class="btn btn-success" ui-sref="propertyAdmin">Edit</button>
             </td>
           </tr>
         </table>

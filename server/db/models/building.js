@@ -28,7 +28,8 @@ module.exports = db.define('building', {
         defaultValue: "true"
     },
     propertyType: {
-        type: Sequelize.ENUM('Commercial', 'Residential', 'Mixed')
+        type: Sequelize.ENUM('Commercial', 'Residential', 'Mixed'),
+        allowNull: false
     },
     lotSize: {
         type: Sequelize.STRING
