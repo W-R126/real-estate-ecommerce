@@ -30,11 +30,37 @@ router.get('/admin', function(req, res, next) {
 })
 
 router.put('/admin/status/:orderId', function(req, res, next) {
+  var message = {
+    from: 'sandbox@mailgun.org',
+    to: savedOrder.email,
+  }
+
+
+
+  transporter.sendMail(message, function(error, info) {
+    if (error) console.log("Confirmation Mail Error: ",error);
+    else console.log('Sent: '+ info.response);
+  });
+
   Order.update(req.body,
     {where: {id: req.params.orderId},
     returning: true
   })
-  .then(orderUpdated => res.send(orderUpdated[1][0]))
+  .then(orderUpdated => {
+     if(req.body.orderStatus ==="Processing") {
+      message.subject = "Betty's Building Bro's Order #"+orderUpdated.convertId + " has shipped!";
+      message.text = "Dear "+ orderUpdated.name+", \n Your order #" + orderUpdated.convertId +" from Betty's Building Bros has been processed for shipping!"
+     } else if (req.body.orderStatus === "Completed"){
+       message.subject = "Betty's Building Bro's Order #"+orderUpdated.convertId + " has been delivered!";
+       message.text = "Dear "+ orderUpdated.name+", \n Your order #" + orderUpdated.convertId +" from Betty's Building Bros has been delivered! Enjoy your new digs!"
+     }
+
+    transporter.sendMail(message, function(error, info) {
+      if (error) console.log("Confirmation Mail Error: ",error);
+      else console.log('Sent: '+ info.response);
+    });
+
+    res.send(orderUpdated[1][0])})
   .catch(next);
 })
 
