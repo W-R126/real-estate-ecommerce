@@ -180,10 +180,6 @@
 	.homepage-10 .btn.btn-default.btn-effect {
     position: relative;
 }
-.addToCartButton {
-	position: fixed !important;
-	top: 140px !important;
-}
 /* Rent Features
  ------------------------------------*/
 .rent-features {
