@@ -11,7 +11,7 @@
     <div class="row">
       <div ng-repeat="building in buildings" class="col-md-4 col-sm-6 zoom" ui-sref="building({id: building.id})">
         <div class="rent-box">
-          <figure class="rent-description"><img src={{building.photoURL}} alt="" /></figure>
+          <figure class="rent-description"><img ng-src={{building.photoURL}} alt="" /></figure>
           <div class="property-widget">
             <div class="property-header clearfix"> <strong class="caption">{{building.propertyType}} </strong><span>{{building.squareFootage}}</span> </div>
             <h3><a href="#">{{building.streetAddress}}</a></h3>
