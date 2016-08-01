@@ -1,0 +1,89 @@
+<div class="login-signup">
+
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-4">
+            <h1 class="text-center">Update: Property {{property.id}} Info</h1>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-sm-3"></div>
+         <div class="col-sm-4">
+            <form name="checkoutForm" ng-submit="updateProperty(property.id, property)">
+
+                <div class="form-group">
+                    <label for="streetAddress">Street Address</label>
+                    <span class="red-text">*</span>
+                    <input type="text" ng-model="property.streetAddress" class="form-control" placeholder="Enter Street Address" required>
+                </div>
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <span class="red-text">*</span>
+                    <input type="text" ng-model="property.state" class="form-control" placeholder="Enter State" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <span class="red-text">*</span>
+                    <input type="text" ng-model="property.city" class="form-control" placeholder="Enter City" required>
+                </div>
+                <div class="form-group">
+                    <label for="zipCode">ZIP Code (5 digits required)</label>
+                    <span class="red-text">*</span>
+                    <input type="text" ng-model="property.zipCode" class="form-control" placeholder="Enter zipCode" required>
+                </div>
+
+                <br><br>
+                <span>Property Information<span>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" ng-model="property.price" class="form-control" placeholder="Enter Property Price">
+                </div>
+                <div class="form-group">
+                    <label for="lotSize">Lot Size</label>
+                    <input type="text" ng-model="property.lotSize" class="form-control" placeholder="Enter Lot Size">
+                </div>
+                <div class="form-group">
+                    <label for="stories">Stories</label>
+                    <input type="number" ng-model="property.stories" class="form-control" placeholder="Enter stories">
+                </div>
+                <div class="form-group">
+                    <label for="squareFootage" >Square Footage</label>
+                    <input type="number" ng-model="property.squareFootage" class="form-control" placeholder="Enter Square Footage">
+                </div>
+                <div class="form-group">
+                    <label for="numberOfUnits">Number Of Units</label>
+                    <input type="number" ng-model="property.numberOfUnits" class="form-control" placeholder="Enter Number of Units">
+                </div>
+                <div class="form-group">
+                    <label for="architecturalStyle">Architectural Style</label>
+                    <input type="text" ng-model="property.architecturalStyle" class="form-control" placeholder="Enter Architectural Style">
+                </div>
+                <div class="form-group">
+                    <label for="buildingAge">Property Age</label>
+                    <input type="number" ng-model="property.buildingAge" class="form-control" placeholder="Enter Property Age">
+                </div>
+                <div class="form-group">
+                    <label for="description">Property Description</label>
+                    <input type="text" ng-model="property.description" class="form-control" placeholder="Enter Property Description">
+                </div>
+                <div class="form-group">
+                    <label for="photoUrl">Property Photo</label>
+                    <input type="text" ng-model="property.photoURL" class="form-control" placeholder="Enter a Photo URL">
+                </div>
+
+                <span class="red-text">*</span><span> = required field</span>
+
+                <alert type="danger" ng-show="error">
+                    {{ error }}
+                </alert>
+
+                <button type="submit" class="btn btn-default" id="submitbtn" ng-disabled="checkoutForm.$invalid">Update Property Information</button>
+
+            </form>
+        </div>
+    </div>
+
+</div>

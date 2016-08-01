@@ -1,0 +1,54 @@
+<div id="content" class="margin-bottom">
+  <div class="container your-cart padding-bottom">
+
+    <!--Content Header -->
+    <header class="content-header row ">
+      <div class="heading col-md-8 col-sm-6 col-xs-12">
+        <h1>Properties Admin Control</h1>
+      </div>
+      <ul class="col-md-4 col-sm-6 col-xs-12 breadcrumb ">
+        <li> <a ui-sref="home">Main Page</a> </li>
+        <li class="active"> Admin Properties </li>
+      </ul>
+    </header>
+    <!--Content Header -->
+
+    <section class="cart-section">
+      <div class="cart-table-wrapper">
+        <table class="table cart-table">
+          <tr>
+            <th class="product-cell"><span class="h3">Building ID</span></th>
+            <th class="price-cell"><span class="h3">Building Street Address</span></th>
+            <th class="price-cell"><span class="h3">Availability</span></th>
+            <th class="price-cell"><span class="h3">Property Category</span></th>
+            <th class="price-cell"><span class="h3">Change Category</span></th>
+            <th class="price-cell"><span class="h3">Edit Property Details</span></th>
+          </tr>
+          <tr ng-repeat="property in properties">
+            <td><a ui-sref="order({id: order.id})" class="pointer">{{property.id}}</a></td>
+            <td>{{property.streetAddress}}</td>
+            <td>{{property.isAvailable}}<br>
+              <label class="switch">
+                <input type="checkbox" ng-click="toggleAvailable(property.id, property.isAvailable, $index)">
+                <div class="slider round"></div>
+              </label>
+            </td>
+            <td>{{property.propertyType}}</td>
+            <td>
+              <form name="propertyTypeSelect" ng-submit="changeType(property.id, $index, typeToChange)">
+                <select ng-options="propertyType as propertyType for propertyType in propertyTypes" ng-model="typeToChange" required>
+                <option class="select-text" value="">Category</option>
+                </select>
+                <button type="submit" class="btn btn-success" ng-disabled="propertyTypeSelect.$invalid">Update</button>
+              </form>
+            </td>
+            <td>
+              <button class="btn btn-success" ui-sref="propertyAdmin({id: property.id})">Edit</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </section>
+  </div>
+</div>
+<!--content Section End Here -->
