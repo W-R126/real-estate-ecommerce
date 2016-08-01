@@ -40,6 +40,7 @@
 	width: 100%;
 	max-width: 263px;
 }
+
 /* Resto-Info
  -------------------------------*/
 .homepage-10 .auto-tab-list li {
@@ -60,7 +61,7 @@
 .homepage-10 .resto-info {
 	position: absolute;
 	width: 100%;
-	padding: 0 0 53px;
+	padding: 0 0 0px;
 	z-index: 10;
 	bottom: 0;
 }
@@ -178,7 +179,7 @@
     top: -1px;
 	}
 	.homepage-10 .btn.btn-default.btn-effect {
-    position: relative;
+    position: fixed;
 }
 
 /* Rent Features
