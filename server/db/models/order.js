@@ -39,6 +39,7 @@ module.exports = db.define('order', {
   },
   zipCode: {
     type: Sequelize.STRING(5),
+    validate: { len: 5 },
     allowNull: false
   },
   orderStatus: {
