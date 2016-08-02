@@ -49,11 +49,13 @@ app.controller('UserController', function ($scope, allUsers, UserFactory) {
 
 app.controller('PasswordController', function($scope, UserFactory, $state, $log) {
 
-  UserFactory.resetPassword = function(credentials) {
+  $scope.resetPassword = function(credentials) {
+    UserFactory.resetPassword(credentials)
+    .then((user) => {
+      console.log('here is the user', user);
+      $state.go('login');
+    })
+    .catch($log.error);
   }
-  .then(() => {
-    $state.go('login');
-  })
-  .catch($log.error);
 
 });
