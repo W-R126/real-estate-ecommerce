@@ -32,6 +32,12 @@ router.get('/', function(req, res, next){
   .catch(next);
 })
 
+router.get('/admin', assertIsAdmin, function(req, res, next){
+  Building.findAll({where:req.query})
+  .then(buildings=>res.send(buildings))
+  .catch(next);
+})
+
 router.put('/changeStatus/:id', assertIsAdmin, function(req, res, next){
   Building.update(req.body, {where: { id: req.params.id},
     returning: true

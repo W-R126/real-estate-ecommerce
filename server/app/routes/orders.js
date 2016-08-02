@@ -22,6 +22,11 @@ var PurchasedBuilding = db.PurchasedBuilding;
 var Building = db.Building;
 var Cart = db.Cart;
 
+function assertIsLoggedIn(req, res, next) {
+  if (req.user) next();
+  else next(new Error('Is not Logged in'));
+}
+
 function assertIsAdmin(req, res, next) {
   if (req.user && req.user.isAdmin) next();
   else res.sendStatus(401);
@@ -64,7 +69,7 @@ router.put('/admin/status/:orderId', assertIsAdmin, function(req, res, next) {
   .catch(next);
 })
 
-router.get('/:id', function(req, res, next) {
+router.get('/:id', assertIsLoggedIn, function(req, res, next) {
   Order.findById(req.params.id, {
     include: [
       {
@@ -81,7 +86,7 @@ router.get('/:id', function(req, res, next) {
 });
 
 
-router.get('/', function(req, res, next){
+router.get('/', assertIsLoggedIn, function(req, res, next){
   Order.findAll({
     where: {
       userId: req.session.passport.user

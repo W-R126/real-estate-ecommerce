@@ -19,6 +19,11 @@ var db = require('../../db');
 var User = db.User;
 var Cart = db.Cart;
 
+function assertIsAdmin(req, res, next) {
+  if (req.user && req.user.isAdmin) next();
+  else res.sendStatus(401);
+}
+
 router.get('/:id', function(req, res, next){
   User.findById(req.params.id)
   .then(user=>{
