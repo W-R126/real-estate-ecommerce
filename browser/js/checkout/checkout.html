@@ -12,6 +12,19 @@
     <div class="row">
         <div class="col-sm-3"></div>
          <div class="col-sm-4">
+            <form stripe-form="stripeCallback" name="checkoutForm">>
+                <input ng-model="number" placeholder="Card Number"
+                         payments-format="card" payments-validate="card" name="card" />
+                <input ng-model="expiry" placeholder="Expiration"
+                         payments-format="expiry" payments-validate="expiry"
+                         name="expiry" />
+                <input ng-model="cvc" placeholder="CVC" payments-format="cvc" payments-validate="cvc" name="cvc" />
+                <button type="submit">Submit</button>
+            </form>
+            <div ng-if="checkoutForm.card.$invalid">
+                Error: invalid card number!
+            </div>
+
             <form name="checkoutForm" ng-submit="sendCheckout(credentials)">
 
                 <div class="form-group">
@@ -19,10 +32,6 @@
                     <input type="email" ng-model="credentials.email" class="form-control" id="email" placeholder="Enter email for your confirmation" required>
                 </div>
 
-                <div class="form-group">
-                    <label for="creditCard">Credit Card Number</label><span class="red-text">*</span>
-                    <input type="creditCard" ng-model="credentials.creditCard" class="form-control" placeholder="Enter Credit Card #" required>
-                </div>
                 <br><br>
                 <span>Shipping Address (for your deed):</span>
                 <div class="form-group">

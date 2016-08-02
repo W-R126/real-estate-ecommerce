@@ -88,12 +88,14 @@ router.put('/changePass/:id', assertIsAdmin, function(req, res, next) {
 
 router.put('/resetPass', function(req, res, next) {
 
-  User.update(req.body, {
+  User.findOne({
     where: {email: req.body.email},
-    returning: true
   })
   .then(user => {
-    res.send(user[1][0]);
+    return user.update(req.body);
+  })
+  .then(user => {
+    res.send(user);
   })
   .catch(next);
 

@@ -24,12 +24,20 @@ var Cart = db.Cart;
 
 function assertIsLoggedIn(req, res, next) {
   if (req.user) next();
-  else next(new Error('Is not Logged in'));
+  else {
+    var err = new Error('Need to be Logged In');
+    err.status = 403;
+    next(err);
+  }
 }
 
 function assertIsAdmin(req, res, next) {
   if (req.user && req.user.isAdmin) next();
-  else res.sendStatus(401);
+  else {
+    var err = new Error('Is not Admin');
+    err.status = 403;
+    next(err);
+  }
 }
 
 router.get('/admin', assertIsAdmin, function(req, res, next) {
