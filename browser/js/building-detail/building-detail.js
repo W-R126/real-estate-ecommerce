@@ -1,6 +1,11 @@
-app.controller('BuildingCtrl', function($scope, theBuilding, CartFactory, $state, AuthService){
+app.controller('BuildingCtrl', function($scope, theBuilding, CartFactory, $state, AuthService, $location, $stateParams, $anchorScroll){
   $scope.building = theBuilding;
-  $scope.loggedIn = !AuthService.isAuthenticated();
+  // $scope.loggedIn = !AuthService.isAuthenticated();
+
+ $scope.$watchCollection('$stateParams', function() {
+       $location.hash('top');
+       $anchorScroll();
+    });
 
   $scope.error = null;
   $scope.addToCart = function () {
@@ -18,6 +23,9 @@ app.config(function ($stateProvider) {
     templateUrl: 'js/building-detail/templates/building-detail.html',
     controller: 'BuildingCtrl',
     resolve: {
+      $scope.loggedIn: function (){
+      !AuthService.isAuthenticated()
+      },
       theBuilding: function (BuildingFactory, $stateParams) {
         return BuildingFactory.fetchOne($stateParams.id);
       }
