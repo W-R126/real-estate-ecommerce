@@ -1,7 +1,23 @@
 #logo {
   height: auto;
   width: auto;
-  max-height: 60px;
+  margin-left: 3%;
+  max-height: 80px;
+  max-width: 24%
+}
+
+.navlinks {
+  margin-left: 60px;
+}
+
+#my-container.container {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.menu-wrap {
+  padding-top: 1% !important;
+  padding-bottom: 0.5% !important;
 }
 
 .login-signup {
@@ -142,3 +158,8 @@ ul.rating {
 }
 
 /*end of star rating css*/
+
+
+.position-fixed {
+  position: fixed;
+}

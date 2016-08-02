@@ -1,4 +1,4 @@
-app.factory('OrderFactory', function($http, $q){
+app.factory('OrderFactory', function($http){
   var OrderFactory = {};
 
   OrderFactory.getAllUserOrders = function() {
@@ -14,9 +14,6 @@ app.factory('OrderFactory', function($http, $q){
   OrderFactory.checkout = function (credentials) {
     return $http.post('/api/orders', credentials)
     .then(res => res.data)
-    .catch(function () {
-      return $q.reject({ message: 'Invalid checkout credentials'});
-    });
   }
 
 
