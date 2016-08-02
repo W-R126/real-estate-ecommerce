@@ -11,6 +11,24 @@ app.config(function ($stateProvider) {
 app.controller('CheckoutCtrl', function ($scope, $state, OrderFactory) {
 
     $scope.error = null;
+    var handler = StripeCheckout.configure({
+      key: 'pk_test_xILSRH2bsYyTPagCeiIDFpz2',
+      image: '/img/documentation/checkout/marketplace.png',
+      locale: 'auto',
+      token: function(token) {
+        // Use the token to create the charge with a server-side script.
+        // You can access the token ID with `token.id`
+
+      }
+    });
+
+    $scope.openStripe = function () {
+        handler.open({
+        name: 'Buildings',
+        description: $scope.cart.buildings.length + " buildings",
+        amount: $scope.cart.getTotal()
+         })
+    }
 
     $scope.sendCheckout= function(credentials) {
         $scope.error = null;
