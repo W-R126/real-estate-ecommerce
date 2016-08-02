@@ -1,6 +1,19 @@
-
 var express = require('express');
 var router = new express.Router();
+
+var fs = require('fs');
+var secretMG = JSON.parse(fs.readFileSync(__dirname+'/../../../../secretMG.txt','utf8'));
+
+var nodemailer = require('nodemailer');
+var transport = {
+  service:'Mailgun',
+  auth: {
+    user: secretMG.user,
+    pass: secretMG.pass
+  }
+}
+
+var transporter = nodemailer.createTransport(transport);
 
 var db = require('../../db');
 var User = db.User;
@@ -41,15 +54,45 @@ router.put('/changeAdmin/:id', function(req, res, next) {
   .then(user => {
     res.send(user[1][0]);
   })
-  .catch(next)
+  .catch(next);
 });
 
 router.put('/changePass/:id', function(req, res, next) {
-  req.session.resetPassword = true;
-  res.sendStatus(200);
+
+  User.findById(req.params.id)
+  .then(user => {
+
+    var message = {
+      from: 'sandbox@mailgun.org',
+      to: user.email,
+      subject: "Please reset your password",
+      text: "Here is the link to reset your password: " + 'http://localhost:1337/reset-password/' + user.id
+    }
+
+    transporter.sendMail(message, function(error, info){
+      if (error) console.log("Mail Error: ", error);
+      else console.log('Sent: '+ info.response);
+      });
+
+    res.sendStatus(200);
+
+  })
+  .catch(next);
+
 });
 
-router.put
+router.put('/resetPass', function(req, res, next) {
+
+  User.update(req.body, {
+    where: {email: req.body.email},
+    returning: true
+  })
+  .then(user => {
+    res.send(user[1][0]);
+  })
+  .catch(next);
+
+});
 
 router.delete('/:id', function (req, res, next) {
   User.destroy({

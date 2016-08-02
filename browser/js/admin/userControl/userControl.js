@@ -12,7 +12,7 @@ app.config(function ($stateProvider) {
     });
 
     $stateProvider.state('resetPassword', {
-      url: '/users/passwordReset',
+      url: '/reset-password/:id',
       controller: 'PasswordController',
       templateUrl: 'js/admin/userControl/templates/passwordReset.html'
     })
@@ -47,7 +47,13 @@ app.controller('UserController', function ($scope, allUsers, UserFactory) {
 
 });
 
-app.controller('PasswordController', function($scope) {
+app.controller('PasswordController', function($scope, UserFactory, $state, $log) {
 
+  UserFactory.resetPassword = function(credentials) {
+  }
+  .then(() => {
+    $state.go('login');
+  })
+  .catch($log.error);
 
 });

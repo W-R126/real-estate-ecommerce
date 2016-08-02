@@ -18,8 +18,13 @@ app.factory('UserFactory', function ($http) {
   }
 
   UserFactory.changePassword = function(userId) {
-    return $http.put('/api/users/changePass/' + userId, {resetPassword: true})
+    return $http.put('/api/users/changePass/' + userId)
       .then(res => res.data);
+  }
+
+  UserFactory.resetPassword = function(credentials) {
+    return $http.put('/api/users/resetPass', credentials)
+    .then(res => res.data);
   }
 
   return UserFactory;
