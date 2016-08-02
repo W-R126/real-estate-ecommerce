@@ -20,9 +20,6 @@ app.run(function ($rootScope, AuthService, $state) {
         return state.data && state.data.authenticate;
     };
 
-// $rootScope.$on("$stateChangeSuccess", function (event, currentRoute, previousRoute) {
-//     window.scrollTo(0, 0);
-// });
 
 
     // $stateChangeStart is an event fired
