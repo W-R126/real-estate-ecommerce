@@ -17,11 +17,14 @@ app.config(function($stateProvider) {
 });
 
 
-app.controller('ReviewCtrl', function($scope, theReviews, ReviewFactory, $log) {
+app.controller('ReviewCtrl', function($stateParams, $location, $anchorScroll, $scope, theReviews, ReviewFactory, $log) {
     $scope.reviews = theReviews;
     $scope.getTimes = function(n) {
         return new Array(n)
     }
+
+
+
     $scope.sendReview = function() {
         ReviewFactory.create($scope.newReview)
             .then(function(review) {
@@ -29,14 +32,24 @@ app.controller('ReviewCtrl', function($scope, theReviews, ReviewFactory, $log) {
             })
             .catch($log.error);
     }
+
+      $scope.$watchCollection('$stateParams', function() {
+       $location.hash('bottom');
+       $anchorScroll();
+    });
 });
 
 
-app.controller('newReviewCtrl', function($scope, ReviewFactory, $state, $log) {
+app.controller('newReviewCtrl', function($scope, ReviewFactory, $state, $log, $stateParams, $location, $anchorScroll) {
       $scope.ratings = [{
         current: 1,
         max: 5
     }];
+
+    $scope.$watchCollection('$stateParams', function() {
+       $location.hash('bottom');
+       $anchorScroll();
+    });
 
     $scope.getSelectedRating = function(rating) {
     $scope.newReview.numOfStars = rating
@@ -44,6 +57,7 @@ app.controller('newReviewCtrl', function($scope, ReviewFactory, $state, $log) {
     }
 
     $scope.sendReview = function(review) {
+        review.buildingId = $stateParams.id
             ReviewFactory.create(review)
             .then(function(review) {
                 $state.go('building.reviews')
