@@ -116,7 +116,7 @@
         <div class="container fromTop" >
           <h2> New Properties for Sale </h2>
  <div class="row">
-      <div ng-repeat="building in buildings" class="col-md-4 col-sm-6 zoom" ui-sref="building({id: building.id})">
+      <div ng-repeat="building in buildings | orderBy:'-buildingId':'true' | limitTo:6" class="col-md-4 col-sm-6 zoom" ui-sref="building({id: building.id})">
         <div class="rent-box">
           <figure class="rent-description"><img ng-src={{building.photoURL}} alt="" /></figure>
           <div class="property-widget">
