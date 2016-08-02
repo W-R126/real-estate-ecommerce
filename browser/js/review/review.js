@@ -23,10 +23,7 @@ app.controller('ReviewCtrl', function($stateParams, $location, $anchorScroll, $s
         return new Array(n)
     }
 
-    $scope.$watchCollection('$stateParams', function() {
-       $location.hash('bottom');
-       $anchorScroll();
-    });
+
 
     $scope.sendReview = function() {
         ReviewFactory.create($scope.newReview)
@@ -35,6 +32,11 @@ app.controller('ReviewCtrl', function($stateParams, $location, $anchorScroll, $s
             })
             .catch($log.error);
     }
+
+      $scope.$watchCollection('$stateParams', function() {
+       $location.hash('bottom');
+       $anchorScroll();
+    });
 });
 
 
@@ -55,7 +57,7 @@ app.controller('newReviewCtrl', function($scope, ReviewFactory, $state, $log, $s
     }
 
     $scope.sendReview = function(review) {
-            review.buildingId = $stateParams.id
+        review.buildingId = $stateParams.id
             ReviewFactory.create(review)
             .then(function(review) {
                 $state.go('building.reviews')
