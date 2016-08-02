@@ -1168,7 +1168,7 @@ transform:translateY(-10%);
  1.1) Content Header
  -----------------------------*/
 .sub-page #content {
-	padding-top: 45px;
+	padding-top: 0px;
 }
 .content-header {
 	padding: 0px 0 44px;
