@@ -41,8 +41,7 @@ app.controller('UserController', function ($scope, allUsers, UserFactory) {
 
   $scope.togglePassword = function(userId) {
     UserFactory.changePassword(userId)
-      .then()
-      .catch(console.error);
+    .catch(console.error);
   }
 
 });
@@ -51,8 +50,7 @@ app.controller('PasswordController', function($scope, UserFactory, $state, $log)
 
   $scope.resetPassword = function(credentials) {
     UserFactory.resetPassword(credentials)
-    .then((user) => {
-      console.log('here is the user', user);
+    .then(() => {
       $state.go('login');
     })
     .catch($log.error);

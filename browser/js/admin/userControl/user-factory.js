@@ -23,7 +23,6 @@ app.factory('UserFactory', function ($http) {
   }
 
   UserFactory.resetPassword = function(credentials) {
-    console.log('here are the credentials', credentials);
     return $http.put('/api/users/resetPass', credentials)
     .then(res => res.data);
   }
