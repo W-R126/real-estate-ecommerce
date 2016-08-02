@@ -6,7 +6,11 @@ var Building = db.Building;
 
 function assertIsAdmin(req, res, next) {
   if (req.user && req.user.isAdmin) next();
-  else res.sendStatus(401);
+  else {
+    var err = new Error('Is not Admin');
+    err.status = 403;
+    next(err);
+  }
 }
 
 router.get('/types', function(req, res, next){
