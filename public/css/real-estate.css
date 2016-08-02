@@ -161,7 +161,7 @@
 	max-width: 267px;
 	text-align: center;
 	width: 100%;
-	padding: 62px 30px;
+	padding: 2%;
 }
 .homepage-10 .map-quote-banner em {
 	font-family: "Damion";
@@ -179,10 +179,6 @@
 	}
 	.homepage-10 .btn.btn-default.btn-effect {
     position: relative;
-}
-.addToCartButton {
-	position: fixed !important;
-	top: 140px !important;
 }
 /* Rent Features
  ------------------------------------*/
@@ -300,7 +296,7 @@ body .price-meter-wrap .ui-widget-content {
 /* Rent Banner
  ----------------------------------*/
 .rent-banner {
-	background: url(../img/banner-rent-1.jpg) center top no-repeat;
+	background: url(http://wallpapermonkey.com/wp-content/uploads/2016/02/new-york-wallpaper.jpg) center top no-repeat;
 	min-height: 390px;
 	background-attachment: fixed;
 	padding-top: 100px;

@@ -30,15 +30,15 @@ app.controller('PropertiesAdminController', function($scope, allProperties, Buil
 
   $scope.propertyTypes = ['Commercial', 'Residential', 'Mixed'];
 
-  $scope.toggleAvailable = function(propertyId, propertyStatus, index) {
+  $scope.toggleAvailable = function(propertyId, propertyStatus, index, $log) {
     BuildingFactory.changeStatus(propertyId, !propertyStatus).then(() => $scope.properties[index].isAvailable = !propertyStatus)
-    .catch(console.error);
+    .catch($log.error);
   }
 
-  $scope.changeType = function(propertyId, index, typeToChange) {
+  $scope.changeType = function(propertyId, index, typeToChange, $log) {
     BuildingFactory.changePropertyType(propertyId, typeToChange)
     .then((property) => $scope.properties[index].propertyType = property.propertyType)
-    .catch(console.error);
+    .catch($log.error);
   }
 
 });
@@ -49,13 +49,13 @@ app.controller('PropertyAdminController', function($scope, fetchProperty, Buildi
 
   $scope.error = null;
 
-  $scope.updateProperty = function(id, propertyInfo) {
+  $scope.updateProperty = function(id, propertyInfo, $log) {
     $scope.error = null;
     BuildingFactory.updateProperty(id, propertyInfo)
     .then(() => $state.go('propertiesAdmin'))
     .catch(err => {
       $scope.error = 'Invalid update info for property. Error: ' + err.data;
-      console.error(err);
+      $log.error;
     });
   }
 

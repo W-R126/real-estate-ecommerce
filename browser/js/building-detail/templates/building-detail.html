@@ -11,7 +11,7 @@
             <div>
               <img alt="" ng-src={{building.photoURL}} style="width: 750px; float: left; display: block;">
             </div>
-            <div class="slider-cont clearfix"> <span> Architectural Style : {{building.architecturalStyle}} </span> <strong> For Sale <span> <small> ${{building.price}} </small></span></strong> </div>
+            <div class="slider-cont clearfix"> <span> Architectural Style : {{building.architecturalStyle}} </span> <strong> For Sale <span> <small> ${{building.price*100}}.00 </small></span></strong> </div>
             <div class="property-info-wrap">
               <div class="property-subpart-wrap">
                 <ul class="property-subpart clearfix">
@@ -51,7 +51,7 @@
             <div>
               <a class="btn btn-default btn-effect" ui-sref="building.reviews" id="reviews-button">Click to see reviews</a>
               <button class="btn btn-default btn-effect" id="reviews-button" ui-sref="building.write" ng-disabled="loggedIn">Write a review<i class="fa fa-pencil"></i></button>
-              <span ng-show="loggedIn">{{message}}</span>
+              <span ng-show="loggedIn">Please sign in to leave a review</span>
 
               <ui-view></ui-view>
             </div>

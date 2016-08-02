@@ -1,7 +1,6 @@
 #logo {
   height: auto;
   width: auto;
-  margin-bottom: 3px;
   margin-left: 3%;
   max-height: 80px;
   max-width: 24%
@@ -11,9 +10,14 @@
   margin-left: 60px;
 }
 
+#my-container.container {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
 .menu-wrap {
-  padding-top: 1% !important;/*
-  paddng-bottom: 37px !important;*/
+  padding-top: 1% !important;
+  padding-bottom: 0.5% !important;
 }
 
 .login-signup {
@@ -38,6 +42,10 @@
   cursor: pointer;
 }
 
+.wordsForParallax{
+     color: white;
+     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
 
 
 #reviews-button {

@@ -19,6 +19,12 @@
 .homepage-18 .img-h {
 	height: 657px !important;
 }
+
+.addToCartButton {
+	position: fixed !important;
+	top: 140px !important;
+}
+
 #wrapper.boxed {
 	margin: 0 auto;
 	overflow: hidden;
@@ -5837,6 +5843,10 @@ h3, .h3 {
 	 ====================*/
 
 	/*Gallery-11*/
+
+.addToCartButton{
+
+}
 .gallery-11 .category li, .gallery-18 .category li {
 	float: none;
 	width: auto;
@@ -6207,6 +6217,12 @@ img.img-style {
  5) Mobile
  ----------------------------------------*/
 @media only screen and (max-width: 767px) {
+
+.addToCartButton{
+position: static !important;
+float:left;
+padding-top: 5px;
+}
 .quote-two.no-margin {
 	margin-bottom: 0;
 }

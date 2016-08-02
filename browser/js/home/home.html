@@ -9,7 +9,7 @@
             <div class="map-banner-quote">
               <div class="container">
                 <div class="map-quote-banner">
-                  <h2>The Best Real Estate Deals <em>here!</em></h2>
+                  <h2>Betty's Building Bros are <em>Here!</em></h2>
                 </div>
               </div>
             </div>
@@ -18,7 +18,7 @@
           <div class="resto-info">
             <div class="container">
               <ul class="auto-tab-list">
-                <li class="active"> <a>sale</a> </li>
+                <li class="active"> <a>Search</a> </li>
               </ul>
               <div class="mid clearfix">
               <form name="searchForm" ng-submit="search()">
@@ -53,7 +53,7 @@
                   </div> -->
                   <div class="row">
                 </form>
-                    <div class="col-xs-12"> <button type="submit" class="btn btn-default btn-effect" ng-click="search()"> search properties <i> <img src="/img/arrow-btn.png" alt="" /> </i> </input> </div>
+                   <i> <div class="col-xs-12"> <button type="submit" class="btn btn-default btn-effect" ng-click="search()"> search properties <img src="/img/arrow-btn.png"/> </button> </div></i>
                     </div>
                   </div>
                 </div>
@@ -76,21 +76,21 @@
             <div class="services steps row">
               <div class="col-md-3 col-sm-6 effect-a">
                 <div class="one service-block shine">
-                  <h3><i class="hot-list"><img src="/svg/hotlist.svg" alt="" class="svg" /></i><span>Hottest <small>listing</small></span></h3>
+                  <h3><i class="hot-list" ui-sref="buildings"><img src="/svg/hotlist.svg" alt="" class="svg" /></i><span>View <small>All Buildings</small></span></h3>
                 </div>
               </div>
               <div class="col-md-3 col-sm-6 effect-b">
                 <div class="one service-block shine">
-                  <h3><i class="ex-offer"><img src="/svg/ex-offer.svg" alt="" class="svg" /></i><span>Exclusive<small>offers</small></span></h3>
+                  <h3><i class="ex-offer" ui-sref="contact"><img src="/svg/ex-offer.svg" alt="" class="svg" /></i><span>Questions?<small>Email us!</small></span></h3>
                 </div>
               </div>
               <div class="col-md-3 col-sm-6 effect-c">
                 <div class="one service-block shine">
-                  <h3><i class="movers"><img src="/svg/mover.svg" alt="" class="svg" /></i><span>Movving <small>quotes</small></span></h3>
+                  <h3><i class="movers" ui-sref="signup"><img src="/svg/mover.svg" alt="" class="svg" /></i><span>Become a <small>Member Today!</small></span></h3>
                 </div>
               </div>
               <div class="col-md-3 col-sm-6">
-                <div class="rent-adv"> <strong class="h2">become an agent</strong> </div>
+                <div class="rent-adv"> <strong class="h2">Invest! NOW! DO IT!</strong> </div>
               </div>
             </div>
           </section>
@@ -103,8 +103,8 @@
         <div class="container">
           <div class="row">
             <div class="col-md-6">
-              <h2 class="h1"> More than <a href="#"> 1 200 000 </a> properties for rent &amp; sale </h2>
-              <a class="btn btn-effect btn-default" href="#"> find an agent <i> <img alt="" src="/img/arrow-btn.png"> </i> </a> </div>
+              <h2 class="wordsForParallax"> More than <a href="#"> 1 200 000 </a> properties for rent &amp; sale </h2>
+              </div>
           </div>
         </div>
       </section>
@@ -113,10 +113,10 @@
       <!-- New Sale       -->
 
       <section class="new-sale">
-        <div class="container" >
+        <div class="container fromTop" >
           <h2> New Properties for Sale </h2>
  <div class="row">
-      <div ng-repeat="building in buildings" class="col-md-4 col-sm-6 zoom" ui-sref="building({id: building.id})">
+      <div ng-repeat="building in buildings | orderBy:'-buildingId':'true' | limitTo:6" class="col-md-4 col-sm-6 zoom" ui-sref="building({id: building.id})">
         <div class="rent-box">
           <figure class="rent-description"><img ng-src={{building.photoURL}} alt="" /></figure>
           <div class="property-widget">
