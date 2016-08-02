@@ -27,33 +27,26 @@ router.get('/:id', function(req, res, next){
   .catch(next);
 })
 
-router.get('/', function(req, res, next) {
+router.get('/', assertIsAdmin, function(req, res, next) {
   User.findAll()
   .then(user => res.send(user))
   .catch(next);
 })
 
 router.post('/', function(req, res, next){
-  var userId;
-
-  if (!req.session.cartId) {
-    Cart.create()
-    .then(function (cart) {
-      req.session.cartId = cart.id;
-    })
-  }
-
+  var userObj;
   User.create(req.body)
-  .then(function(user) {
-    userId = user.id
-    return Cart.findById(req.session.cartId)
+  .then(function(user){
+    userObj = user;
+    return Cart.create({userId:user.id})
   })
-  .then(cart => cart.setUser(userId))
-  .then(() => {res.sendStatus(201); })
+  .then(function(cart){
+    req.session.cartId = cart.id;
+    res.status(201).json(userObj) } )
   .catch(next)
 })
 
-router.put('/changeAdmin/:id', function(req, res, next) {
+router.put('/changeAdmin/:id', assertIsAdmin, function(req, res, next) {
   User.update(req.body,
     { where: { id: req.params.id},
     returning: true
@@ -64,7 +57,7 @@ router.put('/changeAdmin/:id', function(req, res, next) {
   .catch(next);
 });
 
-router.put('/changePass/:id', function(req, res, next) {
+router.put('/changePass/:id', assertIsAdmin, function(req, res, next) {
 
   User.findById(req.params.id)
   .then(user => {
@@ -101,7 +94,7 @@ router.put('/resetPass', function(req, res, next) {
 
 });
 
-router.delete('/:id', function (req, res, next) {
+router.delete('/:id', assertIsAdmin, function (req, res, next) {
   User.destroy({
     where: {
       id: req.params.id
