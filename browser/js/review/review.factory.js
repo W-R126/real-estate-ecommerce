@@ -8,7 +8,6 @@ app.factory('ReviewFactory', function ($http) {
   };
 
   ReviewFactory.create = function (data) {
-    // data.buildingId = $stateParams.id
     return $http.post('/api/reviews/', data)
     .then(function (response) {
      return response.data;
