@@ -10,6 +10,13 @@ app.config(function ($stateProvider) {
           }
         }
     });
+
+    $stateProvider.state('resetPassword', {
+      url: '/reset-password/:id',
+      controller: 'PasswordController',
+      templateUrl: 'js/admin/userControl/templates/passwordReset.html'
+    })
+
 });
 
 
@@ -28,6 +35,23 @@ app.controller('UserController', function ($scope, allUsers, UserFactory, $log) 
     UserFactory.delete(userId)
     .then(function () {
       $scope.users.splice(index, 1);
+    })
+    .catch($log.error);
+  }
+
+  $scope.togglePassword = function(userId) {
+    UserFactory.changePassword(userId)
+    .catch(console.error);
+  }
+
+});
+
+app.controller('PasswordController', function($scope, UserFactory, $state, $log) {
+
+  $scope.resetPassword = function(credentials) {
+    UserFactory.resetPassword(credentials)
+    .then(() => {
+      $state.go('login');
     })
     .catch($log.error);
   }

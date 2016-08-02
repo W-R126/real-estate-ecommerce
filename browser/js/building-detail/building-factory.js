@@ -7,6 +7,11 @@ app.factory('BuildingFactory', function ($http) {
     .then(function (response) { return response.data; });
   };
 
+  BuildingFactory.fetchAllAdmin = function (args) {
+    return $http.get('/api/buildings/admin', {params: args})
+    .then(function (response) { return response.data; });
+  };
+
   BuildingFactory.fetchOne = function (id) {
     return $http.get('/api/buildings/' +id)
     .then(function (response) { return response.data; });

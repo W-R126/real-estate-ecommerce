@@ -22,14 +22,31 @@ var PurchasedBuilding = db.PurchasedBuilding;
 var Building = db.Building;
 var Cart = db.Cart;
 
+function assertIsLoggedIn(req, res, next) {
+  if (req.user) next();
+  else {
+    var err = new Error('Need to be Logged In');
+    err.status = 403;
+    next(err);
+  }
+}
 
-router.get('/admin', function(req, res, next) {
+function assertIsAdmin(req, res, next) {
+  if (req.user && req.user.isAdmin) next();
+  else {
+    var err = new Error('Is not Admin');
+    err.status = 403;
+    next(err);
+  }
+}
+
+router.get('/admin', assertIsAdmin, function(req, res, next) {
   Order.findAll({where:req.query})
   .then(orders => res.send(orders))
   .catch(next);
 })
 
-router.put('/admin/status/:orderId', function(req, res, next) {
+router.put('/admin/status/:orderId', assertIsAdmin, function(req, res, next) {
   var message = {from: 'sandbox@mailgun.org'};
 
 
@@ -60,7 +77,7 @@ router.put('/admin/status/:orderId', function(req, res, next) {
   .catch(next);
 })
 
-router.get('/:id', function(req, res, next) {
+router.get('/:id', assertIsLoggedIn, function(req, res, next) {
   Order.findById(req.params.id, {
     include: [
       {
@@ -77,7 +94,7 @@ router.get('/:id', function(req, res, next) {
 });
 
 
-router.get('/', function(req, res, next){
+router.get('/', assertIsLoggedIn, function(req, res, next){
   Order.findAll({
     where: {
       userId: req.session.passport.user

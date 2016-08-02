@@ -15,7 +15,6 @@ module.exports = function (app, db) {
                 }
             })
             .then(function (user) {
-                // user.correctPassword is a method from the User schema.
                 if (!user || !user.correctPassword(password)) {
                     done(null, false);
                 } else {
@@ -48,8 +47,9 @@ module.exports = function (app, db) {
                 .then(function(cart){
                     req.session.cartId = cart[0].id;
                     res.status(200).send({
-                    user: user.sanitize()
-                });
+                        user: user.sanitize(),
+                        resetPass: req.session.resetPassword
+                    });
                 })
 
                 // We respond with a response object that has user with _id and email.
