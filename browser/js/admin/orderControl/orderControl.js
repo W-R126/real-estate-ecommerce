@@ -19,12 +19,12 @@ app.controller('OrdersAdminController', function ($scope, allOrders, OrderFactor
 
   $scope.orderStats = ["Created", "Processing", "Cancelled", "Completed"];
 
-  $scope.changeStatus = function(orderId, index, statusToChange) {
+  $scope.changeStatus = function(orderId, index, statusToChange, $log) {
     OrderFactory.updateOrderStatus(orderId, statusToChange)
     .then(order => {
       $scope.orders[index].orderStatus = order.orderStatus;
     })
-    .catch(console.error);
+    .catch($log.error);
   }
 
 });

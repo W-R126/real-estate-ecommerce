@@ -20,7 +20,7 @@ app.config(function ($stateProvider) {
 });
 
 
-app.controller('UserController', function ($scope, allUsers, UserFactory) {
+app.controller('UserController', function ($scope, allUsers, UserFactory, $log) {
   $scope.users = allUsers;
 
   $scope.toggleAdmin = function(userId, adminStatus, index) {
@@ -28,7 +28,7 @@ app.controller('UserController', function ($scope, allUsers, UserFactory) {
       .then(() => {
         $scope.users[index].isAdmin = !adminStatus;
       })
-      .catch(console.error);
+      .catch($log.error);
   }
 
   $scope.deleteUser = function(userId, index) {
@@ -36,7 +36,7 @@ app.controller('UserController', function ($scope, allUsers, UserFactory) {
     .then(function () {
       $scope.users.splice(index, 1);
     })
-    .catch(console.error);
+    .catch($log.error);
   }
 
   $scope.togglePassword = function(userId) {

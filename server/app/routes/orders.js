@@ -2,6 +2,7 @@ var express = require('express');
 var router = new express.Router();
 var fs = require('fs');
 
+
 var secretMG = JSON.parse(fs.readFileSync(__dirname+'/../../../../secretMG.txt','utf8'));
 
 var nodemailer = require('nodemailer');
@@ -29,11 +30,33 @@ router.get('/admin', function(req, res, next) {
 })
 
 router.put('/admin/status/:orderId', function(req, res, next) {
+  var message = {from: 'sandbox@mailgun.org'};
+
+
   Order.update(req.body,
     {where: {id: req.params.orderId},
     returning: true
   })
-  .then(orderUpdated => res.send(orderUpdated[1][0]))
+  .then(orderUpdated => {
+     if(req.body.orderStatus ==="Processing") {
+      message.to = orderUpdated[1][0].email;
+      message.subject = "Betty's Building Bro's Order #"+orderUpdated[1][0].convertId + " has shipped!";
+      message.text = "Dear "+ orderUpdated[1][0].name+", \n\nYour order #" + orderUpdated[1][0].convertId +" from Betty's Building Bros has been processed for shipping!\n\nYour bros,\nBarry, Richard, Samuel, and Betty"
+    } else if (req.body.orderStatus === "Completed") {
+      message.to = orderUpdated[1][0].email;
+      message.subject = "Betty's Building Bro's Order #"+orderUpdated[1][0].convertId + " has been delivered!";
+      message.text = "Dear "+ orderUpdated[1][0].name+", \n\nYour order #" + orderUpdated[1][0].convertId +" from Betty's Building Bros has been delivered! Enjoy your new digs!\n\nYour bros,\nBarry, Richard, Samuel, and Betty"
+    } else if (req.body.orderStatus === "Cancelled") {
+      message.to = orderUpdated[1][0].email;
+      message.subject = "Betty's Building Bro's Order #"+orderUpdated[1][0].convertId + " has been cancelled.";
+      message.text = "Dear "+ orderUpdated[1][0].name+", \n\nYour order #" + orderUpdated[1][0].convertId +" from Betty's Building Bros has been cancelled. Sorry about that. Please try ordering again!\n\nYour bros,\nBarry, Richard, Samuel, and Betty"
+    }
+    transporter.sendMail(message, function(error, info) {
+      if (error) console.log("Confirmation Mail Error: ",error);
+      else console.log('Sent: '+ info.response);
+    });
+
+    res.send(orderUpdated[1][0])})
   .catch(next);
 })
 
@@ -112,8 +135,8 @@ router.post('/', function (req, res, next) {
     var message = {
       from: 'sandbox@mailgun.org',
       to: savedOrder.email,
-      subject: "Your order #" + savedORder.convertId +" has been received",
-      text: "Dear "+ savedOrder.name+", \n Your order #" + savedOrder.convertId +" from Betty's Building Bros has been received!"
+      subject: "Your order #" + savedOrder.convertId +" has been received",
+      text: "Dear "+ savedOrder.name+", \n\nYour order #" + savedOrder.convertId +" from Betty's Building Bros has been received!\n\nYour bros,\nBarry, Richard, Samuel, and Betty"
     }
 
     transporter.sendMail(message, function(error, info){
@@ -126,36 +149,4 @@ router.post('/', function (req, res, next) {
   .catch(next)
 })
 
-/*router.put('/shipped', function(req, res, next){
-  //Update from field with domain once pushed to production server!
-  var message = {
-    from: 'sandbox@mailgun.org',
-    to: savedOrder.email,
-    text: "Dear "+ savedOrder.name+", \n Your order #" + savedOrder.convertId +" from Betty's Building Bros has been received!"
-  }
-
-  transporter.sendMail(message, function(error, info){
-    if (error) console.log("Confirmation Mail Error: ",error);
-    else console.log('Sent: '+ info.response);
-  });
-
-  res.sendStatus(200)
-})
-
-router.put('/delivered', function(req, res, next){
-  //Update from field with domain once pushed to production server!
-  var message = {
-    from: 'sandbox@mailgun.org',
-    to: savedOrder.email,
-    text: "Dear "+ savedOrder.name+", \n Your order #" + savedOrder.convertId +" from Betty's Building Bros has been received!"
-  }
-
-  transporter.sendMail(message, function(error, info) {
-    if (error) console.log("Confirmation Mail Error: ",error);
-    else console.log('Sent: '+ info.response);
-  });
-
-  res.sendStatus(200);
-})
-*/
 module.exports = router;

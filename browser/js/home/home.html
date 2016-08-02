@@ -9,7 +9,7 @@
             <div class="map-banner-quote">
               <div class="container">
                 <div class="map-quote-banner">
-                  <h2>The Best Real Estate Deals <em>here!</em></h2>
+                  <h2>Betty's Building Bros are <em>Here!</em></h2>
                 </div>
               </div>
             </div>
@@ -18,13 +18,13 @@
           <div class="resto-info">
             <div class="container">
               <ul class="auto-tab-list">
-                <li class="active"> <a>sale</a> </li>
+                <li class="active"> <a>Search</a> </li>
               </ul>
               <div class="mid clearfix">
               <form name="searchForm" ng-submit="search()">
                 <div class=" col-md-4 form-field">
                   <div class="btn-group">
-                    <input type="search" ng-model="searchProps.location" placeholder="City, State or Country Zip" />
+                    <input type="search" ng-model="searchProps.zipCode" placeholder="ZIP Code" />
                   </div>
                   <div class="btn-group">
                     <select class="btn dropdown-toggle select-text" name="typeInput" data-toggle="dropdown" ng-model="searchProps.propertyType" ng-options="type as type for type in types" ><option class="select-text" value="">Use Type</option> </select>
@@ -32,34 +32,20 @@
                 </div>
                 <div class="col-md-4 form-field">
                   <div class="btn-group">
-                    <select class="btn dropdown-toggle" name="styleInput" data-toggle="dropdown" ng-model="searchProps.style" ng-options="style.name as style.name for style in styles"> <option class="select-text" value="">Architectural Style</option> </select>
+                    <select class="btn dropdown-toggle" name="styleInput" data-toggle="dropdown" ng-model="searchProps.architecturalStyle" ng-options="style as style for style in styles"> <option class="select-text" value="">Architectural Style</option> </select>
                   </div>
                   <div class="btn-group">
-                    <button class="btn dropdown-toggle" name="recordinput" data-toggle="dropdown"> <span class="select-text">Baths</span><span class="caret">&nbsp;</span> </button>
-                    <ul class="dropdown-menu choice">
-                      <li> <a href="#">360 Modena</a> </li>
-                      <li> <a href="#">DS3 </a> </li>
-                      <li> <a href="#">M32dr</a> </li>
-                      <li> <a href="#">V40 </a> </li>
-                    </ul>
+                    <select class="btn dropdown-toggle" name="floorsRange" data-toggle="dropdown" ng-model="searchProps.stories" ng-options="story.i as story.range for story in stories"> <option class="select-text" value="">Floors</option> </select>
                   </div>
                 </div>
                 <div class="col-md-4 form-field">
                   <div class="price-meter-wrap"> <span class="meter-label">Price </span>
-                   <input type="number" ng-model="searchProps.min"/>
-                   <input type="number" ng-model="searchProps.max"/>
-                   <!--  <div class="range-wrap"> <span id="amount1"> </span> <span id="amount"> </span>
-                      <div id="slider-range" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false">
-                        <div class="ui-slider-range ui-widget-header ui-corner-all" sytle="left: 0%; width:100%;"></div>
-                        <a class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%;" href="#"></a>
-                        <a class="ui-slider-handle ui-state-default ui-corner-all" style="left: 100%;" href="#"></a>
-                      </div>
-                    </div>
-                    <strong class="price-meter"> <span class="min-price"> $100 </span> <span class="max-price"> $10 000 000 </span> </strong>
-                  </div> -->
+                   <input type="number" ng-model="minPrice"/>
+                   <input type="number" ng-model="maxPrice"/>
+
                   <div class="row">
                 </form>
-                    <div class="col-xs-12"> <button type="submit" class="btn btn-default btn-effect"> search properties <i> <img src="/img/arrow-btn.png" alt="" /> </i> </input> </div>
+                   <i> <div class="col-xs-12"> <button type="submit" class="btn btn-default btn-effect" ng-click="search()"> search properties <img src="/img/arrow-btn.png"/> </button> </div></i>
                     </div>
                   </div>
                 </div>
@@ -82,21 +68,21 @@
             <div class="services steps row">
               <div class="col-md-3 col-sm-6 effect-a">
                 <div class="one service-block shine">
-                  <h3><i class="hot-list"><img src="/svg/hotlist.svg" alt="" class="svg" /></i><span>Hottest <small>listing</small></span></h3>
+                  <h3><i class="hot-list" ui-sref="buildings"><img src="/svg/hotlist.svg" alt="" class="svg" /></i><span>View <small>All Buildings</small></span></h3>
                 </div>
               </div>
               <div class="col-md-3 col-sm-6 effect-b">
                 <div class="one service-block shine">
-                  <h3><i class="ex-offer"><img src="/svg/ex-offer.svg" alt="" class="svg" /></i><span>Exclusive<small>offers</small></span></h3>
+                  <h3><i class="ex-offer" ui-sref="contact"><img src="/svg/ex-offer.svg" alt="" class="svg" /></i><span>Questions?<small>Email us!</small></span></h3>
                 </div>
               </div>
               <div class="col-md-3 col-sm-6 effect-c">
                 <div class="one service-block shine">
-                  <h3><i class="movers"><img src="/svg/mover.svg" alt="" class="svg" /></i><span>Movving <small>quotes</small></span></h3>
+                  <h3><i class="movers" ui-sref="signup"><img src="/svg/mover.svg" alt="" class="svg" /></i><span>Become a <small>Member Today!</small></span></h3>
                 </div>
               </div>
               <div class="col-md-3 col-sm-6">
-                <div class="rent-adv"> <strong class="h2">become an agent</strong> </div>
+                <div class="rent-adv"> <strong class="h2">Invest! NOW! DO IT!</strong> </div>
               </div>
             </div>
           </section>
@@ -109,8 +95,8 @@
         <div class="container">
           <div class="row">
             <div class="col-md-6">
-              <h2 class="h1"> More than <a href="#"> 1 200 000 </a> properties for rent &amp; sale </h2>
-              <a class="btn btn-effect btn-default" href="#"> find an agent <i> <img alt="" src="/img/arrow-btn.png"> </i> </a> </div>
+              <h2 class="wordsForParallax"> More than <a href="#"> 1 200 000 </a> properties for rent &amp; sale </h2>
+              </div>
           </div>
         </div>
       </section>
@@ -119,94 +105,24 @@
       <!-- New Sale       -->
 
       <section class="new-sale">
-        <div class="container" >
+        <div class="container fromTop" >
           <h2> New Properties for Sale </h2>
-          <div class="row">
-            <div class="col-md-4 col-sm-6 zoom">
-              <div class="rent-box">
-                <figure class="rent-description"> <a href="#"><img src="/img/home-sale-1.jpg" alt="" /></a> </figure>
-                <div class="property-widget">
-                  <div class="property-header clearfix"> <strong class="caption">Single Family Home </strong><span>2800 Sq Ft</span> </div>
-                  <h3><a href="#">15421 Southwest 39th Terrace</a></h3>
-                  <ul>
-                    <li> Bedrooms <span class="avl-no">4</span> </li>
-                    <li> Bathrooms <span class="avl-no">4</span> </li>
-                    <li> Garages <span class="avl-no">2</span> </li>
-                  </ul>
-                  <a href="#" class="price"> $625,000 </a> </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 zoom">
-              <div class="rent-box">
-                <figure class="rent-description"> <a href="#"><img src="/img/home-sale-2.jpg" alt="" /></a> </figure>
-                <div class="property-widget">
-                  <div class="property-header clearfix"> <strong class="caption">Single Family Home </strong><span>2800 Sq Ft</span> </div>
-                  <h3><a href="#">15421 Southwest 39th Terrace</a></h3>
-                  <ul>
-                    <li> Bedrooms <span class="avl-no">4</span> </li>
-                    <li> Bathrooms <span class="avl-no">4</span> </li>
-                    <li> Garages <span class="avl-no">2</span> </li>
-                  </ul>
-                  <a href="#" class="price"> $625,000 </a> </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 zoom">
-              <div class="rent-box">
-                <figure class="rent-description"> <a href="#"><img src="/img/home-sale-3.jpg" alt="" /></a> </figure>
-                <div class="property-widget">
-                  <div class="property-header clearfix"> <strong class="caption">Single Family Home </strong><span>2800 Sq Ft</span> </div>
-                  <h3><a href="#">15421 Southwest 39th Terrace</a></h3>
-                  <ul>
-                    <li> Bedrooms <span class="avl-no">4</span> </li>
-                    <li> Bathrooms <span class="avl-no">4</span> </li>
-                    <li> Garages <span class="avl-no">2</span> </li>
-                  </ul>
-                  <a href="#" class="price"> $625,000 </a> </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 zoom">
-              <div class="rent-box">
-                <figure class="rent-description"> <a href="#"><img src="/img/home-sale-4.jpg" alt="" /></a> </figure>
-                <div class="property-widget">
-                  <div class="property-header clearfix"> <strong class="caption">Single Family Home </strong><span>2800 Sq Ft</span> </div>
-                  <h3><a href="#">15421 Southwest 39th Terrace</a></h3>
-                  <ul>
-                    <li> Bedrooms <span class="avl-no">4</span> </li>
-                    <li> Bathrooms <span class="avl-no">4</span> </li>
-                    <li> Garages <span class="avl-no">2</span> </li>
-                  </ul>
-                  <a href="#" class="price"> $625,000 </a> </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 zoom zoom">
-              <div class="rent-box">
-                <figure class="rent-description"> <a href="#"><img src="/img/home-sale-5.jpg" alt="" /></a> </figure>
-                <div class="property-widget">
-                  <div class="property-header clearfix"> <strong class="caption">Single Family Home </strong><span>2800 Sq Ft</span> </div>
-                  <h3><a href="#">15421 Southwest 39th Terrace</a></h3>
-                  <ul>
-                    <li> Bedrooms <span class="avl-no">4</span> </li>
-                    <li> Bathrooms <span class="avl-no">4</span> </li>
-                    <li> Garages <span class="avl-no">2</span> </li>
-                  </ul>
-                  <a href="#" class="price"> $625,000 </a> </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 zoom">
-              <div class="rent-box">
-                <figure class="rent-description"> <a href="#"><img src="/img/home-sale-1.jpg" alt="" /></a> </figure>
-                <div class="property-widget">
-                  <div class="property-header clearfix"> <strong class="caption">Single Family Home </strong><span>2800 Sq Ft</span> </div>
-                  <h3><a href="#">15421 Southwest 39th Terrace</a></h3>
-                  <ul>
-                    <li> Bedrooms <span class="avl-no">4</span> </li>
-                    <li> Bathrooms <span class="avl-no">4</span> </li>
-                    <li> Garages <span class="avl-no">2</span> </li>
-                  </ul>
-                  <a href="#" class="price"> $625,000 </a> </div>
-              </div>
-            </div>
-          </div>
+ <div class="row">
+      <div ng-repeat="building in buildings | orderBy:'-buildingId':'true' | limitTo:6" class="col-md-4 col-sm-6 zoom" ui-sref="building({id: building.id})">
+        <div class="rent-box">
+          <figure class="rent-description"><img ng-src={{building.photoURL}} alt="" /></figure>
+          <div class="property-widget">
+            <div class="property-header clearfix"> <strong class="caption">{{building.propertyType}} </strong><span>{{building.squareFootage}}</span> </div>
+            <h3><a href="#">{{building.streetAddress}}</a></h3>
+            <ul>
+              <li> Stories <span class="avl-no">{{building.stories}}</span> </li>
+              <li> Units <span class="avl-no">{{building.numberOfUnits}}</span> </li>
+              <li> Building Age <span class="avl-no">{{building.buildingAge}}</span> </li>
+            </ul>
+            <span class="price">$ {{building.price}}</span></div>
+        </div>
+      </div>
+
           <a href="#" class="btn btn-default btn-effect"> view more <i> <img src="/img/arrow-btn.png" alt="" /> </i></a> </div>
       </section>
       <!-- New Sale       -->
