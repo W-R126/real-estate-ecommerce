@@ -62,12 +62,9 @@ router.put('/admin/status/:orderId', function(req, res, next) {
 
 router.get('/:id', function(req, res, next) {
   Order.findById(req.params.id, {
-    include: [
-      {
+    include: [ {
         model: PurchasedBuilding,
-        include: [
-          Building
-        ]
+        include: [Building]
       }]
   })
   .then(order => {
@@ -117,7 +114,7 @@ router.post('/', function (req, res, next) {
 
     return Promise.all(copyBuildings);
   })
-  .then(function (purchasedBuildings) {
+  .then(function () {
     return Order.findOne({where: req.body})
   })
   .then(function (order) {
@@ -139,10 +136,10 @@ router.post('/', function (req, res, next) {
       text: "Dear "+ savedOrder.name+", \n\nYour order #" + savedOrder.convertId +" from Betty's Building Bros has been received!\n\nYour bros,\nBarry, Richard, Samuel, and Betty"
     }
 
-    transporter.sendMail(message, function(error, info){
+    transporter.sendMail(message, function (error, info) {
       if (error) console.log("Confirmation Mail Error: ",error);
       else console.log('Sent: '+ info.response);
-      });
+    });
 
     res.send(savedOrder.id.toString());
   })
