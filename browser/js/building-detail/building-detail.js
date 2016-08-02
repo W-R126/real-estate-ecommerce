@@ -23,6 +23,9 @@ app.config(function ($stateProvider) {
     templateUrl: 'js/building-detail/templates/building-detail.html',
     controller: 'BuildingCtrl',
     resolve: {
+      loggedIn: function (AuthService){
+        !AuthService.isAuthenticated()
+      },
       theBuilding: function (BuildingFactory, $stateParams) {
         return BuildingFactory.fetchOne($stateParams.id);
       }
