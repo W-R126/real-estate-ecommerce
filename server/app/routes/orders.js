@@ -78,7 +78,7 @@ router.put('/admin/status/:orderId', assertIsAdmin, function(req, res, next) {
   .catch(next);
 })
 
-router.get('/:id', assertIsLoggedIn, function(req, res, next) {
+router.get('/:id', function(req, res, next) {
   Order.findById(req.params.id, {
     include: [ {
         model: PurchasedBuilding,
