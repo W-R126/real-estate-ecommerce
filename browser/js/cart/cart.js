@@ -22,6 +22,7 @@ app.controller('CartController', function ($scope, theCart, CartFactory) {
       for(var i = 0; i < $scope.cart.buildings.length; i++){
           total += $scope.cart.buildings[i].price;
       }
+      $scope.total = total;
       return '$'+ total;
   }
 

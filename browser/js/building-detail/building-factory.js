@@ -4,17 +4,17 @@ app.factory('BuildingFactory', function ($http) {
 
   BuildingFactory.fetchAll = function (args) {
     return $http.get('/api/buildings', {params: args})
-    .then(function (response) { return response.data; });
+    .then(res => res.data);
   };
 
   BuildingFactory.fetchAllAdmin = function (args) {
     return $http.get('/api/buildings/admin', {params: args})
-    .then(function (response) { return response.data; });
+    .then(res => res.data);
   };
 
   BuildingFactory.fetchOne = function (id) {
-    return $http.get('/api/buildings/' +id)
-    .then(function (response) { return response.data; });
+    return $http.get('/api/buildings/' + id)
+    .then(res => res.data);
   };
 
   BuildingFactory.changeStatus = function(id, propertyStatus) {

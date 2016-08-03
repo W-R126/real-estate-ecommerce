@@ -5,11 +5,11 @@
     <header class="content-header row ">
       <div class="heading col-md-8 col-sm-6 col-xs-12">
         <h1>Orders Admin Control</h1>
-        <a class="btn btn-default btn-effect tab" ui-sref="ordersAdmin({type:''})">All</a>
-        <a class="btn btn-default btn-effect tab" ui-sref="ordersAdmin({type:'Created'})">Created</a>
-        <a class="btn btn-default btn-effect tab" ui-sref="ordersAdmin({type: 'Processing'})">Processing</a>
-        <a class="btn btn-default btn-effect tab" ui-sref="ordersAdmin({type: 'Cancelled'})">Cancelled</a>
-        <a class="btn btn-default btn-effect tab" ui-sref="ordersAdmin({type: 'Completed'})">Completed</a>
+        <a class="btn btn-default btn-effect tab tab-button" ui-sref="ordersAdmin({type:''})">All</a>
+        <a class="btn btn-default btn-effect tab tab-button" ui-sref="ordersAdmin({type:'Created'})">Created</a>
+        <a class="btn btn-default btn-effect tab tab-button" ui-sref="ordersAdmin({type: 'Processing'})">Processing</a>
+        <a class="btn btn-default btn-effect tab tab-button" ui-sref="ordersAdmin({type: 'Cancelled'})">Cancelled</a>
+        <a class="btn btn-default btn-effect tab tab-button" ui-sref="ordersAdmin({type: 'Completed'})">Completed</a>
       </div>
       <ul class="col-md-4 col-sm-6 col-xs-12 breadcrumb ">
         <li> <a ui-sref="home">Main Page</a> </li>
@@ -29,7 +29,7 @@
             <th class="price-cell"><span class="h3">Change Status</span></th>
           </tr>
           <tr ng-repeat="order in orders">
-            <td><a ui-sref="order({id: order.id})" class="pointer">{{order.id}} | View Details</a></td>
+            <td>{{order.id}} | <a ui-sref="order({id: order.id})" class="pointer">View Details</a></td>
             <td>{{order.convertId}}</td>
             <td>{{order.date}}</td>
             <td>{{order.orderStatus}}</td>

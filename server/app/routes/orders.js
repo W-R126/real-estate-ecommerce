@@ -1,6 +1,7 @@
 var express = require('express');
 var router = new express.Router();
 var fs = require('fs');
+var stripe = require("stripe")("sk_test_i1la7Npbq2uOuehsBgBVycuS");
 
 
 var secretMG = JSON.parse(fs.readFileSync(__dirname+'/../../../../secretMG.txt','utf8'));
@@ -79,12 +80,9 @@ router.put('/admin/status/:orderId', assertIsAdmin, function(req, res, next) {
 
 router.get('/:id', assertIsLoggedIn, function(req, res, next) {
   Order.findById(req.params.id, {
-    include: [
-      {
+    include: [ {
         model: PurchasedBuilding,
-        include: [
-          Building
-        ]
+        include: [Building]
       }]
   })
   .then(order => {
@@ -110,6 +108,8 @@ router.post('/', function (req, res, next) {
   var savedOrder;
   var purchasedBuildingIds = [];
 
+  var stripeToken = req.body.creditCard;
+
   Order.create(req.body)
   .then(function (order) {
     savedOrder = order;
@@ -120,6 +120,25 @@ router.post('/', function (req, res, next) {
   })
   .then(function (cart) {
     return cart.getBuildings()
+  })
+  .tap(function (buildings) {
+
+    var cartTotal = 0;
+    buildings.forEach(function(building) {
+      cartTotal += building.price;
+    })
+    cartTotal *= 100;
+
+    return stripe.charges.create({
+      amount: cartTotal, // amount in cents, again
+      currency: "usd",
+      source: stripeToken
+    }, function(err, charge) {
+      if (err && err.type === 'StripeCardError') {
+        // The card has been declined
+        throw new Error();
+      }
+    });
   })
   .then(function (buildings) {
     var copyBuildings = buildings.map(function (building) {
@@ -134,7 +153,7 @@ router.post('/', function (req, res, next) {
 
     return Promise.all(copyBuildings);
   })
-  .then(function (purchasedBuildings) {
+  .then(function () {
     return Order.findOne({where: req.body})
   })
   .then(function (order) {
@@ -156,10 +175,10 @@ router.post('/', function (req, res, next) {
       text: "Dear "+ savedOrder.name+", \n\nYour order #" + savedOrder.convertId +" from Betty's Building Bros has been received!\n\nYour bros,\nBarry, Richard, Samuel, and Betty"
     }
 
-    transporter.sendMail(message, function(error, info){
+    transporter.sendMail(message, function (error, info) {
       if (error) console.log("Confirmation Mail Error: ",error);
       else console.log('Sent: '+ info.response);
-      });
+    });
 
     res.send(savedOrder.id.toString());
   })

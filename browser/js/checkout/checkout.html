@@ -12,24 +12,14 @@
     <div class="row">
         <div class="col-sm-3"></div>
          <div class="col-sm-4">
-
+            <button class="btn btn-default" ng-click="openStripe()">Enter Card Info</button>
             <form name="checkoutForm" ng-submit="sendCheckout(credentials)">
-
-                <div class="form-group">
-                    <label for="email">Email address</label><span class="red-text">*</span>
-                    <input type="email" ng-model="credentials.email" class="form-control" id="email" placeholder="Enter email for your confirmation" required>
-                </div>
-
                 <br><br>
                 <span>Shipping Address (for your deed):</span>
                 <div class="form-group">
                     <label for="name" >Full Name</label><span class="red-text">*</span>
                     <input type="text" ng-model="credentials.name" class="form-control" placeholder="Enter first, middle, last name" required>
                 </div>
-                <div class="form-group">
-                 <label for="creditCard">Credit Card Number</label><span class="red-text">*</span>
-                 <input type="creditCard" ng-model="credentials.creditCard" class="form-control" placeholder="Enter Credit Card #" required>
-                 </div>
                 <div class="form-group">
                     <label for="address1" >Address line 1</label><span class="red-text">*</span>
                     <input type="text" ng-model="credentials.address1" class="form-control" placeholder="Street address, P.O. box, company name, c/o">

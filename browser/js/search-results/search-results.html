@@ -3,18 +3,18 @@
   <div class="container" >
     <h2> Search Results </h2>
     <div class="row">
-      <div ng-repeat="building in buildings" class="col-md-4 col-sm-6 zoom">
+      <div ng-repeat="building in buildings" class="col-md-4 col-sm-6 zoom" ui-sref="building({id: building.id})">
         <div class="rent-box">
-          <figure class="rent-description"> <a ui-sref="building({id: building.id})"><img ng-src={{building.photoURL}} alt="" /></a> </figure>
+          <figure class="rent-description"><img ng-src={{building.photoURL}} /> </figure>
           <div class="property-widget">
             <div class="property-header clearfix"> <strong class="caption">{{building.propertyType}} </strong><span>{{building.squareFootage}}</span> </div>
-            <h3><a href="#">{{building.streetAddress}}</a></h3>
+            <h3>{{building.streetAddress}}</h3>
             <ul>
               <li> Stories <span class="avl-no">{{building.stories}}</span> </li>
               <li> Units <span class="avl-no">{{building.numberOfUnits}}</span> </li>
               <li> Building Age <span class="avl-no">{{building.buildingAge}}</span> </li>
             </ul>
-            <span class="price">$ {{building.price}}</span> <a href="#" id="add-cart">  <i class="fa fa-shopping-cart"></i> Add to Cart</a></div>
+            </div>
         </div>
       </div>
 
