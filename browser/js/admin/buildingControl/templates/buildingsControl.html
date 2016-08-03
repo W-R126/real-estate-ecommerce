@@ -25,7 +25,7 @@
             <th class="price-cell"><span class="h3">Edit Property Details</span></th>
           </tr>
           <tr ng-repeat="property in properties">
-            <td><a ui-sref="order({id: order.id})" class="pointer">{{property.id}}</a></td>
+            <td><a ui-sref="propertyAdmin({id: property.id})" class="pointer">{{property.id}}</a></td>
             <td>{{property.streetAddress}}</td>
             <td>{{property.isAvailable}}<br>
               <label class="switch">
