@@ -39,15 +39,22 @@ router.get('/', assertIsAdmin, function(req, res, next) {
 })
 
 router.post('/', function(req, res, next){
-  var userObj;
+  var userId;
+
+  if (!req.session.cartId) {
+    Cart.create()
+    .then(function (cart) {
+      req.session.cartId = cart.id;
+    })
+  }
+
   User.create(req.body)
-  .then(function(user){
-    userObj = user;
-    return Cart.create({userId:user.id})
+  .then(function(user) {
+    userId = user.id
+    return Cart.findById(req.session.cartId)
   })
-  .then(function(cart){
-    req.session.cartId = cart.id;
-    res.status(201).json(userObj) } )
+  .then(cart => cart.setUser(userId))
+  .then(() => {res.sendStatus(201); })
   .catch(next)
 })
 

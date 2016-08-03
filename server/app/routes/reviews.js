@@ -6,7 +6,7 @@ var Review = db.Review;
 var User = db.User;
 
 function assertIsLoggedIn(req, res, next) {
-  if (req.user && req.user.isAdmin) next();
+  if (req.user) next();
   else {
     var err = new Error('You are not logged in');
     err.status = 403;
