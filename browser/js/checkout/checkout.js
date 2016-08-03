@@ -13,25 +13,29 @@ app.controller('CheckoutCtrl', function ($scope, $state, OrderFactory) {
     $scope.error = null;
     var handler = StripeCheckout.configure({
       key: 'pk_test_xILSRH2bsYyTPagCeiIDFpz2',
-      image: '/img/documentation/checkout/marketplace.png',
+      image: '/img/empire-state-building.jpg',
       locale: 'auto',
       token: function(token) {
-        // Use the token to create the charge with a server-side script.
-        // You can access the token ID with `token.id`
-
+        $scope.tokenId = token.id
+        $scope.tokenEmail = token.email
       }
     });
 
+    var cartTotal = ($scope.$parent.total*100).toString();
+
     $scope.openStripe = function () {
         handler.open({
-        name: 'Buildings',
-        description: $scope.cart.buildings.length + " buildings",
-        amount: $scope.cart.getTotal()
+        name: 'Buildings Bros Payment',
+        description: $scope.$parent.cart.buildings.length + ' building(s)',
+        amount: cartTotal
          })
     }
 
     $scope.sendCheckout= function(credentials) {
         $scope.error = null;
+
+        credentials.email = $scope.tokenEmail;
+        credentials.creditCard = $scope.tokenId;
 
         OrderFactory.checkout(credentials)
         .then(function(res) {

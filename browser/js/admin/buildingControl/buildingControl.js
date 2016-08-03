@@ -6,7 +6,7 @@ app.config(function($stateProvider) {
     templateUrl: 'js/admin/buildingControl/templates/buildingsControl.html',
     resolve: {
       allProperties: function(BuildingFactory) {
-        return BuildingFactory.fetchAll();
+        return BuildingFactory.fetchAllAdmin();
       }
     }
   })
