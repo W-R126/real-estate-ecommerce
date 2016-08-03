@@ -3,13 +3,12 @@
 
     <!--Content Header -->
     <header class="content-header row ">
-      <div class="heading col-md-8 col-sm-6 col-xs-12">
-        <h1>Your Cart</h1>
+      <div class="heading col-md-8 col-sm-6 col-xs-12 fromTop">
+        <h2>Your Cart</h2>
       </div>
       <ul class="col-md-4 col-sm-6 col-xs-12 breadcrumb ">
-        <li> <a href="#">Main Page</a> </li>
-        <li> <a href="#">Catalog</a> </li>
-        <li> <a href="#">Product</a> </li>
+        <li> <a ui-sref="home">Main Page</a> </li>
+        <li> <a ui-sref="buildings">Catalog</a> </li>
         <li class="active"> Your Cart </li>
       </ul>
     </header>
@@ -25,7 +24,7 @@
             <th class="total-cell" ><span class="h3">Total</span></th>
           </tr>
           <tr ng-repeat="building in cart.buildings">
-            <td ><a ui-sref="building({ id: {{building.id}} })" class="saved-product"> <img class="listBuildingImg" src="{{building.photoURL}}"/>{{ building.streetAddress }}</a></td>
+            <td ><a ui-sref="building({ id: {{building.id}} })" class="saved-product"> <img class="listBuildingImg" ng-src="{{building.photoURL}}"/>{{ building.streetAddress }}</a></td>
             <td>{{ building.lotSize }}</td>
             <td><span class="cart-number quantity-value"><input type="text" value="1"></span></td>
             <td><span class="cart-total">${{ building.price }}<a ng-click=deleteItem(building.id,$index) class="fa fa-close pointer"></a></span></td>
@@ -33,7 +32,7 @@
         </table>
       </div>
       <div class="cart-widget clearfix">
-        <div class="price-total"> <span class="h3"> Cart total: <b>${{ getTotal() }}</b> </span> <a ui-sref="cart.checkout" class="btn btn-default btn-effect"> checkout <i><img src="/img/arrow-btn.png" alt="" /> </i> </a> </div>
+        <div class="price-total"> <span class="h3"> Cart total: <b>{{ getTotal() }}</b> </span> <button ui-sref="cart.checkout" class="btn btn-default btn-effect" ng-disabled="cart.buildings.length === 0"> checkout <i><img src="/img/arrow-btn.png" alt="" /> </i> </button> </div>
       </div>
     </section>
 

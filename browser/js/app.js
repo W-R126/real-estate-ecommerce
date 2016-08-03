@@ -10,6 +10,7 @@ app.config(function ($urlRouterProvider, $locationProvider) {
     $urlRouterProvider.when('/auth/:provider', function () {
         window.location.reload();
     });
+
 });
 
 // This app.run is for controlling access to specific states.
@@ -19,6 +20,8 @@ app.run(function ($rootScope, AuthService, $state) {
     var destinationStateRequiresAuth = function (state) {
         return state.data && state.data.authenticate;
     };
+
+
 
     // $stateChangeStart is an event fired
     // whenever the process of changing a state begins.

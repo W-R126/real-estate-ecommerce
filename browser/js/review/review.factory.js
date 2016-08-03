@@ -1,4 +1,4 @@
-app.factory('ReviewFactory', function ($http, $stateParams) {
+app.factory('ReviewFactory', function ($http) {
 
   var ReviewFactory = {};
 
@@ -8,13 +8,10 @@ app.factory('ReviewFactory', function ($http, $stateParams) {
   };
 
   ReviewFactory.create = function (data) {
-    data.buildingId = $stateParams.id
     return $http.post('/api/reviews/', data)
     .then(function (response) {
-    console.log(response)
-     return response.data; })
-    .catch(function(error){console.error(error);
-    });
+     return response.data;
+   })
   };
 
   return ReviewFactory;

@@ -1,7 +1,7 @@
 <div id="content">
 
 <section class="new-sale">
-  <div class="container" >
+  <div class="container fromTop" >
     <h2> New Properties for Sale </h2>
     <a class="btn btn-default btn-effect tab" ui-sref="buildings({type:''})">All</a>
     <a class="btn btn-default btn-effect tab" ui-sref="buildings({type: 'Commercial'})">Commercial</a>
@@ -14,7 +14,7 @@
           <figure class="rent-description"><img ng-src={{building.photoURL}} alt="" /></figure>
           <div class="property-widget">
             <div class="property-header clearfix"> <strong class="caption">{{building.propertyType}} </strong><span>{{building.squareFootage}}</span> </div>
-            <h3><a href="#">{{building.streetAddress}}</a></h3>
+            <h3>{{building.streetAddress}}</h3>
             <ul>
               <li> Stories <span class="avl-no">{{building.stories}}</span> </li>
               <li> Units <span class="avl-no">{{building.numberOfUnits}}</span> </li>

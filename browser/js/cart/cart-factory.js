@@ -4,11 +4,12 @@ app.factory('CartFactory', function ($http) {
 
   CartFactory.fetchOne = function () {
     return $http.get('/api/carts/')
-    .then(function (response) { return response.data; });
+    .then(res => res.data);
   };
 
   CartFactory.add = function (buildingId) {
-    return $http.put('/api/carts/' + buildingId);
+    return $http.put('/api/carts/' + buildingId)
+    .then(res => res.data)
   }
 
   CartFactory.delete = function (buildingId) {

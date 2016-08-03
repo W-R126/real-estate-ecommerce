@@ -1,10 +1,17 @@
-app.controller('BuildingCtrl', function($scope, theBuilding, CartFactory, $state, AuthService){
+app.controller('BuildingCtrl', function($scope, theBuilding, CartFactory, $state, AuthService, $location, $stateParams, $anchorScroll){
   $scope.building = theBuilding;
   $scope.loggedIn = !AuthService.isAuthenticated();
-  $scope.message = "Please Sign In To Leave a Review";
+
+ $scope.$watchCollection('$stateParams', function() {
+       $location.hash('top');
+       $anchorScroll();
+    });
+
+  $scope.error = null;
   $scope.addToCart = function () {
-    CartFactory.add(theBuilding.id);
-    $state.go('cart');
+    CartFactory.add(theBuilding.id)
+    .then( () => { $state.go('cart'); })
+    .catch( () => { $scope.error = 'Already in your Cart!' })
   }
 })
 
@@ -16,6 +23,9 @@ app.config(function ($stateProvider) {
     templateUrl: 'js/building-detail/templates/building-detail.html',
     controller: 'BuildingCtrl',
     resolve: {
+      loggedIn: function (AuthService){
+        !AuthService.isAuthenticated()
+      },
       theBuilding: function (BuildingFactory, $stateParams) {
         return BuildingFactory.fetchOne($stateParams.id);
       }

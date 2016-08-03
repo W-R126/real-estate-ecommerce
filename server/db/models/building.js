@@ -45,7 +45,7 @@ module.exports = db.define('building', {
         type: Sequelize.INTEGER
     },
     architecturalStyle: {
-        type: Sequelize.STRING
+        type: Sequelize.ENUM("Beaux Arts", "Modern", "Art Deco", "International", "Brutalist", "Federalist", "Renaissance Revival", "Greek Revival")
     },
     buildingAge: {
         type: Sequelize.INTEGER
@@ -54,10 +54,10 @@ module.exports = db.define('building', {
         type: Sequelize.TEXT
     },
     photoURL: {
-        type: Sequelize.STRING,
-        validate: {
-            isUrl: true
-        }
+        type: Sequelize.STRING
+        // validate: {
+        //     isUrl: true
+        // }
     }
 
 

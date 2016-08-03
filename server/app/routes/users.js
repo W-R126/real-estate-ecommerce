@@ -1,48 +1,114 @@
-
 var express = require('express');
 var router = new express.Router();
+
+var fs = require('fs');
+var secretMG = JSON.parse(fs.readFileSync(__dirname+'/../../../../secretMG.txt','utf8'));
+
+var nodemailer = require('nodemailer');
+var transport = {
+  service:'Mailgun',
+  auth: {
+    user: secretMG.user,
+    pass: secretMG.pass
+  }
+}
+
+var transporter = nodemailer.createTransport(transport);
 
 var db = require('../../db');
 var User = db.User;
 var Cart = db.Cart;
 
+function assertIsAdmin(req, res, next) {
+  if (req.user && req.user.isAdmin) next();
+  else res.sendStatus(401);
+}
+
 router.get('/:id', function(req, res, next){
   User.findById(req.params.id)
-  .then(user=>{
+  .then(user => {
     req.session.userId = user.id;
     res.send(user)})
   .catch(next);
 })
 
-router.get('/', function(req, res, next) {
+router.get('/', assertIsAdmin, function(req, res, next) {
   User.findAll()
   .then(user => res.send(user))
   .catch(next);
 })
 
 router.post('/', function(req, res, next){
-  var userObj;
+  var userId;
+
+  if (!req.session.cartId) {
+    Cart.create()
+    .then(function (cart) {
+      req.session.cartId = cart.id;
+    })
+  }
+
   User.create(req.body)
-  .then(function(user){
-    userObj = user;
-    return Cart.create({userId:user.id})
+  .then(function(user) {
+    userId = user.id
+    return Cart.findById(req.session.cartId)
   })
-  .then(function(cart){
-    req.session.cartId = cart.id;
-    res.status(201).json(userObj) } )
+  .then(cart => cart.setUser(userId))
+  .then(() => {res.sendStatus(201); })
   .catch(next)
 })
 
-router.post('/changeAdmin/:id', function(req, res, next) {
+router.put('/changeAdmin/:id', assertIsAdmin, function(req, res, next) {
   User.update(req.body,
     { where: { id: req.params.id},
     returning: true
   })
-  .then(user => res.send(user[1][0]))
-  .catch(next)
+  .then(user => {
+    res.send(user[1][0]);
+  })
+  .catch(next);
 });
 
-router.delete('/:id', function (req, res, next) {
+router.put('/changePass/:id', assertIsAdmin, function(req, res, next) {
+
+  User.findById(req.params.id)
+  .then(user => {
+
+    var message = {
+      from: 'sandbox@mailgun.org',
+      to: user.email,
+      subject: "Please reset your password",
+      text: "Here is the link to reset your password: " + 'http://localhost:1337/reset-password/' + user.id
+    }
+
+    transporter.sendMail(message, function(error, info){
+      if (error) console.log("Mail Error: ", error);
+      else console.log('Sent: '+ info.response);
+      });
+
+    res.sendStatus(200);
+
+  })
+  .catch(next);
+
+});
+
+router.put('/resetPass', function(req, res, next) {
+
+  User.findOne({
+    where: {email: req.body.email},
+  })
+  .then(user => {
+    return user.update(req.body);
+  })
+  .then(user => {
+    res.send(user);
+  })
+  .catch(next);
+
+});
+
+router.delete('/:id', assertIsAdmin, function (req, res, next) {
   User.destroy({
     where: {
       id: req.params.id

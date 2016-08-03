@@ -70,8 +70,12 @@ mark {
 }
 img {
 	max-width: 100%;
-	height: auto;
 }
+.imgInProperties{
+	max-width: 100%;
+	height: 240px !important ;
+}
+
 ul, ol {
 	padding-left: 0px;
 	margin-bottom: 0px;
@@ -607,7 +611,7 @@ left: 150%;
 	-o-transition: background-color 0.6s cubic-bezier(0.7, 0.01, 0.3, 1);
 	-webkit-transition: background-color 0.6s cubic-bezier(0.7, 0.01, 0.3, 1);
 	transition: background-color 0.6s cubic-bezier(0.7, 0.01, 0.3, 1);
-	padding: 40px 0 37px;
+	/*padding: 40px 0 37px;*/
 }
 #header.open .header {
 	background: rgba(40, 45, 53, 0);
@@ -993,4 +997,8 @@ body #footer h3 {
 }
 body #header, body #footer, body #footer h3, body #footer h4 {
 	font-family: 'Lato', sans-serif;
+}
+
+.fromTop{
+	padding-top: 45px;
 }
