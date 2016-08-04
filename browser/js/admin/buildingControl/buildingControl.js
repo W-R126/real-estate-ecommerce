@@ -46,7 +46,7 @@ app.controller('PropertiesAdminController', function($scope, allProperties, Buil
 
 });
 
-app.controller('PropertyAdminController', function($scope, fetchProperty, BuildingFactory, $state, $anchorScroll) {
+app.controller('PropertyAdminController', function($scope, fetchProperty, BuildingFactory, $state) {
 
   $scope.property = fetchProperty;
 

@@ -19,7 +19,7 @@ module.exports = db.define('building', {
     },
     zipCode: {
         type: Sequelize.STRING(5),
-        validate: {len: 5 }
+        validate: {len: 5}
     },
     price: {
         type: Sequelize.INTEGER //in cents
@@ -54,10 +54,10 @@ module.exports = db.define('building', {
         type: Sequelize.TEXT
     },
     photoURL: {
-        type: Sequelize.STRING,
-        validate: {
-            isUrl: true
-        }
+        type: Sequelize.STRING
+        // validate: {
+        //     isUrl: true
+        // }
     }
 
 
