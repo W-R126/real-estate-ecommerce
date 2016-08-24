@@ -16,5 +16,9 @@ module.exports = {
     "clientSecret": "INSERT_GOOGLE_CLIENT_SECRET_HERE",
     "callbackURL": "INSERT_GOOGLE_CALLBACK_HERE"
   },
+  "POSTMAN": {
+    "user": "postmaster@sandboxc7dbab48a2e1443c82a79755105df240.mailgun.org",
+    "pass": "b9e522737104c5e13edfae197b4c03fc"
+  },
   "LOGGING": true
 };

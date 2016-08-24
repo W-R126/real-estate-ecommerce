@@ -24,5 +24,9 @@ module.exports = {
         "clientSecret": process.env.GOOGLE_CLIENT_SECRET,
         "callbackURL": process.env.GOOGLE_CALLBACK_URL
     },
+    "POSTMAN": {
+      "user": process.env.POSTMAN_USER,
+      "pass": process.env.POSTMAN_PASS
+    },
     "LOGGING": true
 };

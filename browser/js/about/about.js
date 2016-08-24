@@ -1,3 +1,5 @@
+'use strict';
+
 app.config(function ($stateProvider) {
 
     // Register our *about* state.

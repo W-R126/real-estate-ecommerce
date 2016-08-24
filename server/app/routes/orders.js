@@ -4,14 +4,14 @@ var fs = require('fs');
 var stripe = require("stripe")("sk_test_i1la7Npbq2uOuehsBgBVycuS");
 
 
-var secretMG = JSON.parse(fs.readFileSync(__dirname+'/../../../../secretMG.txt','utf8'));
+var secretMG = require('../../env');
 
 var nodemailer = require('nodemailer');
 var transport = {
   service:'Mailgun',
   auth: {
-    user: secretMG.user,
-    pass: secretMG.pass
+    user: secretMG.POSTMAN.user,
+    pass: secretMG.POSTMAN.pass
   }
 }
 
