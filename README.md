@@ -1,6 +1,6 @@
 # Real Estate Ecommerce Store
 
-A Full Stack Ecommerce Platform built for the exchange of Commercial Real Estate. Deployed at real-estate-stackstore.herokuapp.com.
+A Full Stack Ecommerce Platform built for the exchange of Commercial Real Estate. Deployed at https://real-estate-stackstore.herokuapp.com.
 
 ## Features
 - Properties search and filtering by categories and location
