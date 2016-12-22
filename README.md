@@ -22,3 +22,4 @@ A Full Stack Ecommerce Platform built for the exchange of Commercial Real Estate
 - [Bootstrap](http://getbootstrap.com/)
 - [Gulp](http://gulpjs.com/)
 - [Nodemailer](https://github.com/nodemailer/nodemailer)
+- [Stripe](https://stripe.com/)
